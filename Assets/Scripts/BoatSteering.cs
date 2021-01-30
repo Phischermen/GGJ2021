@@ -6,12 +6,15 @@ public class BoatSteering : MonoBehaviour
 {
     public float baseSpeed = 10;
     public float turnSpeed = 5;
+    public float accelerationLerp = .2f;
     [SerializeField]
     bool rudderWorking = true;
     [SerializeField]
     bool sailOpen = true;
 
     public Vector2 moveVector;
+    [SerializeField]
+    float moveMagnitude;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +34,7 @@ public class BoatSteering : MonoBehaviour
         {
             RudderBreakFix();
         }
-        if (sailOpen)
-        {
-            //TODO This line locks movement speed to base speed. This can be unlocked if we add "targetVector" and lerp moveVector to targetVector
-            moveVector = transform.up * baseSpeed * Time.deltaTime;
-            transform.position = new Vector3(transform.position.x + moveVector.x, transform.position.y + moveVector.y, transform.position.z);
-        }
+        //Ship turning
         if (rudderWorking)
         {
             float rotation = Input.GetAxis("Horizontal");
@@ -45,6 +43,11 @@ public class BoatSteering : MonoBehaviour
                 transform.Rotate(Vector3.back * rotation * turnSpeed * Time.deltaTime);
             }
         }
+        //Forward Motion: Move forward if sail is up, lerp towards new move vector
+        Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero;
+        moveVector = Vector3.Lerp(moveVector, targetVector, accelerationLerp * Time.deltaTime);
+        moveMagnitude = moveVector.magnitude;
+        transform.position = new Vector3(transform.position.x + moveVector.x, transform.position.y + moveVector.y, transform.position.z);
     }
 
     public void SailOpenClose()
