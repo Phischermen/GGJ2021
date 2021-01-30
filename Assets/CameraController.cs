@@ -14,6 +14,13 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Boat.transform.position.x,Boat.transform.position.y, transform.position.z);
+        if (Boat == null)
+        {
+            Boat = GameObject.FindGameObjectWithTag("Boat");
+        }
+        else
+        {
+            transform.position = new Vector3(Boat.transform.position.x, Boat.transform.position.y, transform.position.z);
+        }
     }
 }
