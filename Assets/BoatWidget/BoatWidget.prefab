@@ -589,10 +589,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef12edfaf3b97b42ab215aeb4f9e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckTop: 203
-  deckBottom: -4
+  deckTop: 500
+  deckBottom: 250
   Murphey: {fileID: 6825723545729601224}
   boatSteering: {fileID: 0}
+  stationChangeMinSpeed: 1
+  stationChangeTopSpeed: 2
+  stationChangeAcceptableRange: 0.01
 --- !u!1 &6086966195927246845
 GameObject:
   m_ObjectHideFlags: 0

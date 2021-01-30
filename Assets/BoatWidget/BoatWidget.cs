@@ -40,7 +40,10 @@ public class BoatWidget : MonoBehaviour
     float targetDeckPosition;
 
     float stationChangeCurrentSpeed = 0f;
-    float stationChangeTopSpeed = 0.1f;
+    public float stationChangeMinSpeed = 0.1f;
+    public float stationChangeTopSpeed = 0.9f;
+
+    public float stationChangeAcceptableRange = 0.01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,16 +67,17 @@ public class BoatWidget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(targetDeckPosition - currentDeckPosition) > 0.01f)
+        if (Mathf.Abs(targetDeckPosition - currentDeckPosition) > stationChangeAcceptableRange)
         {
             var targetSpeed = Mathf.Sign(currentDeckPosition - targetDeckPosition) == -1f ?
-            Mathf.Max(targetDeckPosition - currentDeckPosition, -stationChangeTopSpeed) :
-            Mathf.Min(targetDeckPosition - currentDeckPosition, stationChangeTopSpeed);
+            Mathf.Min(Mathf.Max(stationChangeMinSpeed, targetDeckPosition - currentDeckPosition), stationChangeTopSpeed) :
+            Mathf.Max(Mathf.Min(-stationChangeMinSpeed, targetDeckPosition - currentDeckPosition), -stationChangeTopSpeed);
             stationChangeCurrentSpeed = Mathf.Lerp(stationChangeCurrentSpeed, targetSpeed, 0.1f);
             currentDeckPosition += stationChangeCurrentSpeed * Time.deltaTime;
         }
         else
         {
+            stationChangeCurrentSpeed = 0f;
             currentDeckPosition = targetDeckPosition;
         }
         Debug.Log(currentDeckPosition);
