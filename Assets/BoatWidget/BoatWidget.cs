@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BoatWidget : MonoBehaviour
 {
-    
+    public float deckTop;
+    public float deckBottom;
+
+    public GameObject Murphey;
+    RectTransform MurpheyPosition;
+
     Button RudderButton;
     Button HelmButton;
     Button SailButton;
@@ -39,6 +44,7 @@ public class BoatWidget : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MurpheyPosition = Murphey.GetComponent<RectTransform>();
         targetDeckPosition = helmStationPosition;
         currentDeckPosition = helmStationPosition;
         RudderButton = GameObject.Find("Rudder").GetComponent<Button>();
@@ -58,7 +64,7 @@ public class BoatWidget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(targetDeckPosition - currentDeckPosition) > 0.05f)
+        if (Mathf.Abs(targetDeckPosition - currentDeckPosition) > 0.01f)
         {
             var targetSpeed = Mathf.Sign(currentDeckPosition - targetDeckPosition) == -1f ?
             Mathf.Max(targetDeckPosition - currentDeckPosition, -stationChangeTopSpeed) :
@@ -70,6 +76,8 @@ public class BoatWidget : MonoBehaviour
         {
             currentDeckPosition = targetDeckPosition;
         }
+        Debug.Log(currentDeckPosition);
+        MurpheyPosition.position = new Vector2(MurpheyPosition.position.x, Mathf.Lerp(deckBottom, deckTop, currentDeckPosition));
         if (currentDeckPosition == targetDeckPosition && currentStation != targetStation)
         {
             currentStation = targetStation;
