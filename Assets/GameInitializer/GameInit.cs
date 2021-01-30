@@ -6,6 +6,7 @@ public class GameInit : MonoBehaviour
 {
     public GameObject boatPrefab;
     public GameObject lightHousePrefab;
+    public GameObject boatWidgetInScene;
     [HideInInspector]
     public float initialDistance;
     // How long the game would last if the player could drive straight towards the lighthouse.
@@ -16,12 +17,15 @@ public class GameInit : MonoBehaviour
     void Start()
     {
         var boat = Instantiate(boatPrefab);
+        var boatSteering = boat.GetComponent<BoatSteering>();
         var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
         obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
 
+        boatWidgetInScene.GetComponent<BoatWidget>().boatSteering = boatSteering;
+
         var lightHouse = Instantiate(lightHousePrefab);
-        var d = GetDistanceTraveledOverTime(boat.GetComponent<BoatSteering>().baseSpeed, minimumTravelTime);
+        var d = GetDistanceTraveledOverTime(boatSteering.baseSpeed, minimumTravelTime);
 
         boat.transform.position = Vector3.zero;
         lightHouse.transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * initABBALH) * d, Mathf.Cos(Mathf.Deg2Rad * initABBALH) * d, 0f);
