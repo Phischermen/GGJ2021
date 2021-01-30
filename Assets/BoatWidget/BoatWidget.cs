@@ -11,7 +11,7 @@ public class BoatWidget : MonoBehaviour
     Button LanternButton;
     Button TendButton;
     // Initializes outside of BoatWidget
-    BoatSteering boatSteering;
+    public BoatSteering boatSteering;
 
     Station currentStation;
     Station targetStation;
