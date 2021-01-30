@@ -9,20 +9,21 @@ public class Wind : MonoBehaviour
     public float targetForce;
     public Vector2 windDirection;
     public Vector2 targetDirection;
-    public Vector2 windChangeRange = new Vector2(3, 5);
+    public Vector2 windChangeRange = new Vector2(15, 20);
     public Vector2 windVector;
     public BoatSteering boat;
     // Start is called before the first frame update
     void Start()
     {
         boat = boat == null ? GameObject.FindWithTag("Boat").GetComponent<BoatSteering>() : boat;
+        boat.wind = this;
         ChangeWind();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = boat.transform.position;
+        transform.position = boat.transform.GetChild(0).transform.position;
         windDirection = Vector3.Lerp(windDirection, targetDirection, .9f * Time.deltaTime);
         transform.up = windDirection;
         windForce = Mathf.Lerp(windForce, targetForce, .9f * Time.deltaTime);

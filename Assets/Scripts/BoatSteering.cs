@@ -11,10 +11,14 @@ public class BoatSteering : MonoBehaviour
     bool rudderWorking = true;
     [SerializeField]
     bool sailOpen = true;
+    public bool atHelm = true;
 
     public Vector2 moveVector;
     [SerializeField]
     float moveMagnitude;
+
+    public Wind wind;
+    public Sail sail;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,18 +28,20 @@ public class BoatSteering : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         //Test Script: Open/Close sail with Left Click
         if (Input.GetButtonDown("Fire1"))
         {
-            SailOpenClose();
+            sail.OpenClose();
         }
         //Test Script: Break/Fix rudder with Right Click
+        */
         if (Input.GetButtonDown("Fire2"))
         {
             RudderBreakFix();
         }
         //Ship turning
-        if (rudderWorking)
+        if (rudderWorking && atHelm)
         {
             float rotation = Input.GetAxis("Horizontal");
             if (Mathf.Abs(rotation) > .1)
@@ -43,16 +49,16 @@ public class BoatSteering : MonoBehaviour
                 transform.Rotate(Vector3.back * rotation * turnSpeed * Time.deltaTime);
             }
         }
+        sailOpen = sail.open;
         //Forward Motion: Move forward if sail is up, lerp towards new move vector
         Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero;
         moveVector = Vector3.Lerp(moveVector, targetVector, accelerationLerp * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
-        transform.position = new Vector3(transform.position.x + moveVector.x, transform.position.y + moveVector.y, transform.position.z);
-    }
-
-    public void SailOpenClose()
-    {
-        sailOpen = !sailOpen;
+        float windEffect = sailOpen ? 1 - Vector2.Dot(wind.windVector.normalized, sail.transform.up.normalized) : 0;
+        Vector2 windVector = windEffect * wind.windVector * Time.deltaTime;
+        Vector2 finalVector = windVector + moveVector;
+        Debug.Log(finalVector);
+        transform.position = new Vector3(transform.position.x + finalVector.x, transform.position.y + finalVector.y, transform.position.z);
     }
 
     public void RudderBreakFix()
