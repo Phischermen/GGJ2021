@@ -33,6 +33,7 @@ public class BoatSteering : MonoBehaviour
         }
         if (sailOpen)
         {
+            //TODO This line locks movement speed to base speed. This can be unlocked if we add "targetVector" and lerp moveVector to targetVector
             moveVector = transform.up * baseSpeed * Time.deltaTime;
             transform.position = new Vector3(transform.position.x + moveVector.x, transform.position.y + moveVector.y, transform.position.z);
         }
