@@ -16,6 +16,10 @@ public class GameInit : MonoBehaviour
     void Start()
     {
         var boat = Instantiate(boatPrefab);
+        var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
+        obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
+        obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
+
         var lightHouse = Instantiate(lightHousePrefab);
         var d = GetDistanceTraveledOverTime(boat.GetComponent<BoatSteering>().baseSpeed, minimumTravelTime);
 
