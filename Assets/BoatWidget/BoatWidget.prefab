@@ -950,12 +950,12 @@ MonoBehaviour:
       pitchBlack: {fileID: 21300000, guid: 44c4a43e70b99a44d997f65565278356, type: 3}
   - animatedImage: {fileID: 154451912590969902}
     variations:
-    - lit: {fileID: 21300000, guid: 12c2b47852b8f464191a292346ab8ad0, type: 3}
-      dark: {fileID: 21300000, guid: 533035b12559ef347b839e2d3a6588d6, type: 3}
-      pitchBlack: {fileID: 21300000, guid: c94a5f3679d67264896171cab9972513, type: 3}
-    - lit: {fileID: 21300000, guid: 1a00b35f75ca6c2488d47a2bf96ea221, type: 3}
-      dark: {fileID: 21300000, guid: 1aae3603f8fec3047a9b63880cf36e8e, type: 3}
-      pitchBlack: {fileID: 21300000, guid: 572722d01aa81694c9169e10c190a0e8, type: 3}
+    - lit: {fileID: 21300000, guid: 48fc5d94c4be39f469c8a4f2493b4178, type: 3}
+      dark: {fileID: 21300000, guid: e5714e7e4911d16459dacffebe98284a, type: 3}
+      pitchBlack: {fileID: 21300000, guid: 4db1591d865837846b6cbb7c85103271, type: 3}
+    - lit: {fileID: 21300000, guid: 5d1a8c8ebdeac3649b124d5b26493876, type: 3}
+      dark: {fileID: 21300000, guid: 4de5d27728be5714a8171962ba465a8c, type: 3}
+      pitchBlack: {fileID: 21300000, guid: 638cae2316aad54438b95a43d798a7a4, type: 3}
   MurpheyWalkingUp:
   - lit: {fileID: 21300000, guid: 12c2b47852b8f464191a292346ab8ad0, type: 3}
     dark: {fileID: 21300000, guid: 533035b12559ef347b839e2d3a6588d6, type: 3}
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0eeaee7b860226a4f870d0c6e6b47473, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b043b3ceb158fea47af12e04b205b72c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1463,8 +1463,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 140.8, y: 20}
-  m_SizeDelta: {x: 36.413773, y: 77.07582}
+  m_AnchoredPosition: {x: 233.34, y: 72.3}
+  m_SizeDelta: {x: 162.36699, y: 179.57924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &326829200264373278
 CanvasRenderer:
@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 12c2b47852b8f464191a292346ab8ad0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48fc5d94c4be39f469c8a4f2493b4178, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1516,8 +1516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 12c2b47852b8f464191a292346ab8ad0, type: 3}
-  - {fileID: 21300000, guid: 1a00b35f75ca6c2488d47a2bf96ea221, type: 3}
+  - {fileID: 21300000, guid: 48fc5d94c4be39f469c8a4f2493b4178, type: 3}
+  - {fileID: 21300000, guid: 5d1a8c8ebdeac3649b124d5b26493876, type: 3}
   spritePerFrame: 24
   loop: 1
   destroyOnEnd: 0
