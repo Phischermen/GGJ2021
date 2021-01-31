@@ -30,7 +30,7 @@ public class GameInit : MonoBehaviour
         boatWidgetInScene.GetComponent<BoatWidget>().boatSteering = boatSteering;
 
         var lightHouse = Instantiate(lightHousePrefab);
-        lightHouse.GetComponent<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
+        lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
         var d = GetDistanceTraveledOverTime(boatSteering.baseSpeed, minimumTravelTime);
 
         boat.transform.position = Vector3.zero;
