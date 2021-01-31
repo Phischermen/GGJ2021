@@ -532,7 +532,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1030976212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1030976214}
+        m_MethodName: Credits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1030976212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,7 +590,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1030976209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0913e0fa694dc64991433df0342b94f, type: 3}
+  m_Script: {fileID: 11500000, guid: 186ad6708ba33fb408712b6ec3db9a9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1440698646
