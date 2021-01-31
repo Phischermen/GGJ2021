@@ -1,0 +1,17 @@
+Attributions:
+
+SFX:
+
+match - CC0
+sail_up - CC0
+sail_down - CC0
+footsteps - CC0
+patch_sail - CC0
+patch_hull - CC0
+wave_crash
+- (CC BY 3.0) https://freesound.org/people/Kayyy/sounds/61011/
+- (CC BY 3.0) https://freesound.org/people/InspectorJ/sounds/352513/
+torn_sail - CC0
+sail_tear - CC0
+crash_rock
+- (CC BY 3.0) https://freesound.org/people/InspectorJ/sounds/352513/
