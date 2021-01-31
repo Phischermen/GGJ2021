@@ -17,19 +17,19 @@ public class BoatWidget : MonoBehaviour
     Button TendButton;
 
     [System.Serializable]
-    public struct WidgetImage
+    public class WidgetImage
     {
         public Image image;
         public WidgetSpriteVariants variations;
     }
     [System.Serializable]
-    public struct WidgetAnimatedImage
+    public class WidgetAnimatedImage
     {
         public ImageAnimation animatedImage;
         public WidgetSpriteVariants[] variations;
     }
     [System.Serializable]
-    public struct WidgetSpriteVariants
+    public class WidgetSpriteVariants
     {
 
         public Sprite lit;
@@ -48,12 +48,12 @@ public class BoatWidget : MonoBehaviour
     [SerializeField]
     public WidgetSpriteVariants[] MurpheyWalkingDown;
     // Here goes nothing!
-    GameObject MurpheyRudder;
-    GameObject MurpheyHelm;
-    GameObject MurpheySail;
-    GameObject MurpheyLantern;
-    GameObject MurpheyTend;
-    GameObject MurpheyWalk;
+    public GameObject MurpheyRudder;
+    public GameObject MurpheyHelm;
+    public GameObject MurpheySail;
+    public GameObject MurpheyLantern;
+    public GameObject MurpheyTend;
+    public GameObject MurpheyWalk;
     List<Sprite> WidgetImages;
 
     // Initializes outside of BoatWidget
@@ -149,7 +149,7 @@ public class BoatWidget : MonoBehaviour
             stationChangeCurrentSpeed = 0f;
             currentDeckPosition = targetDeckPosition;
         }
-        MurphyWalkWidgetAnimatedImage.variations = Mathf.Sign(stationChangeCurrentSpeed) == -1f ? MurpheyWalkingUp : MurpheyWalkingDown;
+        MurphyWalkWidgetAnimatedImage.variations = Mathf.Sign(stationChangeCurrentSpeed) == -1f ? MurpheyWalkingDown : MurpheyWalkingUp;
         Debug.Log(currentDeckPosition);
         MurpheyPosition.position = new Vector2(MurpheyPosition.position.x, Mathf.Lerp(deckBottom, deckTop, currentDeckPosition));
         if (currentDeckPosition == targetDeckPosition && currentStation != targetStation)
@@ -174,6 +174,12 @@ public class BoatWidget : MonoBehaviour
                     MurpheyRudder.SetActive(true);
                     boatSteering.RudderFix();
                     break;
+                case Station.lantern:
+                    MurpheyLantern.SetActive(true);
+                    break;
+                case Station.tend:
+                    MurpheyTend.SetActive(true);
+                    break;
             }
         }
         // Set sprite variants based on light level
@@ -196,6 +202,10 @@ public class BoatWidget : MonoBehaviour
         }
         foreach (var ai in widgetAnimatedImages)
         {
+            if (ai.animatedImage.sprites.Length != ai.variations.Length)
+            {
+                Debug.Log(ai.animatedImage + " has incongruent variation and sprite length.");
+            }
             if (lightLevel > 0.5f)
             {
                 for (var i = 0; i < ai.animatedImage.sprites.Length; i++)
