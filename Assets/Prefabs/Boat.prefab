@@ -183,7 +183,7 @@ MonoBehaviour:
   sail: {fileID: 0}
   lantern: {fileID: 0}
   audioSource: {fileID: 0}
-  breakClip: {fileID: 0}
+  breakClip: {fileID: 8300000, guid: 0441d029f331ae844aab3e03f27b06d3, type: 3}
   repairClip: {fileID: 8300000, guid: 7e5f105c53158354f9f2ce71aa48f2e7, type: 3}
 --- !u!114 &5488025829530100671
 MonoBehaviour:
@@ -200,6 +200,7 @@ MonoBehaviour:
   hp: 3
   iframes: 0
   sprites: []
+  gameMaster: {fileID: 0}
   damageActionProbability: 0.7
 --- !u!114 &3410432279370793322
 MonoBehaviour:
