@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
+    //TODO set these variables to the ACTUAL scene id of these scenes.
+    public enum endScene
+    {
+        goodEnding = 0, // Murphey and Captain alive
+        badEnding = 1, // Murphey falls off boat or boat sinks
+        neutralEnding = 2 // Murphey alive
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +24,11 @@ public class GameMaster : MonoBehaviour
         
     }
 
-    public void EndGame(bool win, int sceneID)
+    public void EndGame(bool win, endScene sceneID)
     {
         string str = win ? "You win" : "You lose";
         Debug.Log(str);
-        StartCoroutine(LoadLevel(sceneID));
+        StartCoroutine(LoadLevel((int)sceneID));
     }
 
     IEnumerator LoadLevel(int levelIndex)
