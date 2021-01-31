@@ -19,6 +19,7 @@ public class BoatSteering : MonoBehaviour
 
     public Wind wind;
     public Sail sail;
+    public Lantern lantern;
 
     public AudioSource audioSource;
 

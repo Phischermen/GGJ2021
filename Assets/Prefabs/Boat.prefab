@@ -833,6 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4883943226323053125}
   - component: {fileID: 7123304092439475532}
+  - component: {fileID: 1519713092303649965}
   m_Layer: 0
   m_Name: Illumination
   m_TagString: Untagged
@@ -903,6 +904,18 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1519713092303649965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124280420165535652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3107f54fa8a37e4a88219ece68fbe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7287360531044652003
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,9 +24,10 @@ public class BoatDamageManager : MonoBehaviour
         audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
 
         // Setup damage actions
-        damageActions = new List<Action>(5);
+        damageActions = new List<Action>();
         damageActions.Add(GetComponentInChildren<Sail>().TearSail);
         damageActions.Add(GetComponent<BoatSteering>().RudderBreak);
+        damageActions.Add(GetComponentInChildren<Lantern>().Extinguish);
     }
 
     //// Update is called once per frame
