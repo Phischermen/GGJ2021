@@ -416,11 +416,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f3982284b90af4a915aea9b409dfe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMasterPrefab: {fileID: 1522410315964385204, guid: 7a43b92aa1740094ba7924cceacb5d82,
+    type: 3}
   boatPrefab: {fileID: 3451127304452718726, guid: 04b23c622d49f8440a55b53dbcb8a0c7,
     type: 3}
   lightHousePrefab: {fileID: 2792086359002518317, guid: 80db50975669ea34a9dbc68da3541ddf,
     type: 3}
   boatWidgetInScene: {fileID: 1196802054}
+  windPrefab: {fileID: 7029277605162777930, guid: 233aeea0bbf99e844981a168ccc6b7c2,
+    type: 3}
   initialDistance: 0
   minimumTravelTime: 100
   initABBALH: 45
