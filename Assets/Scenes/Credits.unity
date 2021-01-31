@@ -192,7 +192,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '
 
-    Kevin Phisher, Team Founder & Engineer
+    Kevin Fisher, Team Founder & Engineer
 
     Kham-Shem Toure, Engineer
 
@@ -201,22 +201,23 @@ MonoBehaviour:
     Fuller, Project Manager & Designer
 
 
-    Chris Duong, Writer & Playtester
+    Christine Duong, Writer, Designer &
+    Playtester
 
 
-    Kyle
-    Campbell, Artist
+    Kyle Campbell, Artist
 
     Miles Dievendorf, Artist
 
 
-    Daniel Sabsay, Sound Designer
+    Daniel
+    Sabsay, Sound & Music Designer
 
 
-    Grant
-    Dunford, Voice Actor (Murphy)
+    Grant Dunford, Voice Actor (Murphy)
 
-    Saba Salari, Voice Actor (Captain)'
+    Saba
+    Salari, Voice Actor (Captain)'
 --- !u!222 &757877144
 CanvasRenderer:
   m_ObjectHideFlags: 0
