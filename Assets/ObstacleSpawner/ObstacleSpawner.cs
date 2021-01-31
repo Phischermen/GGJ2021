@@ -83,9 +83,9 @@ public class ObstacleSpawner : MonoBehaviour
     {
         var cells = new Vector2Int[8];
         var xFactor = (flip) ? -1 : 1;
-        cells[0] = originCell + new Vector2Int(1 * xFactor, 1);
-        cells[1] = originCell + new Vector2Int(1 * xFactor, 0);
-        cells[2] = originCell + new Vector2Int(1 * xFactor, -1);
+        //cells[0] = originCell + new Vector2Int(1 * xFactor, 1);
+        //cells[1] = originCell + new Vector2Int(1 * xFactor, 0);
+        //cells[2] = originCell + new Vector2Int(1 * xFactor, -1);
         cells[3] = originCell + new Vector2Int(2 * xFactor, -2);
         cells[4] = originCell + new Vector2Int(2 * xFactor, -1);
         cells[5] = originCell + new Vector2Int(2 * xFactor, 0);
