@@ -1345,6 +1345,7 @@ GameObject:
   - component: {fileID: 2314468227112942293}
   - component: {fileID: 8110088705045955824}
   - component: {fileID: 2036519143013224977}
+  - component: {fileID: 6993220449975390903}
   m_Layer: 5
   m_Name: Captain
   m_TagString: Untagged
@@ -1408,6 +1409,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6993220449975390903
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7787430865026541845}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f19281028c74295468c15e9e297b268d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9055628431460211854
 GameObject:
   m_ObjectHideFlags: 0
