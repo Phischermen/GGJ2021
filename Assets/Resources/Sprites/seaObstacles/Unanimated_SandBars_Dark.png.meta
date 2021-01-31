@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: fb434ee7e435f864999bbc88deddbe0b
+guid: 99fb7b11b1d93e24b8d2837813c00a38
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1084893614742252626
-    second: Unanimated_SandBars_0
+      213: 5491344955038119180
+    second: Unanimated_SandBars_Dark_0
   - first:
-      213: -227489165884522081
-    second: Unanimated_SandBars_1
+      213: -7637924709904486604
+    second: Unanimated_SandBars_Dark_1
   - first:
-      213: 3429928152322444927
-    second: Unanimated_SandBars_4
+      213: 9103586247872005075
+    second: Unanimated_SandBars_Dark_2
   - first:
-      213: -7085450271644515933
-    second: Unanimated_SandBars_5
+      213: 1062856797220001282
+    second: Unanimated_SandBars_Dark_3
   - first:
-      213: 6042452860507851226
-    second: Unanimated_SandBars_6
+      213: 3432082578969968176
+    second: Unanimated_SandBars_Dark_4
   - first:
-      213: 2485182332568797026
-    second: Unanimated_SandBars_7
+      213: 3041613909438897440
+    second: Unanimated_SandBars_Dark_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -105,12 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Unanimated_SandBars_0
+      name: Unanimated_SandBars_Dark_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 725
-        width: 268
+        x: 31
+        y: 665
+        width: 252
         height: 252
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea3d232610fa1f0f0800000000000000
-      internalID: -1084893614742252626
+      spriteID: c053e28642d253c40800000000000000
+      internalID: 5491344955038119180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Unanimated_SandBars_1
+      name: Unanimated_SandBars_Dark_1
       rect:
         serializedVersion: 2
-        x: 654
-        y: 824
-        width: 371
-        height: 185
+        x: 634
+        y: 764
+        width: 365
+        height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9104351fcbc7dcf0800000000000000
-      internalID: -227489165884522081
+      spriteID: 43fe6fc91f3a00690800000000000000
+      internalID: -7637924709904486604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Unanimated_SandBars_4
+      name: Unanimated_SandBars_Dark_2
       rect:
         serializedVersion: 2
-        x: 589
-        y: 679
-        width: 189
-        height: 95
+        x: 57
+        y: 3
+        width: 350
+        height: 574
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7e8a446b7d899f20800000000000000
-      internalID: 3429928152322444927
+      spriteID: 3d3ca86a57f665e70800000000000000
+      internalID: 9103586247872005075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Unanimated_SandBars_5
+      name: Unanimated_SandBars_Dark_3
       rect:
         serializedVersion: 2
-        x: 1026
-        y: 353
-        width: 585
-        height: 362
+        x: 595
+        y: 229
+        width: 307
+        height: 258
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a10feca48c6bad90800000000000000
-      internalID: -7085450271644515933
+      spriteID: 206586530a600ce00800000000000000
+      internalID: 1062856797220001282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Unanimated_SandBars_6
+      name: Unanimated_SandBars_Dark_4
       rect:
         serializedVersion: 2
-        x: 77
-        y: 47
-        width: 352
-        height: 610
+        x: 1006
+        y: 303
+        width: 559
+        height: 340
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad90d92ccda1bd350800000000000000
-      internalID: 6042452860507851226
+      spriteID: 03ebf4febe431af20800000000000000
+      internalID: 3432082578969968176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Unanimated_SandBars_7
+      name: Unanimated_SandBars_Dark_6
       rect:
         serializedVersion: 2
-        x: 615
-        y: 289
-        width: 330
-        height: 262
+        x: 569
+        y: 623
+        width: 179
+        height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26ff6d61a242d7220800000000000000
-      internalID: 2485182332568797026
+      spriteID: 02d1ef74cbbf53a20800000000000000
+      internalID: 3041613909438897440
       vertices: []
       indices: 
       edges: []
