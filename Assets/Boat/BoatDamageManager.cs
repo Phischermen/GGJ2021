@@ -22,6 +22,7 @@ public class BoatDamageManager : MonoBehaviour
     {
         sprites = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         //gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        //gameMaster = GameObject.FindObjectOfType<GameMaster>();
         audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
 
         // Setup damage actions
@@ -52,7 +53,7 @@ public class BoatDamageManager : MonoBehaviour
             // Add a few more iframes
             iframes += 10;
         }
-        else
+        else if (iframes == 0)
         {
             // Start flashing
             iframes = 60;
