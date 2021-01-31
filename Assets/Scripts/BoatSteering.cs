@@ -19,10 +19,15 @@ public class BoatSteering : MonoBehaviour
 
     public Wind wind;
     public Sail sail;
+
+    public AudioSource audioSource;
+
+    public AudioClip breakClip;
+    public AudioClip repairClip;
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GameObject.Find("RudderAudio").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -71,18 +76,18 @@ public class BoatSteering : MonoBehaviour
     {
         if (!rudderWorking)
         {
-
             rudderWorking = true;
             // Play repair
+            audioSource.PlayOneShot(repairClip);
         }
     }
     public void RudderBreak()
     {
         if (rudderWorking)
         {
-
             rudderWorking = false;
             // Play break noise
+            audioSource.PlayOneShot(breakClip);
         }
     }
 }
