@@ -21,7 +21,7 @@ public class BoatDamageManager : MonoBehaviour
     void Start()
     {
         sprites = GetComponentsInChildren<SpriteRenderer>();
-        audioSource = GameObject.Find("Crash").GetComponent<AudioSource>();
+        audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
 
         // Setup damage actions
         damageActions.Add(GetComponent<BoatSteering>().RudderBreak);

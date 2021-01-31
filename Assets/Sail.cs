@@ -20,9 +20,19 @@ public class Sail : MonoBehaviour
     [SerializeField]
     private bool flipSail = false;
 
+    public AudioSource sailFillLoop;
+
+    public AudioClip fullSailLoop;
+    public AudioClip tornSailLoop;
+
+    public AudioSource sailBreakAudioSource;
+    public AudioClip sailTear;
+    public AudioClip sailRepair;
     // Start is called before the first frame update
     void Start()
     {
+        sailFillLoop = GameObject.Find("SailFillAudio").GetComponent<AudioSource>();
+        sailBreakAudioSource = GameObject.Find("SailAudio").GetComponent<AudioSource>();
         boat = transform.parent.GetComponent<BoatSteering>();
         boat.sail = this;
     }
@@ -65,7 +75,10 @@ public class Sail : MonoBehaviour
         {
 
             // Switch to torn sail loop
+            sailFillLoop.clip = tornSailLoop;
+            sailFillLoop.Play();
             // Play tear sail sound
+            sailBreakAudioSource.PlayOneShot(sailTear);
             torn = true;
         }
     }
@@ -73,9 +86,11 @@ public class Sail : MonoBehaviour
     {
         if (torn)
         {
-
             // Switch to full sail loop
+            sailFillLoop.clip = fullSailLoop;
+            sailFillLoop.Play();
             // Play repair sail sound
+            sailBreakAudioSource.PlayOneShot(sailRepair);
             torn = false;
         }
     }
@@ -100,6 +115,7 @@ public class Sail : MonoBehaviour
         }
         float wind = 1 - Mathf.Abs(Vector2.Dot(windVect.normalized, transform.up.normalized));
         Fill fill = wind > fullSailMin ? Fill.Full : wind > midSailMin ? Fill.Mid : Fill.Low;
+        // TODO Adjust volume of sail fill source based on wind.
         SetSprites(fill);
     }
 
