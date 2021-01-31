@@ -923,6 +923,24 @@ MonoBehaviour:
   deckTop: 328
   deckBottom: 94
   Murphey: {fileID: 1019218316053638978}
+  RudderButtonImage: {fileID: 6086966194785722609}
+  HelmButtonImage: {fileID: 6086966195375389454}
+  SailButtonImage: {fileID: 6086966195927246832}
+  LanternButtonImage: {fileID: 6086966196151700318}
+  TendButtonImage: {fileID: 6086966196726792997}
+  RudderNormalSprite: {fileID: 21300000, guid: 0eeaee7b860226a4f870d0c6e6b47473, type: 3}
+  HelmNormalSprite: {fileID: 21300000, guid: 5420cb01a4aad514298560b052e18994, type: 3}
+  SailNormalSprite: {fileID: 21300000, guid: b043b3ceb158fea47af12e04b205b72c, type: 3}
+  LanternNormalSprite: {fileID: 21300000, guid: b6efda2b2d3420c468b3ed5febeb2797,
+    type: 3}
+  TendNormalSprite: {fileID: 21300000, guid: 05446699924bc064faa0abdf081f8f91, type: 3}
+  RudderInvertedSprite: {fileID: 21300000, guid: c90f5ae7048b30a47aa42f76626e6292,
+    type: 3}
+  HelmInvertedSprite: {fileID: 21300000, guid: 11a9e5bf57f59f44e8056860eee1c8f0, type: 3}
+  SailInvertedSprite: {fileID: 21300000, guid: 27727c3808ca44a4887e881a53992611, type: 3}
+  LanternInvertedSprite: {fileID: 21300000, guid: 73597eecb96a1d2459021df168caeae5,
+    type: 3}
+  TendInvertedSprite: {fileID: 21300000, guid: 5a4310e8798fa9c4c881d62ce62b0fe5, type: 3}
   widgetImages:
   - image: {fileID: 8694857838846231911}
     variations:
