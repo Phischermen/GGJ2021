@@ -30,11 +30,11 @@ public class BoatWidget : MonoBehaviour
         noStation
     }
 
-    readonly float rudderStationPosition = 0f;
-    readonly float helmStationPosition = 0.2f;
-    readonly float sailStationPosition = 0.4f;
-    readonly float lanternStationPosition = 0.6f;
-    readonly float tendStationPosition = 0.8f;
+    float rudderStationPosition = 0f;
+    float helmStationPosition = 0.2f;
+    float sailStationPosition = 1f;
+    float lanternStationPosition = 0.6f;
+    float tendStationPosition = 0.8f;
 
     float currentDeckPosition;
     float targetDeckPosition;
@@ -56,12 +56,25 @@ public class BoatWidget : MonoBehaviour
         LanternButton = GameObject.Find("Lantern").GetComponent<Button>();
         TendButton = GameObject.Find("Tend").GetComponent<Button>();
 
+        // Setup positions
+        deckTop = SailButton.transform.position.y;
+        deckBottom = RudderButton.transform.position.y;
+
+        SetStationPosition(ref helmStationPosition, HelmButton);
+        SetStationPosition(ref tendStationPosition, TendButton);
+        SetStationPosition(ref lanternStationPosition, LanternButton);
+
         // Setup callbacks
         RudderButton.onClick.AddListener(RudderButtonPressed);
         HelmButton.onClick.AddListener(HelmButtonPressed);
         SailButton.onClick.AddListener(SailButtonPressed);
         LanternButton.onClick.AddListener(LanternButtonPressed);
         TendButton.onClick.AddListener(TendButtonPressed);
+    }
+
+    private void SetStationPosition(ref float position, Button button)
+    {
+        position = (button.transform.position.y - deckBottom) / (deckTop - deckBottom);
     }
 
     // Update is called once per frame
