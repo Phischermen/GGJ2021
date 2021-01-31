@@ -93,10 +93,10 @@ TextureImporter:
       name: sails_light_full_0
       rect:
         serializedVersion: 2
-        x: 149
-        y: 168
-        width: 49
-        height: 22
+        x: 298
+        y: 336
+        width: 98
+        height: 44
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
