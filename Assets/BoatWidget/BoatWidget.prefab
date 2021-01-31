@@ -970,6 +970,12 @@ MonoBehaviour:
   - lit: {fileID: 21300000, guid: 51e2fda4418cb00439558b033a9e9538, type: 3}
     dark: {fileID: 21300000, guid: 03a85db046628f54a9720d8661129c3f, type: 3}
     pitchBlack: {fileID: 21300000, guid: b5c29e6f7318fdb41992806de16b81cc, type: 3}
+  MurpheyRudder: {fileID: 9140129666174984570}
+  MurpheyHelm: {fileID: 3658671220312034531}
+  MurpheySail: {fileID: 9055628431460211854}
+  MurpheyLantern: {fileID: 3791913789546876317}
+  MurpheyTend: {fileID: 2147987491163523481}
+  MurpheyWalk: {fileID: 1019218316053638978}
   boatSteering: {fileID: 0}
   stationChangeMinSpeed: 1
   stationChangeTopSpeed: 2
