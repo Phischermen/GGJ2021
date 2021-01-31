@@ -8,9 +8,10 @@ public class GameMaster : MonoBehaviour
     //TODO set these variables to the ACTUAL scene id of these scenes.
     public enum endScene
     {
-        goodEnding = 0, // Murphey and Captain alive
-        badEnding = 1, // Murphey falls off boat or boat sinks
-        neutralEnding = 2 // Murphey alive
+        goodEnding = 2, // Murphey and Captain alive
+        neutralEnding = 3, // Murphey alive
+        badEnding = 4, // Murphey falls off boat or boat sinks
+        badEnding2 = 5
     }
     // Start is called before the first frame update
     void Start()

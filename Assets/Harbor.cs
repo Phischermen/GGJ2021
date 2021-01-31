@@ -17,8 +17,9 @@ public class Harbor : MonoBehaviour
     {
         if(collider.gameObject.tag == "Boat")
         {
+            GameMaster.endScene end = GameMaster.endScene.goodEnding;
             Debug.Log("Trigger win");
-            gameMaster.EndGame(true, 0);
+            gameMaster.EndGame(true, end);
         }
     }
 }
