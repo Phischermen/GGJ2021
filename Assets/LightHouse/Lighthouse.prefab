@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ae8131682a8cf4386b52b57c49c55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 5
+  rotationSpeed: 10
 --- !u!58 &6642985133460870112
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68026d8c6fae207409c7c9c1bdcd818b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMaster: {fileID: 0}
 --- !u!1 &2792086359500201834
 GameObject:
   m_ObjectHideFlags: 0
