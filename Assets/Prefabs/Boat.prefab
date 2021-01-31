@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 1.5
-  turnSpeed: 20
-  accelerationLerp: 0.2
+  turnSpeed: 50
+  accelerationLerp: 20
   rudderWorking: 1
   sailOpen: 1
   atHelm: 1
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   iframes: 0
+  sprites: []
   damageActionProbability: 0.3
 --- !u!1 &3754201804223744696
 GameObject:
@@ -266,7 +267,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1041672909
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fe7202328b6381b4bbfe42089df0d0c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -791,7 +792,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1041672909
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 1824031332210219063, guid: 22bdb3ef4e32cfb44a1664128dec55a6,
     type: 3}
@@ -896,8 +897,8 @@ SpriteMask:
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 1041672909
   m_BackSortingLayerID: 1041672909
-  m_FrontSortingLayer: 2
-  m_BackSortingLayer: 2
+  m_FrontSortingLayer: 1
+  m_BackSortingLayer: 1
   m_FrontSortingOrder: 6
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
