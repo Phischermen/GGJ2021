@@ -918,6 +918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef12edfaf3b97b42ab215aeb4f9e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoatCR: {fileID: 5805445516429022854}
+  lantern: {fileID: 0}
   deckTop: 328
   deckBottom: 94
   Murphey: {fileID: 1019218316053638978}
