@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3451127304452718728}
   - component: {fileID: 3451127304452718727}
   - component: {fileID: 5488025829530100671}
+  - component: {fileID: 3410432279370793322}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Boat
@@ -171,8 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 1.5
-  turnSpeed: 20
-  accelerationLerp: 0.2
+  turnSpeed: 50
+  accelerationLerp: 20
   rudderWorking: 1
   sailOpen: 1
   atHelm: 1
@@ -180,6 +181,7 @@ MonoBehaviour:
   moveMagnitude: 0
   wind: {fileID: 0}
   sail: {fileID: 0}
+  lantern: {fileID: 0}
   audioSource: {fileID: 0}
   breakClip: {fileID: 0}
   repairClip: {fileID: 8300000, guid: 7e5f105c53158354f9f2ce71aa48f2e7, type: 3}
@@ -197,7 +199,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   iframes: 0
-  damageActionProbability: 0.3
+  sprites: []
+  damageActionProbability: 0.7
+--- !u!114 &3410432279370793322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451127304452718726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6de6cdb2d08f1d4fa58da4b0d95bf9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awake: 1
+  onBorad: 1
+  fallChance: 0.5
+  noCaptain: {fileID: 21300000, guid: d8285eb21b5e42c40bb8b260b9b4445b, type: 3}
+  ship: {fileID: 3451127304452718730}
 --- !u!1 &3754201804223744696
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +286,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1041672909
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fe7202328b6381b4bbfe42089df0d0c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -791,7 +811,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1041672909
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: 1824031332210219063, guid: 22bdb3ef4e32cfb44a1664128dec55a6,
     type: 3}
@@ -832,6 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4883943226323053125}
   - component: {fileID: 7123304092439475532}
+  - component: {fileID: 1519713092303649965}
   m_Layer: 0
   m_Name: Illumination
   m_TagString: Untagged
@@ -896,12 +917,24 @@ SpriteMask:
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 1041672909
   m_BackSortingLayerID: 1041672909
-  m_FrontSortingLayer: 2
-  m_BackSortingLayer: 2
+  m_FrontSortingLayer: 1
+  m_BackSortingLayer: 1
   m_FrontSortingOrder: 6
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1519713092303649965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124280420165535652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3107f54fa8a37e4a88219ece68fbe19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7287360531044652003
 GameObject:
   m_ObjectHideFlags: 0

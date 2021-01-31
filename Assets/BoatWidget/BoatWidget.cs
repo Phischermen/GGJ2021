@@ -15,7 +15,49 @@ public class BoatWidget : MonoBehaviour
     Button SailButton;
     Button LanternButton;
     Button TendButton;
+
+    [System.Serializable]
+    public class WidgetImage
+    {
+        public Image image;
+        public WidgetSpriteVariants variations;
+    }
+    [System.Serializable]
+    public class WidgetAnimatedImage
+    {
+        public ImageAnimation animatedImage;
+        public WidgetSpriteVariants[] variations;
+    }
+    [System.Serializable]
+    public class WidgetSpriteVariants
+    {
+
+        public Sprite lit;
+        public Sprite dark;
+        public Sprite pitchBlack;
+    }
+
+    [SerializeField]
+    public WidgetImage[] widgetImages;
+    [SerializeField]
+    public WidgetAnimatedImage[] widgetAnimatedImages;
+
+    private WidgetAnimatedImage MurphyWalkWidgetAnimatedImage;
+    [SerializeField]
+    public WidgetSpriteVariants[] MurpheyWalkingUp;
+    [SerializeField]
+    public WidgetSpriteVariants[] MurpheyWalkingDown;
+    // Here goes nothing!
+    public GameObject MurpheyRudder;
+    public GameObject MurpheyHelm;
+    public GameObject MurpheySail;
+    public GameObject MurpheyLantern;
+    public GameObject MurpheyTend;
+    public GameObject MurpheyWalk;
+    List<Sprite> WidgetImages;
+
     // Initializes outside of BoatWidget
+    [HideInInspector]
     public BoatSteering boatSteering;
 
     Station currentStation;
@@ -47,7 +89,14 @@ public class BoatWidget : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MurpheyPosition = Murphey.GetComponent<RectTransform>();
+        MurpheyPosition = MurpheyWalk.GetComponent<RectTransform>();
+        MurpheyHelm.SetActive(true);
+        MurpheyWalk.SetActive(false);
+        MurpheyRudder.SetActive(false);
+        MurpheySail.SetActive(false);
+        MurpheyTend.SetActive(false);
+        MurpheyLantern.SetActive(false);
+
         targetDeckPosition = helmStationPosition;
         currentDeckPosition = helmStationPosition;
         RudderButton = GameObject.Find("Rudder").GetComponent<Button>();
@@ -56,6 +105,8 @@ public class BoatWidget : MonoBehaviour
         LanternButton = GameObject.Find("Lantern").GetComponent<Button>();
         TendButton = GameObject.Find("Tend").GetComponent<Button>();
 
+        // Get walking animated image. It is assumed to be the first element of widget animated images.
+        MurphyWalkWidgetAnimatedImage = widgetAnimatedImages[0];
         // Setup positions
         deckTop = SailButton.transform.position.y;
         deckBottom = RudderButton.transform.position.y;
@@ -98,33 +149,98 @@ public class BoatWidget : MonoBehaviour
             stationChangeCurrentSpeed = 0f;
             currentDeckPosition = targetDeckPosition;
         }
+        MurphyWalkWidgetAnimatedImage.variations = Mathf.Sign(stationChangeCurrentSpeed) == -1f ? MurpheyWalkingDown : MurpheyWalkingUp;
         Debug.Log(currentDeckPosition);
         MurpheyPosition.position = new Vector2(MurpheyPosition.position.x, Mathf.Lerp(deckBottom, deckTop, currentDeckPosition));
         if (currentDeckPosition == targetDeckPosition && currentStation != targetStation)
         {
             currentStation = targetStation;
             Debug.Log("Station Reached: " + currentStation);
+            MurpheyWalk.SetActive(false);
+            MurpheyTend.SetActive(false);
+            MurpheyLantern.SetActive(false);
             switch (currentStation)
             {
                 case Station.helm:
+                    MurpheyHelm.SetActive(true);
                     boatSteering.atHelm = true;
                     break;
                 case Station.sail:
+                    MurpheySail.SetActive(true);
                     boatSteering.sail.RepairSail();
                     boatSteering.sail.atSail = true;
                     break;
                 case Station.rudder:
+                    MurpheyRudder.SetActive(true);
                     boatSteering.RudderFix();
+                    break;
+                case Station.lantern:
+                    MurpheyLantern.SetActive(true);
+                    break;
+                case Station.tend:
+                    MurpheyTend.SetActive(true);
                     break;
             }
         }
-
+        // Set sprite variants based on light level
+        // TODO calculate light level
+        var lightLevel = 0.5f;
+        foreach (var i in widgetImages)
+        {
+            if (lightLevel > 0.5f)
+            {
+                i.image.sprite = i.variations.lit;
+            }
+            else if (lightLevel > 0.25f)
+            {
+                i.image.sprite = i.variations.dark;
+            }
+            else
+            {
+                i.image.sprite = i.variations.pitchBlack;
+            }
+        }
+        foreach (var ai in widgetAnimatedImages)
+        {
+            if (ai.animatedImage.sprites.Length != ai.variations.Length)
+            {
+                Debug.Log(ai.animatedImage + " has incongruent variation and sprite length.");
+            }
+            if (lightLevel > 0.5f)
+            {
+                for (var i = 0; i < ai.animatedImage.sprites.Length; i++)
+                {
+                    ai.animatedImage.sprites[i] = ai.variations[i].lit;
+                }
+            }
+            else if (lightLevel > 0.25f)
+            {
+                for (var i = 0; i < ai.animatedImage.sprites.Length; i++)
+                {
+                    ai.animatedImage.sprites[i] = ai.variations[i].dark;
+                }
+            }
+            else
+            {
+                for (var i = 0; i < ai.animatedImage.sprites.Length; i++)
+                {
+                    ai.animatedImage.sprites[i] = ai.variations[i].pitchBlack;
+                }
+            }
+        }
         //Debug.Log(currentDeckPosition);
     }
     public void AnyButtonPressed()
     {
         boatSteering.atHelm = false;
         boatSteering.sail.atSail = false;
+        MurpheyWalk.SetActive(true);
+        MurpheyHelm.SetActive(false);
+        MurpheyRudder.SetActive(false);
+        MurpheySail.SetActive(false);
+        MurpheyTend.SetActive(false);
+        MurpheyLantern.SetActive(false);
+
     }
     public void RudderButtonPressed()
     {
