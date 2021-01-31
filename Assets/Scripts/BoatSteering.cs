@@ -20,6 +20,7 @@ public class BoatSteering : MonoBehaviour
     public Wind wind;
     public Sail sail;
     public Lantern lantern;
+    public Captain captain;
 
     public AudioSource audioSource;
 
@@ -29,6 +30,7 @@ public class BoatSteering : MonoBehaviour
     void Start()
     {
         audioSource = GameObject.Find("RudderAudio").GetComponent<AudioSource>();
+        captain = this.GetComponent<Captain>();
     }
 
     // Update is called once per frame

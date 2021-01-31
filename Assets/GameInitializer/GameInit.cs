@@ -21,16 +21,22 @@ public class GameInit : MonoBehaviour
         var gameMaster = Instantiate(gameMasterPrefab);
         var boat = Instantiate(boatPrefab);
         var boatSteering = boat.GetComponent<BoatSteering>();
-        boat.GetComponent<BoatDamageManager>().gameMaster = gameMaster.GetComponent<GameMaster>();
         var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
         var wind = Instantiate(windPrefab);
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
         obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
 
-        boatWidgetInScene.GetComponent<BoatWidget>().boatSteering = boatSteering;
+        var boatWidget = boatWidgetInScene.GetComponent<BoatWidget>();
+        boatWidget.boatSteering = boatSteering;
+        boatWidget.lantern = boat.GetComponentInChildren<Lantern>();
+
+        var boatDamageManager = boat.GetComponent<BoatDamageManager>();
+        boatDamageManager.boatWidget = boatWidget;
+        boatDamageManager.gameMaster = gameMaster.GetComponent<GameMaster>();
+        boatDamageManager.SetupDamageActions();
 
         var lightHouse = Instantiate(lightHousePrefab);
-        lightHouse.GetComponent<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
+        lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
         var d = GetDistanceTraveledOverTime(boatSteering.baseSpeed, minimumTravelTime);
 
         boat.transform.position = Vector3.zero;

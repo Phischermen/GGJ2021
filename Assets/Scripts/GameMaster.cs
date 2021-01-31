@@ -16,7 +16,7 @@ public class GameMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,8 +34,8 @@ public class GameMaster : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        yield return new WaitForSeconds(1);
         Debug.Log("Loading scene# " + levelIndex);
         SceneManager.LoadScene(levelIndex);
+        return null;
     }
 }

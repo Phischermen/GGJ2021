@@ -11,6 +11,7 @@ public class BoatDamageManager : MonoBehaviour
     public List<SpriteRenderer> sprites;
     // Initialized outside of class
     public GameMaster gameMaster;
+    public BoatWidget boatWidget;
 
     private AudioSource audioSource;
 
@@ -22,14 +23,21 @@ public class BoatDamageManager : MonoBehaviour
     {
         sprites = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         //gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        //gameMaster = GameObject.FindObjectOfType<GameMaster>();
         audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
-
+    }
+    public void SetupDamageActions()
+    {
         // Setup damage actions
         damageActions = new List<Action>();
         damageActions.Add(GetComponentInChildren<Sail>().TearSail);
+        damageActions[damageActions.Count - 1] += boatWidget.SailTorn;
         damageActions.Add(GetComponentInChildren<Lantern>().Extinguish);
+        damageActions[damageActions.Count - 1] += boatWidget.LanternExtinguished;
         damageActions.Add(GetComponent<BoatSteering>().RudderBreak);
+        damageActions[damageActions.Count - 1] += boatWidget.RudderBroke;
         damageActions.Add(GetComponent<Captain>().Sleep);
+        damageActions[damageActions.Count - 1] += boatWidget.CaptainAsleep;
     }
 
     //// Update is called once per frame
@@ -52,7 +60,7 @@ public class BoatDamageManager : MonoBehaviour
             // Add a few more iframes
             iframes += 10;
         }
-        else
+        else if (iframes == 0)
         {
             // Start flashing
             iframes = 60;
@@ -61,6 +69,7 @@ public class BoatDamageManager : MonoBehaviour
             {
                 ShowSprites(false);
                 iframes = 0;
+                GameMaster.endScene end = UnityEngine.Random.value > .5 ? GameMaster.endScene.badEnding : GameMaster.endScene.badEnding2;
                 gameMaster.EndGame(false, GameMaster.endScene.badEnding);
             }
             else

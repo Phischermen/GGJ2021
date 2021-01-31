@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Lantern : MonoBehaviour
 {
+    AudioSource audio;
     SpriteMask illum;
-    bool lit = true;
+    public bool lit = true;
 
     // Start is called before the first frame update
     void Start()
     {
         illum = GetComponent<SpriteMask>();
         transform.parent.GetComponent<BoatSteering>().lantern = this;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class Lantern : MonoBehaviour
 
     public void Light()
     {
+        audio.Play();
         lit = true;
         illum.enabled = true;
     }
