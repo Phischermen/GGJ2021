@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lantern : MonoBehaviour
 {
     SpriteMask illum;
-    bool lit = true;
+    public bool lit = true;
 
     // Start is called before the first frame update
     void Start()
