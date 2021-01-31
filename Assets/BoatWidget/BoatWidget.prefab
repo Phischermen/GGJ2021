@@ -664,8 +664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef12edfaf3b97b42ab215aeb4f9e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckTop: 500
-  deckBottom: 250
+  deckTop: 328
+  deckBottom: 94
   Murphey: {fileID: 6825723545729601224}
   boatSteering: {fileID: 0}
   stationChangeMinSpeed: 1
@@ -1211,14 +1211,14 @@ RectTransform:
   m_GameObject: {fileID: 6825723545729601224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 149.44899, y: 149.44899, z: 149.44899}
+  m_LocalScale: {x: 38.34861, y: 38.34861, z: 38.34861}
   m_Children: []
   m_Father: {fileID: 6086966195576490391}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 63.2, y: 205.8}
+  m_AnchoredPosition: {x: 147.7, y: 102}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7801600840266814685
