@@ -11,6 +11,7 @@ public class BoatDamageManager : MonoBehaviour
     public List<SpriteRenderer> sprites;
     // Initialized outside of class
     public GameMaster gameMaster;
+    public BoatWidget boatWidget;
 
     private AudioSource audioSource;
 
@@ -28,9 +29,13 @@ public class BoatDamageManager : MonoBehaviour
         // Setup damage actions
         damageActions = new List<Action>();
         damageActions.Add(GetComponentInChildren<Sail>().TearSail);
+        damageActions[damageActions.Count - 1] += boatWidget.SailTorn;
         damageActions.Add(GetComponentInChildren<Lantern>().Extinguish);
+        damageActions[damageActions.Count - 1] += boatWidget.LanternExtinguished;
         damageActions.Add(GetComponent<BoatSteering>().RudderBreak);
+        damageActions[damageActions.Count - 1] += boatWidget.RudderBroke;
         damageActions.Add(GetComponent<Captain>().Sleep);
+        damageActions[damageActions.Count - 1] += boatWidget.CaptainAsleep;
     }
 
     //// Update is called once per frame
