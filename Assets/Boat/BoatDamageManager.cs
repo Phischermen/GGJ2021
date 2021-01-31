@@ -27,9 +27,9 @@ public class BoatDamageManager : MonoBehaviour
 
         // Setup damage actions
         damageActions = new List<Action>();
-        //damageActions.Add(GetComponentInChildren<Sail>().TearSail);
-        //damageActions.Add(GetComponentInChildren<Lantern>().Extinguish);
-        //damageActions.Add(GetComponent<BoatSteering>().RudderBreak);
+        damageActions.Add(GetComponentInChildren<Sail>().TearSail);
+        damageActions.Add(GetComponentInChildren<Lantern>().Extinguish);
+        damageActions.Add(GetComponent<BoatSteering>().RudderBreak);
         damageActions.Add(GetComponent<Captain>().Sleep);
     }
 
