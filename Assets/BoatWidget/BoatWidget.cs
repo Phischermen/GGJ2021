@@ -176,9 +176,11 @@ public class BoatWidget : MonoBehaviour
                     break;
                 case Station.lantern:
                     MurpheyLantern.SetActive(true);
+                    boatSteering.lantern.Light();
                     break;
                 case Station.tend:
                     MurpheyTend.SetActive(true);
+                    boatSteering.captain.Wake();
                     break;
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Captain : MonoBehaviour
 {
@@ -12,10 +13,18 @@ public class Captain : MonoBehaviour
     public Sprite noCaptain;
     public SpriteRenderer ship;
 
+    Animator anim;
+    Image img;
+    public Sprite awakeSpr;
+    public Sprite sleepingSpr;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject capUI = GameObject.FindObjectOfType<Canvas>().GetComponentInChildren<Animator>().gameObject;
+        //Debug.Log(capUI);
+        anim = capUI.GetComponent<Animator>();
+        img = capUI.GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -27,6 +36,7 @@ public class Captain : MonoBehaviour
     public void Wake()
     {
         awake = true;
+        img.sprite = awakeSpr;
     }
 
     public void Sleep()
@@ -35,6 +45,7 @@ public class Captain : MonoBehaviour
         if (awake == true)
         {
             awake = false;
+            img.sprite = sleepingSpr;
         }
         else if(Random.value <= fallChance)
         {
@@ -44,7 +55,11 @@ public class Captain : MonoBehaviour
 
     public void Fall()
     {
-        onBorad = false;
-        ship.sprite = noCaptain;
+        if (!awake)
+        {
+            onBorad = false;
+            ship.sprite = noCaptain;
+            anim.Play("CaptainSlide");
+        }
     }
 }

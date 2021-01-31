@@ -10,7 +10,7 @@ public class BoatDamageManager : MonoBehaviour
 
     public List<SpriteRenderer> sprites;
     // Initialized outside of class
-    public GameMaster gameMaster;
+    private GameMaster gameMaster;
 
     private AudioSource audioSource;
 
@@ -22,6 +22,7 @@ public class BoatDamageManager : MonoBehaviour
     {
         sprites = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         //gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
+        gameMaster = GameObject.FindObjectOfType<GameMaster>();
         audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
 
         // Setup damage actions
