@@ -25,7 +25,9 @@ public class BoatDamageManager : MonoBehaviour
         //gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         //gameMaster = GameObject.FindObjectOfType<GameMaster>();
         audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
-
+    }
+    public void SetupDamageActions()
+    {
         // Setup damage actions
         damageActions = new List<Action>();
         damageActions.Add(GetComponentInChildren<Sail>().TearSail);

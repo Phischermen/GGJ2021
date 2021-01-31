@@ -21,7 +21,6 @@ public class GameInit : MonoBehaviour
         var gameMaster = Instantiate(gameMasterPrefab);
         var boat = Instantiate(boatPrefab);
         var boatSteering = boat.GetComponent<BoatSteering>();
-        boat.GetComponent<BoatDamageManager>().gameMaster = gameMaster.GetComponent<GameMaster>();
         var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
         var wind = Instantiate(windPrefab);
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
@@ -29,7 +28,12 @@ public class GameInit : MonoBehaviour
 
         var boatWidget = boatWidgetInScene.GetComponent<BoatWidget>();
         boatWidget.boatSteering = boatSteering;
-        boatWidget.lantern = boatSteering.lantern;
+        boatWidget.lantern = boat.GetComponentInChildren<Lantern>();
+
+        var boatDamageManager = boat.GetComponent<BoatDamageManager>();
+        boatDamageManager.boatWidget = boatWidget;
+        boatDamageManager.gameMaster = gameMaster.GetComponent<GameMaster>();
+        boatDamageManager.SetupDamageActions();
 
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();

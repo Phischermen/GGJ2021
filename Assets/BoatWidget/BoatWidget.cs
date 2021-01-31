@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BoatWidget : MonoBehaviour
 {
+    public CanvasRenderer BoatCR;
+    public Lantern lantern;
     public float deckTop;
     public float deckBottom;
 
@@ -209,7 +211,8 @@ public class BoatWidget : MonoBehaviour
         }
         // Set sprite variants based on light level
         // TODO calculate light level
-        var lightLevel = 0.5f;
+        var lightLevel = (lantern.lit) ? 1f : 0.5f;
+        BoatCR.SetColor(Color.Lerp(Color.black, Color.white, lightLevel));
         foreach (var i in widgetImages)
         {
             if (lightLevel > 0.5f)
@@ -257,7 +260,7 @@ public class BoatWidget : MonoBehaviour
     }
     public void SailTorn()
     {
-        SailButtonImage.sprite = TendInvertedSprite;
+        SailButtonImage.sprite = SailInvertedSprite;
 
     }
     public void LanternExtinguished()
