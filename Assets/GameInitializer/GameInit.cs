@@ -21,6 +21,7 @@ public class GameInit : MonoBehaviour
         var gameMaster = Instantiate(gameMasterPrefab);
         var boat = Instantiate(boatPrefab);
         var boatSteering = boat.GetComponent<BoatSteering>();
+        boat.GetComponent<BoatDamageManager>().gameMaster = gameMaster.GetComponent<GameMaster>();
         var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
         var wind = Instantiate(windPrefab);
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
