@@ -16,3 +16,4 @@ sail_tear - CC0
 crash_rock
 - (CC BY 3.0) https://freesound.org/people/InspectorJ/sounds/352513/
 rudder_break - CC0
+click - custom
