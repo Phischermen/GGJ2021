@@ -10,7 +10,7 @@ public class BoatDamageManager : MonoBehaviour
 
     public List<SpriteRenderer> sprites;
     // Initialized outside of class
-    private GameMaster gameMaster;
+    public GameMaster gameMaster;
 
     private AudioSource audioSource;
 
