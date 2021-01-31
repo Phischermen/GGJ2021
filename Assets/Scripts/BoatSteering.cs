@@ -65,4 +65,8 @@ public class BoatSteering : MonoBehaviour
     {
         rudderWorking = !rudderWorking;
     }
+    public void RudderFix()
+    {
+        rudderWorking = true;
+    }
 }

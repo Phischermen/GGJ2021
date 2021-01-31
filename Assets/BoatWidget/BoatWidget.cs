@@ -66,10 +66,15 @@ public class BoatWidget : MonoBehaviour
 
         // Setup callbacks
         RudderButton.onClick.AddListener(RudderButtonPressed);
+        RudderButton.onClick.AddListener(AnyButtonPressed);
         HelmButton.onClick.AddListener(HelmButtonPressed);
+        HelmButton.onClick.AddListener(AnyButtonPressed);
         SailButton.onClick.AddListener(SailButtonPressed);
+        SailButton.onClick.AddListener(AnyButtonPressed);
         LanternButton.onClick.AddListener(LanternButtonPressed);
+        LanternButton.onClick.AddListener(AnyButtonPressed);
         TendButton.onClick.AddListener(TendButtonPressed);
+        TendButton.onClick.AddListener(AnyButtonPressed);
     }
 
     private void SetStationPosition(ref float position, Button button)
@@ -99,22 +104,27 @@ public class BoatWidget : MonoBehaviour
         {
             currentStation = targetStation;
             Debug.Log("Station Reached: " + currentStation);
-            //switch (currentStation)
-            //{
-            //    case Station.helm:
-            //        if (!boatSteering.manHelm)
-            //            boatSteering.ManHelm();
-            //        break;
-            //    case Station.sail:
-            //        if (!boatSteering.manSail)
-            //            boatSteering.ManSail();
-            //        break;
-            //}
+            switch (currentStation)
+            {
+                case Station.helm:
+                    boatSteering.atHelm = true;
+                    break;
+                case Station.sail:
+                    boatSteering.sail.atSail = true;
+                    break;
+                case Station.rudder:
+                    boatSteering.RudderFix();
+                    break;
+            }
         }
 
         //Debug.Log(currentDeckPosition);
     }
-
+    public void AnyButtonPressed()
+    {
+        boatSteering.atHelm = false;
+        boatSteering.sail.atSail = false;
+    }
     public void RudderButtonPressed()
     {
         targetStation = Station.rudder;
