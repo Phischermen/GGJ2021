@@ -42,11 +42,11 @@ TagManager:
   - name: Water
     uniqueID: 4054287409
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Hazard
     uniqueID: 1332975213
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Darkness
     uniqueID: 1041672909
