@@ -110,6 +110,7 @@ public class BoatWidget : MonoBehaviour
                     boatSteering.atHelm = true;
                     break;
                 case Station.sail:
+                    boatSteering.sail.RepairSail();
                     boatSteering.sail.atSail = true;
                     break;
                 case Station.rudder:

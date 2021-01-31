@@ -22,7 +22,7 @@ public class BoatSteering : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -49,14 +49,14 @@ public class BoatSteering : MonoBehaviour
                 transform.Rotate(Vector3.back * rotation * turnSpeed * Time.deltaTime);
             }
         }
-        sailOpen = sail.open;
+        sailOpen = sail.open && !sail.torn;
         //Forward Motion: Move forward if sail is up, lerp towards new move vector
         Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero;
         moveVector = Vector3.Lerp(moveVector, targetVector, accelerationLerp * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
         float windDotSail = Vector2.Dot(wind.windVector.normalized, sail.transform.up.normalized);
         float windEffect = sailOpen ? 1 - Mathf.Abs(windDotSail) : 0;
-        if (sailOpen) { sail.UpdateWind(wind.windVector.normalized);}
+        if (sailOpen) { sail.UpdateWind(wind.windVector.normalized); }
         Vector2 windVector = windEffect * wind.windVector * Time.deltaTime;
         Vector2 finalVector = windVector + moveVector;
         //Debug.Log(finalVector);
@@ -69,6 +69,20 @@ public class BoatSteering : MonoBehaviour
     }
     public void RudderFix()
     {
-        rudderWorking = true;
+        if (!rudderWorking)
+        {
+
+            rudderWorking = true;
+            // Play repair
+        }
+    }
+    public void RudderBreak()
+    {
+        if (rudderWorking)
+        {
+
+            rudderWorking = false;
+            // Play break noise
+        }
     }
 }
