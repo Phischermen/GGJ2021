@@ -62,6 +62,7 @@ public class BoatDamageManager : MonoBehaviour
             {
                 ShowSprites(false);
                 iframes = 0;
+                GameMaster.endScene end = UnityEngine.Random.value > .5 ? GameMaster.endScene.badEnding : GameMaster.endScene.badEnding2;
                 gameMaster.EndGame(false, GameMaster.endScene.badEnding);
             }
             else
