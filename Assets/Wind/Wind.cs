@@ -17,6 +17,7 @@ public class Wind : MonoBehaviour
     {
         boat = boat == null ? GameObject.FindWithTag("Boat").GetComponent<BoatSteering>() : boat;
         boat.wind = this;
+        boat.GetComponent<BoatDamageManager>().sprites.Add(GetComponentInChildren<SpriteRenderer>());
         ChangeWind();
     }
 
