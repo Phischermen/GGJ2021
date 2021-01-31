@@ -27,7 +27,9 @@ public class GameInit : MonoBehaviour
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
         obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
 
-        boatWidgetInScene.GetComponent<BoatWidget>().boatSteering = boatSteering;
+        var boatWidget = boatWidgetInScene.GetComponent<BoatWidget>();
+        boatWidget.boatSteering = boatSteering;
+        boatWidget.lantern = boatSteering.lantern;
 
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();

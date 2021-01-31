@@ -6,7 +6,7 @@ public class Lantern : MonoBehaviour
 {
     AudioSource audio;
     SpriteMask illum;
-    bool lit = true;
+    public bool lit = true;
 
     // Start is called before the first frame update
     void Start()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,24 @@ public class BoatWidget : MonoBehaviour
     Button SailButton;
     Button LanternButton;
     Button TendButton;
+
+    public Image RudderButtonImage;
+    public Image HelmButtonImage;
+    public Image SailButtonImage;
+    public Image LanternButtonImage;
+    public Image TendButtonImage;
+
+    public Sprite RudderNormalSprite;
+    public Sprite HelmNormalSprite;
+    public Sprite SailNormalSprite;
+    public Sprite LanternNormalSprite;
+    public Sprite TendNormalSprite;
+
+    public Sprite RudderInvertedSprite;
+    public Sprite HelmInvertedSprite;
+    public Sprite SailInvertedSprite;
+    public Sprite LanternInvertedSprite;
+    public Sprite TendInvertedSprite;
 
     [System.Serializable]
     public class WidgetImage
@@ -45,8 +64,12 @@ public class BoatWidget : MonoBehaviour
     private WidgetAnimatedImage MurphyWalkWidgetAnimatedImage;
     [SerializeField]
     public WidgetSpriteVariants[] MurpheyWalkingUp;
+
+
     [SerializeField]
     public WidgetSpriteVariants[] MurpheyWalkingDown;
+
+
     // Here goes nothing!
     public GameObject MurpheyRudder;
     public GameObject MurpheyHelm;
@@ -150,7 +173,7 @@ public class BoatWidget : MonoBehaviour
             currentDeckPosition = targetDeckPosition;
         }
         MurphyWalkWidgetAnimatedImage.variations = Mathf.Sign(stationChangeCurrentSpeed) == -1f ? MurpheyWalkingDown : MurpheyWalkingUp;
-        Debug.Log(currentDeckPosition);
+        //Debug.Log(currentDeckPosition);
         MurpheyPosition.position = new Vector2(MurpheyPosition.position.x, Mathf.Lerp(deckBottom, deckTop, currentDeckPosition));
         if (currentDeckPosition == targetDeckPosition && currentStation != targetStation)
         {
@@ -232,6 +255,27 @@ public class BoatWidget : MonoBehaviour
         }
         //Debug.Log(currentDeckPosition);
     }
+    public void SailTorn()
+    {
+        SailButtonImage.sprite = TendInvertedSprite;
+
+    }
+    public void LanternExtinguished()
+    {
+
+        LanternButtonImage.sprite = LanternInvertedSprite;
+    }
+
+    public void RudderBroke()
+    {
+
+        RudderButtonImage.sprite = RudderInvertedSprite;
+    }
+
+    public void CaptainAsleep()
+    {
+        TendButtonImage.sprite = TendInvertedSprite;
+    }
     public void AnyButtonPressed()
     {
         boatSteering.atHelm = false;
@@ -246,30 +290,35 @@ public class BoatWidget : MonoBehaviour
     }
     public void RudderButtonPressed()
     {
+        RudderButtonImage.sprite = RudderNormalSprite;
         targetStation = Station.rudder;
         currentStation = Station.noStation;
         targetDeckPosition = rudderStationPosition;
     }
     public void HelmButtonPressed()
     {
+        HelmButtonImage.sprite = HelmNormalSprite;
         targetStation = Station.helm;
         currentStation = Station.noStation;
         targetDeckPosition = helmStationPosition;
     }
     public void SailButtonPressed()
     {
+        SailButtonImage.sprite = SailNormalSprite;
         targetStation = Station.sail;
         currentStation = Station.noStation;
         targetDeckPosition = sailStationPosition;
     }
     public void LanternButtonPressed()
     {
+        LanternButtonImage.sprite = LanternNormalSprite;
         targetStation = Station.lantern;
         currentStation = Station.noStation;
         targetDeckPosition = lanternStationPosition;
     }
     public void TendButtonPressed()
     {
+        TendButtonImage.sprite = TendNormalSprite;
         targetStation = Station.tend;
         currentStation = Station.noStation;
         targetDeckPosition = tendStationPosition;
