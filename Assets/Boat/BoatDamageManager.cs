@@ -8,7 +8,7 @@ public class BoatDamageManager : MonoBehaviour
     public int hp = 3;
     public int iframes = 0;
 
-    private SpriteRenderer[] sprites;
+    public List<SpriteRenderer> sprites;
     // Initialized outside of class
     private GameMaster gameMaster;
 
@@ -20,12 +20,13 @@ public class BoatDamageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprites = GetComponentsInChildren<SpriteRenderer>();
+        sprites = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
 
         // Setup damage actions
+        damageActions = new List<Action>(5);
+        damageActions.Add(GetComponentInChildren<Sail>().TearSail);
         damageActions.Add(GetComponent<BoatSteering>().RudderBreak);
-        damageActions.Add(GetComponent<Sail>().TearSail);
     }
 
     //// Update is called once per frame
