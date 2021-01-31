@@ -93,10 +93,10 @@ TextureImporter:
       name: flag_f5_0
       rect:
         serializedVersion: 2
-        x: 147
-        y: 168
-        width: 21
-        height: 23
+        x: 294
+        y: 336
+        width: 42
+        height: 46
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
