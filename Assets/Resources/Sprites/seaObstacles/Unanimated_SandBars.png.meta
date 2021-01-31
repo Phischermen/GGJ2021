@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: fb434ee7e435f864999bbc88deddbe0b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1084893614742252626
+    second: Unanimated_SandBars_0
+  - first:
+      213: -227489165884522081
+    second: Unanimated_SandBars_1
+  - first:
+      213: 3429928152322444927
+    second: Unanimated_SandBars_4
+  - first:
+      213: -7085450271644515933
+    second: Unanimated_SandBars_5
+  - first:
+      213: 6042452860507851226
+    second: Unanimated_SandBars_6
+  - first:
+      213: 2485182332568797026
+    second: Unanimated_SandBars_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +89,147 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Unanimated_SandBars_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 725
+        width: 268
+        height: 252
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea3d232610fa1f0f0800000000000000
+      internalID: -1084893614742252626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unanimated_SandBars_1
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 824
+        width: 371
+        height: 185
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9104351fcbc7dcf0800000000000000
+      internalID: -227489165884522081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unanimated_SandBars_4
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 679
+        width: 189
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e8a446b7d899f20800000000000000
+      internalID: 3429928152322444927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unanimated_SandBars_5
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 353
+        width: 585
+        height: 362
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a10feca48c6bad90800000000000000
+      internalID: -7085450271644515933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unanimated_SandBars_6
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 47
+        width: 352
+        height: 610
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad90d92ccda1bd350800000000000000
+      internalID: 6042452860507851226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unanimated_SandBars_7
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 289
+        width: 330
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ff6d61a242d7220800000000000000
+      internalID: 2485182332568797026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

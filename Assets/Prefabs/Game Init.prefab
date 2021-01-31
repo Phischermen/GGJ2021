@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6296558865834702067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6296558865834702065}
+  - component: {fileID: 6296558865834702064}
+  m_Layer: 0
+  m_Name: Game Init
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6296558865834702065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296558865834702067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0090798, y: -0.09215794, z: -11.31523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6296558865834702064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296558865834702067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f3982284b90af4a915aea9b409dfe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameMasterPrefab: {fileID: 1522410315964385204, guid: 7a43b92aa1740094ba7924cceacb5d82,
+    type: 3}
+  boatPrefab: {fileID: 3451127304452718726, guid: 04b23c622d49f8440a55b53dbcb8a0c7,
+    type: 3}
+  lightHousePrefab: {fileID: 2792086359002518317, guid: 80db50975669ea34a9dbc68da3541ddf,
+    type: 3}
+  boatWidgetInScene: {fileID: 0}
+  windPrefab: {fileID: 7029277605162777930, guid: 233aeea0bbf99e844981a168ccc6b7c2,
+    type: 3}
+  initialDistance: 0
+  minimumTravelTime: 100
+  initABBALH: 45

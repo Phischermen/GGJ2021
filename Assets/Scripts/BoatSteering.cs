@@ -54,10 +54,12 @@ public class BoatSteering : MonoBehaviour
         Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero;
         moveVector = Vector3.Lerp(moveVector, targetVector, accelerationLerp * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
-        float windEffect = sailOpen ? 1 - Vector2.Dot(wind.windVector.normalized, sail.transform.up.normalized) : 0;
+        float windDotSail = Vector2.Dot(wind.windVector.normalized, sail.transform.up.normalized);
+        float windEffect = sailOpen ? 1 - Mathf.Abs(windDotSail) : 0;
+        if (sailOpen) { sail.UpdateWind(wind.windVector.normalized);}
         Vector2 windVector = windEffect * wind.windVector * Time.deltaTime;
         Vector2 finalVector = windVector + moveVector;
-        Debug.Log(finalVector);
+        //Debug.Log(finalVector);
         transform.position = new Vector3(transform.position.x + finalVector.x, transform.position.y + finalVector.y, transform.position.z);
     }
 

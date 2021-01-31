@@ -39,7 +39,7 @@ public class Wind : MonoBehaviour
 
     IEnumerator windChangeDelay(float seconds)
     {
-        Debug.Log("Change wind");
+        //Debug.Log("Change wind");
         yield return new WaitForSeconds(seconds);
         ChangeWind();
     }
