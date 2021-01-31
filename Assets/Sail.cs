@@ -6,6 +6,7 @@ public class Sail : MonoBehaviour
 {
     BoatSteering boat;
     public bool open = true;
+    public bool torn = false;
     public bool atSail = false;
     public float turnSpeed = 5;
     public SailSprite lightSail;
@@ -13,7 +14,7 @@ public class Sail : MonoBehaviour
 
     [Range(0, 1)]
     public float midSailMin = .33f;
-    [Range(0,1)]
+    [Range(0, 1)]
     public float fullSailMin = .66f;
 
     [SerializeField]
@@ -58,6 +59,26 @@ public class Sail : MonoBehaviour
         SetSprites(fill);
         open = opening;
     }
+    public void TearSail()
+    {
+        if (!torn)
+        {
+
+            // Switch to torn sail loop
+            // Play tear sail sound
+            torn = true;
+        }
+    }
+    public void RepairSail()
+    {
+        if (torn)
+        {
+
+            // Switch to full sail loop
+            // Play repair sail sound
+            torn = false;
+        }
+    }
 
     public void UpdateWind(Vector2 windVect)
     {
@@ -98,6 +119,7 @@ public class Sail : MonoBehaviour
                 darkSail.ChangeSprite(darkSail.full);
                 lightSail.ChangeSprite(lightSail.full);
                 return;
+            case Fill.Torn:
             case Fill.Closed:
                 darkSail.ChangeSprite(darkSail.tied);
                 lightSail.ChangeSprite(lightSail.tied);
@@ -116,6 +138,7 @@ public class Sail : MonoBehaviour
         Low,
         Mid,
         Full,
-        Closed
+        Closed,
+        Torn, // TODO Add sprites for torn sail
     }
 }
