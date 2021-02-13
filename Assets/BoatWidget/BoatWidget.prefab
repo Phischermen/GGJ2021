@@ -934,13 +934,6 @@ MonoBehaviour:
   LanternNormalSprite: {fileID: 21300000, guid: b6efda2b2d3420c468b3ed5febeb2797,
     type: 3}
   TendNormalSprite: {fileID: 21300000, guid: 05446699924bc064faa0abdf081f8f91, type: 3}
-  RudderInvertedSprite: {fileID: 21300000, guid: c90f5ae7048b30a47aa42f76626e6292,
-    type: 3}
-  HelmInvertedSprite: {fileID: 21300000, guid: 11a9e5bf57f59f44e8056860eee1c8f0, type: 3}
-  SailInvertedSprite: {fileID: 21300000, guid: 27727c3808ca44a4887e881a53992611, type: 3}
-  LanternInvertedSprite: {fileID: 21300000, guid: 73597eecb96a1d2459021df168caeae5,
-    type: 3}
-  TendInvertedSprite: {fileID: 21300000, guid: 5a4310e8798fa9c4c881d62ce62b0fe5, type: 3}
   widgetImages:
   - image: {fileID: 8694857838846231911}
     variations:
@@ -999,7 +992,12 @@ MonoBehaviour:
   boatSteering: {fileID: 0}
   stationChangeMinSpeed: 1
   stationChangeTopSpeed: 2
+  stationChangeTravelScale: 2
   stationChangeAcceptableRange: 0.01
+  TendRepairRate: 0.5
+  RudderRepairRate: 0.5
+  SailRepairRate: 0.5
+  LanternRepairRate: 0.5
 --- !u!1 &6086966195927246845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,9 +1033,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 262.69, y: 1.2}
+  m_AnchoredPosition: {x: 262.69, y: 22.833618}
   m_SizeDelta: {x: 50.832138, y: 50.832138}
-  m_Pivot: {x: 0.5, y: 0.074410446}
+  m_Pivot: {x: 0.4999999, y: 0.49999967}
 --- !u!222 &6086966195927246833
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1066,7 +1064,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: b043b3ceb158fea47af12e04b205b72c, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
