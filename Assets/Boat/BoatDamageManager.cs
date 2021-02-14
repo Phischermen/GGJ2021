@@ -1,17 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class BoatDamageManager : MonoBehaviour
 {
     public int hp = 3;
+    int maxHp;
     public int iframes = 0;
 
     public List<SpriteRenderer> sprites;
     // Initialized outside of class
     public GameMaster gameMaster;
     public BoatWidget boatWidget;
+    public Image lifeRing;
 
     private AudioSource audioSource;
 
@@ -21,6 +24,7 @@ public class BoatDamageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxHp = hp;
         sprites = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
         //gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         //gameMaster = GameObject.FindObjectOfType<GameMaster>();
@@ -48,6 +52,7 @@ public class BoatDamageManager : MonoBehaviour
             iframes -= 1;
             ShowSprites((iframes % 2) == 0);
         }
+        lifeRing.fillAmount = Mathf.Lerp(lifeRing.fillAmount, (float)hp / (float)maxHp, 0.1f);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -65,7 +70,7 @@ public class BoatDamageManager : MonoBehaviour
             // Start flashing
             iframes = 60;
             hp -= 1;
-            if (hp < 0)
+            if (hp <= 0)
             {
                 ShowSprites(false);
                 iframes = 0;
