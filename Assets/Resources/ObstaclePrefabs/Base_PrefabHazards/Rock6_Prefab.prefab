@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702828572511087303}
   - component: {fileID: 1702828572511087304}
-  - component: {fileID: 1702828572511087302}
+  - component: {fileID: 1208139095}
   m_Layer: 0
   m_Name: rock6_dark
   m_TagString: Untagged
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1332975213
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 42a43af219b59994f9ff09ec7b9d1a97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!70 &1702828572511087302
-CapsuleCollider2D:
+--- !u!60 &1208139095
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,9 +95,33 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.02853896, y: -0.07524002}
-  m_Size: {x: 1.951413, y: 1.308964}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.6, y: 2.3}
+    newSize: {x: 2.6, y: 2.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.19682923, y: 0.62669075}
+      - {x: -0.4989376, y: 0.421812}
+      - {x: -0.7756259, y: 0.4685598}
+      - {x: -1.0728836, y: 0.21998566}
+      - {x: -1.022694, y: -0.09015751}
+      - {x: -0.5730739, y: -0.055677295}
+      - {x: -0.7360476, y: -0.31190312}
+      - {x: -0.23371792, y: -0.7642375}
+      - {x: 0.5553413, y: -0.69087064}
+      - {x: 0.80946934, y: -0.2894709}
+      - {x: 0.9664375, y: -0.010686576}
+      - {x: 0.84831285, y: 0.17933089}
+      - {x: 0.63119376, y: 0.32082587}
+      - {x: 0.5348747, y: 0.66723627}
+      - {x: 0.084753275, y: 0.55371416}
 --- !u!1 &1702828573405472031
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702828573405472029}
   - component: {fileID: 1702828573405472030}
-  - component: {fileID: 1702828573405472028}
+  - component: {fileID: 1208139096}
   m_Layer: 0
   m_Name: rock6_lit
   m_TagString: Untagged
@@ -167,7 +191,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1332975213
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f5aa2a81e08395545b27bf0749141e53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,8 +204,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!70 &1702828573405472028
-CapsuleCollider2D:
+--- !u!60 &1208139096
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,9 +217,33 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.028538955, y: -0.07524002}
-  m_Size: {x: 1.9514127, y: 1.3089643}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.6, y: 2.3}
+    newSize: {x: 2.6, y: 2.3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.19682923, y: 0.62669075}
+      - {x: -0.4989376, y: 0.421812}
+      - {x: -0.7756259, y: 0.4685598}
+      - {x: -1.0728836, y: 0.21998566}
+      - {x: -1.022694, y: -0.09015751}
+      - {x: -0.5730739, y: -0.055677295}
+      - {x: -0.7360476, y: -0.31190312}
+      - {x: -0.23371792, y: -0.7642375}
+      - {x: 0.5553413, y: -0.69087064}
+      - {x: 0.80946934, y: -0.2894709}
+      - {x: 0.9664375, y: -0.010686576}
+      - {x: 0.84831285, y: 0.17933089}
+      - {x: 0.63119376, y: 0.32082587}
+      - {x: 0.5348747, y: 0.66723627}
+      - {x: 0.084753275, y: 0.55371416}
 --- !u!1 &1702828574018649676
 GameObject:
   m_ObjectHideFlags: 0

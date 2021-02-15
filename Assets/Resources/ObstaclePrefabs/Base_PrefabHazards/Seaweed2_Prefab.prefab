@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532249967144861686}
   - component: {fileID: 1532249967144861687}
-  - component: {fileID: 1532249967144861684}
+  - component: {fileID: 498432911}
   m_Layer: 0
   m_Name: seaweed2_dark
   m_TagString: Untagged
@@ -101,7 +101,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1332975213
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 99dcd71ac32f0dd4e97d4e50d9abf404, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -114,8 +114,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!70 &1532249967144861684
-CapsuleCollider2D:
+--- !u!60 &498432911
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,9 +127,26 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01764774, y: 0.07940479}
-  m_Size: {x: 1.234163, y: 1.034181}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.74, y: 1.64}
+    newSize: {x: 1.74, y: 1.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.37130976, y: -0.44000733}
+      - {x: 0.6667516, y: -0.024305701}
+      - {x: 0.10504699, y: 0.1677581}
+      - {x: 0.032451153, y: 0.5156081}
+      - {x: -0.33963826, y: 0.62455}
+      - {x: -0.5141239, y: 0.21401978}
+      - {x: -0.3624354, y: -0.35756493}
+      - {x: -0.07680089, y: -0.36036164}
 --- !u!1 &1532249967808028051
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532249967808028048}
   - component: {fileID: 1532249967808028049}
-  - component: {fileID: 1532249967808028054}
+  - component: {fileID: 498432912}
   m_Layer: 0
   m_Name: seaweed2_lit
   m_TagString: Untagged
@@ -199,7 +216,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1332975213
-  m_SortingLayer: 1
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dc98770b7b1a2ad479638573b667b124, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -212,8 +229,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
---- !u!70 &1532249967808028054
-CapsuleCollider2D:
+--- !u!60 &498432912
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -225,6 +242,23 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017647736, y: 0.079404786}
-  m_Size: {x: 1.2341627, y: 1.034181}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.74, y: 1.64}
+    newSize: {x: 1.74, y: 1.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.37130976, y: -0.44000733}
+      - {x: 0.6667516, y: -0.024305701}
+      - {x: 0.10504699, y: 0.1677581}
+      - {x: 0.032451153, y: 0.5156081}
+      - {x: -0.33963826, y: 0.62455}
+      - {x: -0.5141239, y: 0.21401978}
+      - {x: -0.3624354, y: -0.35756493}
+      - {x: -0.07680089, y: -0.36036164}
