@@ -7,10 +7,15 @@ public class Dialogue_ZFF : MonoBehaviour
 {
 
     public TextMeshProUGUI textDisplay;
-    public string[] sentences;
+    public Message[] sentences;
     private int index;
     public float typingSpeed;
-
+    [System.Serializable]
+    public class Message
+    {
+        public string sentence;
+        public Sprite portrait;
+    }
     private void Start()
     {
         StartCoroutine(Type());
@@ -19,7 +24,7 @@ public class Dialogue_ZFF : MonoBehaviour
     IEnumerator Type()
     {
 
-        foreach(char letter in sentences[index].ToCharArray())
+        foreach(char letter in sentences[index].sentence.ToCharArray())
         {
             textDisplay.text += letter;
             yield return new WaitForSeconds(typingSpeed);
