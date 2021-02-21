@@ -19,6 +19,9 @@ public class BoatWidget : MonoBehaviour
     public GameObject Murphey;
     RectTransform MurpheyPosition;
 
+    public AudioSource clickSource;
+    public AudioSource footStepLoop;
+
     Button RudderButton;
     Button HelmButton;
     Button SailButton;
@@ -250,6 +253,7 @@ public class BoatWidget : MonoBehaviour
         {
             currentStation = targetStation;
             MurpheyWalk.SetActive(false);
+            footStepLoop.Stop();
             stations[(int)currentStation].OnManStation.Invoke();
         }
         // Loop through stations
@@ -350,6 +354,8 @@ public class BoatWidget : MonoBehaviour
     #region Button Callbacks
     public void AnyButtonPressed()
     {
+        clickSource.Play();
+        footStepLoop.Play();
         if (boatSteering)
         {
             boatSteering.atHelm = false;
