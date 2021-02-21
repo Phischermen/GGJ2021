@@ -972,9 +972,11 @@ MonoBehaviour:
   sailFillLoop: {fileID: 0}
   fullSailLoop: {fileID: 0}
   tornSailLoop: {fileID: 8300000, guid: d60c44d30c620a3419f26c3144c2620b, type: 3}
-  sailBreakAudioSource: {fileID: 0}
+  sailBreakAudioSource: {fileID: 8658842051691721790}
   sailTear: {fileID: 8300000, guid: 5f0df177c6a66cb45879d50e897a1506, type: 3}
   sailRepair: {fileID: 8300000, guid: 19d12c2e720b44b43a7d20f5069f38ba, type: 3}
+  sailRaise: {fileID: 8300000, guid: cef8b5273952d36419694409c88e28fe, type: 3}
+  sailLower: {fileID: 8300000, guid: dc32712fee2d3e94088c4ba193f80240, type: 3}
 --- !u!1 &6902302044392002801
 GameObject:
   m_ObjectHideFlags: 0
