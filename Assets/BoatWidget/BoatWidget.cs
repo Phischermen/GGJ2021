@@ -59,9 +59,9 @@ public class BoatWidget : MonoBehaviour
             {
                 var StationInvertedBackground = new GameObject();
                 var rt = StationInvertedBackground.AddComponent<RectTransform>();
+                StationInvertedBackground.transform.SetParent(image.transform, worldPositionStays: false);
                 rt.MatchOther(image.rectTransform);
                 rt.Translate(-Vector3.forward);
-                StationInvertedBackground.transform.parent = image.transform;
                 StationButtonInvertedImage = StationInvertedBackground.AddComponent<Image>();
                 StationButtonInvertedImage.raycastTarget = false;
                 StationButtonInvertedImage.type = Image.Type.Filled;
