@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8097004988596485571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8097004988596485629}
+  - component: {fileID: 8097004988596485570}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8097004988596485629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097004988596485571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 214.91284, y: 177.59985, z: -16.4375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8097004988596485570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097004988596485571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cbd33c27437a1844b6a75353afc9f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 0}
+  sentences:
+  - "The storm\u2019s coming\u2026 Make for the Lighthouse, quickly!"
+  - "We\u2019re at the mercy of the sea without that sail!"
+  - "We\u2019ll need that rudder to navigate the rocks."
+  - "The Lantern! A dark tempest is no friend of ours\u2026"
+  - "The wind\u2019s alive! Be warry, lest it rip our sail to shreds!"
+  - Ha! Even the might of the sea is against us!
+  - Murphy! Eyes on the rocks!
+  - Murphy, navigate from the wheel!
+  - "Remember Murphy, hoist n\u2019 lower the sail from the mast!"
+  - Captain? Captain!
+  - Ah, the wheel!
+  - "Oh, the sail\u2026"
+  - Make your way to the lighthouse before you sink.
+  - The storm worsens in the darkness.
+  typingSpeed: 0.03
