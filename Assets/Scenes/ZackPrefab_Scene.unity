@@ -845,17 +845,17 @@ PrefabInstance:
     - target: {fileID: 3754478034899460825, guid: c4f871b96a77be541a196fc051148308,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: 0.92
       objectReference: {fileID: 0}
     - target: {fileID: 3754478034899460825, guid: c4f871b96a77be541a196fc051148308,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 2.46
       objectReference: {fileID: 0}
     - target: {fileID: 3754478034899460825, guid: c4f871b96a77be541a196fc051148308,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3754478034899460825, guid: c4f871b96a77be541a196fc051148308,
         type: 3}
@@ -896,6 +896,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RippleParticleManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754478034899460831, guid: c4f871b96a77be541a196fc051148308,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754478034899460831, guid: c4f871b96a77be541a196fc051148308,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -240679887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4f871b96a77be541a196fc051148308, type: 3}
