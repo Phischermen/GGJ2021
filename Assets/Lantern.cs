@@ -12,7 +12,6 @@ public class Lantern : MonoBehaviour
     void Start()
     {
         illum = GetComponent<SpriteMask>();
-        transform.parent.GetComponent<BoatSteering>().lantern = this;
         audio = GetComponent<AudioSource>();
     }
 

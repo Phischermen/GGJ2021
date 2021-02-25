@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Sail : MonoBehaviour
 {
-    BoatSteering boat;
     public bool open = true;
     public bool torn = false;
     public bool atSail = false;
@@ -34,9 +33,6 @@ public class Sail : MonoBehaviour
     void Start()
     {
         sailFillLoop = GameObject.Find("SailFillAudio").GetComponent<AudioSource>();
-        //sailBreakAudioSource = GameObject.Find("SailAudio").GetComponent<AudioSource>();
-        boat = transform.parent.GetComponent<BoatSteering>();
-        boat.sail = this;
     }
 
     // Update is called once per frame

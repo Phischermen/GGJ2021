@@ -358,9 +358,8 @@ public class BoatWidget : MonoBehaviour
         footStepLoop.Play();
         if (boat)
         {
-            var boatSteering = boat.steering;
-            boatSteering.atHelm = false;
-            boatSteering.sail.atSail = false;
+            boat.steering.atHelm = false;
+            boat.sail.atSail = false;
         }
         MurpheyWalk.SetActive(true);
         MurpheyHelm.SetActive(false);
@@ -411,7 +410,7 @@ public class BoatWidget : MonoBehaviour
     public void SailManned()
     {
         MurpheySail.SetActive(true);
-        if (boat) boat.steering.sail.atSail = true;
+        if (boat) boat.sail.atSail = true;
     }
     public void RudderManned()
     {
