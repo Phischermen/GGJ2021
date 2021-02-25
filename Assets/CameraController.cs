@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    GameObject Boat;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Boat = GameObject.FindGameObjectWithTag("Boat");
-    }
+    // Initialized via Boat.cs
+    public GameObject Boat;
 
     // Update is called once per frame
     void Update()

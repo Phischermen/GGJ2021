@@ -134,7 +134,7 @@ public class BoatWidget : MonoBehaviour
     // Initializes outside of BoatWidget
     // TODO Change this to the soon to come "Boat" component
     [HideInInspector]
-    public BoatSteering boatSteering;
+    public Boat boat;
 
     StationNames currentStation;
     StationNames targetStation;
@@ -356,10 +356,10 @@ public class BoatWidget : MonoBehaviour
     {
         clickSource.Play();
         footStepLoop.Play();
-        if (boatSteering)
+        if (boat)
         {
-            boatSteering.atHelm = false;
-            boatSteering.sail.atSail = false;
+            boat.steering.atHelm = false;
+            boat.sail.atSail = false;
         }
         MurpheyWalk.SetActive(true);
         MurpheyHelm.SetActive(false);
@@ -405,12 +405,12 @@ public class BoatWidget : MonoBehaviour
     public void HelmManned()
     {
         MurpheyHelm.SetActive(true);
-        if (boatSteering) boatSteering.atHelm = true;
+        if (boat) boat.steering.atHelm = true;
     }
     public void SailManned()
     {
         MurpheySail.SetActive(true);
-        if (boatSteering) boatSteering.sail.atSail = true;
+        if (boat) boat.sail.atSail = true;
     }
     public void RudderManned()
     {
@@ -428,19 +428,19 @@ public class BoatWidget : MonoBehaviour
     #region Station Repaired Callbacks
     public void RepairRudder()
     {
-        boatSteering.RudderFix();
+        boat.steering.RudderFix();
     }
     public void RepairSail()
     {
-        boatSteering.sail.RepairSail();
+        boat.sail.RepairSail();
     }
     public void RepairLantern()
     {
-        boatSteering.lantern.Light();
+        boat.lantern.Light();
     }
     public void RepairTend()
     {
-        boatSteering.captain.Wake();
+        boat.captain.Wake();
     }
     #endregion
 }
