@@ -13,7 +13,7 @@ public class Captain : MonoBehaviour
     public Sprite noCaptain;
     public SpriteRenderer ship;
 
-    Animator anim;
+    public Animator anim;
     Image img;
     public Sprite awakeSpr;
     public Sprite sleepingSpr;

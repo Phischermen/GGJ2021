@@ -27,6 +27,7 @@ public class GameInit : MonoBehaviour
         obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
 
         var boatWidget = boatWidgetInScene.GetComponent<BoatWidget>();
+        boat.GetComponent<Boat>().BindBoatToBoatWidget(boatWidget);
         boatWidget.boatSteering = boatSteering;
         boatWidget.lantern = boat.GetComponentInChildren<Lantern>();
 
