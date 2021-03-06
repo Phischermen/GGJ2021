@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lantern : MonoBehaviour
 {
-    AudioSource audio;
+    new AudioSource audio;
     SpriteMask illum;
     public bool lit = true;
 
