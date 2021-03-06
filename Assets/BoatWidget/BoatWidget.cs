@@ -70,7 +70,7 @@ public class BoatWidget : MonoBehaviour
                 StationButtonInvertedImage.type = Image.Type.Filled;
                 StationButtonInvertedImage.fillMethod = Image.FillMethod.Radial360;
                 StationButtonInvertedImage.fillAmount = 0f;
-                StationButtonInvertedImage.sprite = Resources.Load<Sprite>("Sprites/UI/" + sprite.name + "_Invert");
+                StationButtonInvertedImage.sprite = Resources.Load<Sprite>("Sprites/UI/uiButtons/" + sprite.name + "_invert");
             }
         }
         public void ProgressRepair(float rate)

@@ -885,7 +885,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0eeaee7b860226a4f870d0c6e6b47473, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a9b713bd59a2264bbe3c500f4447c24, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5420cb01a4aad514298560b052e18994, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 209fa49f72846e0418783f017455a7ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1196,12 +1196,12 @@ MonoBehaviour:
   SailButtonImage: {fileID: 6086966195927246832}
   LanternButtonImage: {fileID: 6086966196151700318}
   TendButtonImage: {fileID: 6086966196726792997}
-  RudderNormalSprite: {fileID: 21300000, guid: 0eeaee7b860226a4f870d0c6e6b47473, type: 3}
-  HelmNormalSprite: {fileID: 21300000, guid: 5420cb01a4aad514298560b052e18994, type: 3}
-  SailNormalSprite: {fileID: 21300000, guid: b043b3ceb158fea47af12e04b205b72c, type: 3}
-  LanternNormalSprite: {fileID: 21300000, guid: b6efda2b2d3420c468b3ed5febeb2797,
+  RudderNormalSprite: {fileID: 21300000, guid: 6a9b713bd59a2264bbe3c500f4447c24, type: 3}
+  HelmNormalSprite: {fileID: 21300000, guid: 209fa49f72846e0418783f017455a7ba, type: 3}
+  SailNormalSprite: {fileID: 21300000, guid: c498eefe3d38b7c4b880d7b3e315dd6c, type: 3}
+  LanternNormalSprite: {fileID: 21300000, guid: 2978e89920d9c594e9ef8238686d3828,
     type: 3}
-  TendNormalSprite: {fileID: 21300000, guid: 05446699924bc064faa0abdf081f8f91, type: 3}
+  TendNormalSprite: {fileID: 21300000, guid: 73f9924d626517f4e815639f8db77298, type: 3}
   widgetImages:
   - image: {fileID: 8694857838846231911}
     variations:
@@ -1257,7 +1257,7 @@ MonoBehaviour:
   MurpheyLantern: {fileID: 3791913789546876317}
   MurpheyTend: {fileID: 2147987491163523481}
   MurpheyWalk: {fileID: 1019218316053638978}
-  boatSteering: {fileID: 0}
+  boat: {fileID: 0}
   stationChangeMinSpeed: 1
   stationChangeTopSpeed: 2
   stationChangeTravelScale: 2
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b043b3ceb158fea47af12e04b205b72c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c498eefe3d38b7c4b880d7b3e315dd6c, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b6efda2b2d3420c468b3ed5febeb2797, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2978e89920d9c594e9ef8238686d3828, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 05446699924bc064faa0abdf081f8f91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73f9924d626517f4e815639f8db77298, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
