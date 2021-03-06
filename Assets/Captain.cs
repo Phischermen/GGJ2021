@@ -13,26 +13,10 @@ public class Captain : MonoBehaviour
     public Sprite noCaptain;
     public SpriteRenderer ship;
 
-    Animator anim;
-    Image img;
+    public Animator anim;
+    public Image img;
     public Sprite awakeSpr;
     public Sprite sleepingSpr;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // TODO Initialize this outside of class. LifeRing UI takes president over boat widget, so FindObjectOfType is unreliable
-        GameObject capUI = GameObject.FindObjectOfType<Canvas>().GetComponentInChildren<Animator>().gameObject;
-        //Debug.Log(capUI);
-        anim = capUI.GetComponent<Animator>();
-        img = capUI.GetComponent<Image>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Wake()
     {

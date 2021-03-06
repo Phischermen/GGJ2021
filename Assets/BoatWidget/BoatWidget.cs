@@ -19,6 +19,9 @@ public class BoatWidget : MonoBehaviour
     public GameObject Murphey;
     RectTransform MurpheyPosition;
 
+    public AudioSource clickSource;
+    public AudioSource footStepLoop;
+
     Button RudderButton;
     Button HelmButton;
     Button SailButton;
@@ -59,9 +62,9 @@ public class BoatWidget : MonoBehaviour
             {
                 var StationInvertedBackground = new GameObject();
                 var rt = StationInvertedBackground.AddComponent<RectTransform>();
+                StationInvertedBackground.transform.SetParent(image.transform, worldPositionStays: false);
                 rt.MatchOther(image.rectTransform);
                 rt.Translate(-Vector3.forward);
-                StationInvertedBackground.transform.parent = image.transform;
                 StationButtonInvertedImage = StationInvertedBackground.AddComponent<Image>();
                 StationButtonInvertedImage.raycastTarget = false;
                 StationButtonInvertedImage.type = Image.Type.Filled;
@@ -131,7 +134,7 @@ public class BoatWidget : MonoBehaviour
     // Initializes outside of BoatWidget
     // TODO Change this to the soon to come "Boat" component
     [HideInInspector]
-    public BoatSteering boatSteering;
+    public Boat boat;
 
     StationNames currentStation;
     StationNames targetStation;
@@ -250,6 +253,7 @@ public class BoatWidget : MonoBehaviour
         {
             currentStation = targetStation;
             MurpheyWalk.SetActive(false);
+            footStepLoop.Stop();
             stations[(int)currentStation].OnManStation.Invoke();
         }
         // Loop through stations
@@ -350,10 +354,12 @@ public class BoatWidget : MonoBehaviour
     #region Button Callbacks
     public void AnyButtonPressed()
     {
-        if (boatSteering)
+        clickSource.Play();
+        footStepLoop.Play();
+        if (boat)
         {
-            boatSteering.atHelm = false;
-            boatSteering.sail.atSail = false;
+            boat.steering.atHelm = false;
+            boat.sail.atSail = false;
         }
         MurpheyWalk.SetActive(true);
         MurpheyHelm.SetActive(false);
@@ -399,12 +405,12 @@ public class BoatWidget : MonoBehaviour
     public void HelmManned()
     {
         MurpheyHelm.SetActive(true);
-        if (boatSteering) boatSteering.atHelm = true;
+        if (boat) boat.steering.atHelm = true;
     }
     public void SailManned()
     {
         MurpheySail.SetActive(true);
-        if (boatSteering) boatSteering.sail.atSail = true;
+        if (boat) boat.sail.atSail = true;
     }
     public void RudderManned()
     {
@@ -422,19 +428,19 @@ public class BoatWidget : MonoBehaviour
     #region Station Repaired Callbacks
     public void RepairRudder()
     {
-        boatSteering.RudderFix();
+        boat.steering.RudderFix();
     }
     public void RepairSail()
     {
-        boatSteering.sail.RepairSail();
+        boat.sail.RepairSail();
     }
     public void RepairLantern()
     {
-        boatSteering.lantern.Light();
+        boat.lantern.Light();
     }
     public void RepairTend()
     {
-        boatSteering.captain.Wake();
+        boat.captain.Wake();
     }
     #endregion
 }

@@ -18,37 +18,33 @@ public class GameInit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Instantiate game master
         var gameMaster = Instantiate(gameMasterPrefab);
+        // Instantiate and setup boat
         var boat = Instantiate(boatPrefab);
-        var boatSteering = boat.GetComponent<BoatSteering>();
+        var boatComponent = boat.GetComponent<Boat>();
+        // Instantiate and setup Obstacle Spawner
         var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
-        var wind = Instantiate(windPrefab);
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
         obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
-
+        // Instantiate wind
+        // Wind attaches itself to boat when instantiated
+        var wind = Instantiate(windPrefab);
+        // Setup boat widget
+        // Boat widget is assigned through inspector
         var boatWidget = boatWidgetInScene.GetComponent<BoatWidget>();
-        boatWidget.boatSteering = boatSteering;
-        boatWidget.lantern = boat.GetComponentInChildren<Lantern>();
-
-        var boatDamageManager = boat.GetComponent<BoatDamageManager>();
-        boatDamageManager.boatWidget = boatWidget;
-        boatDamageManager.gameMaster = gameMaster.GetComponent<GameMaster>();
-        boatDamageManager.SetupDamageActions();
-
+        boatComponent.BindBoatToBoatWidget(boatWidget);
+        boatComponent.damageManager.gameMaster = gameMaster.GetComponent<GameMaster>();
+        // Instantiate and setup light house
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
-        var d = GetDistanceTraveledOverTime(boatSteering.baseSpeed, minimumTravelTime);
-
+        var d = GetDistanceTraveledOverTime(boatComponent.steering.baseSpeed, minimumTravelTime);
+        // Position boat and light house.
+        // TODO place boat in the middle of obstacle grid, and place light house at an offset from this position.
         boat.transform.position = Vector3.zero;
         lightHouse.transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * initABBALH) * d, Mathf.Cos(Mathf.Deg2Rad * initABBALH) * d, 0f);
         boat.transform.Rotate(0f, 0f, -initABBALH);
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 
     public float GetDistanceTraveledOverTime(float speed, float time)
     {
