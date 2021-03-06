@@ -132,7 +132,6 @@ public class BoatWidget : MonoBehaviour
     List<Sprite> WidgetImages;
 
     // Initializes outside of BoatWidget
-    // TODO Change this to the soon to come "Boat" component
     [HideInInspector]
     public Boat boat;
 
@@ -186,6 +185,9 @@ public class BoatWidget : MonoBehaviour
 
         targetDeckPosition = helmStationPosition;
         currentDeckPosition = helmStationPosition;
+
+        targetStation = StationNames.helm;
+        currentStation = StationNames.helm;
 
         // Get Buttons
         RudderButton = GameObject.Find("Rudder").GetComponent<Button>();
