@@ -10,7 +10,7 @@ public class Boat : MonoBehaviour
     public Lantern lantern;
     public Sail sail;
     public Captain captain;
-    private void Start()
+    private void Awake()
     {
         // Initialize sub components
         steering = GetComponentInChildren<BoatSteering>();
