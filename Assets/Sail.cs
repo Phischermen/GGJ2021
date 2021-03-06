@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Sail : MonoBehaviour
 {
-    BoatSteering boat;
     public bool open = true;
     public bool torn = false;
     public bool atSail = false;
@@ -28,13 +27,12 @@ public class Sail : MonoBehaviour
     public AudioSource sailBreakAudioSource;
     public AudioClip sailTear;
     public AudioClip sailRepair;
+    public AudioClip sailRaise;
+    public AudioClip sailLower;
     // Start is called before the first frame update
     void Start()
     {
         sailFillLoop = GameObject.Find("SailFillAudio").GetComponent<AudioSource>();
-        sailBreakAudioSource = GameObject.Find("SailAudio").GetComponent<AudioSource>();
-        boat = transform.parent.GetComponent<BoatSteering>();
-        boat.sail = this;
     }
 
     // Update is called once per frame
@@ -46,7 +44,7 @@ public class Sail : MonoBehaviour
             if (Mathf.Abs(raiselower) > .1)
             {
                 bool opening = raiselower > 0 ? true : false;
-                OpenClose(opening);
+                if (opening != open) OpenClose(opening);
             }
             float rotation = Input.GetAxis("Horizontal");
             if (Mathf.Abs(rotation) > .1)
@@ -68,6 +66,14 @@ public class Sail : MonoBehaviour
         Fill fill = opening ? Fill.Low : Fill.Closed;
         SetSprites(fill);
         open = opening;
+        if (opening)
+        {
+            sailBreakAudioSource.PlayOneShot(sailRaise);
+        }
+        else
+        {
+            sailBreakAudioSource.PlayOneShot(sailLower);
+        }
     }
     public void TearSail()
     {

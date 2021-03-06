@@ -17,10 +17,8 @@ public class BoatSteering : MonoBehaviour
     [SerializeField]
     float moveMagnitude;
 
+    public Boat boat;
     public Wind wind;
-    public Sail sail;
-    public Lantern lantern;
-    public Captain captain;
 
     public AudioSource audioSource;
 
@@ -30,7 +28,6 @@ public class BoatSteering : MonoBehaviour
     void Start()
     {
         audioSource = GameObject.Find("RudderAudio").GetComponent<AudioSource>();
-        captain = this.GetComponent<Captain>();
     }
 
     // Update is called once per frame
@@ -57,15 +54,16 @@ public class BoatSteering : MonoBehaviour
                 transform.Rotate(Vector3.back * rotation * turnSpeed * Time.deltaTime);
             }
         }
-        sailOpen = sail.open && !sail.torn;
+        sailOpen = boat.sail.open && !boat.sail.torn;
         //Forward Motion: Move forward if sail is up, lerp towards new move vector
-        Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero;
+        Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero; // TODO Replace Vector3.zero with a "drifting" movement
         moveVector = Vector3.Lerp(moveVector, targetVector, accelerationLerp * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
-        float windDotSail = Vector2.Dot(wind.windVector.normalized, sail.transform.up.normalized);
+        var windVector = (wind != null) ? wind.windVector : Vector2.zero;
+        float windDotSail = Vector2.Dot(windVector.normalized, boat.sail.transform.up.normalized);
         float windEffect = sailOpen ? 1 - Mathf.Abs(windDotSail) : 0;
-        if (sailOpen) { sail.UpdateWind(wind.windVector.normalized); }
-        Vector2 windVector = windEffect * wind.windVector * Time.deltaTime;
+        if (sailOpen) { boat.sail.UpdateWind(windVector.normalized); }
+        windVector = windEffect * windVector * Time.deltaTime;
         Vector2 finalVector = windVector + moveVector;
         //Debug.Log(finalVector);
         transform.position = new Vector3(transform.position.x + finalVector.x, transform.position.y + finalVector.y, transform.position.z);
