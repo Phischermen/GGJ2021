@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -23,7 +24,7 @@ public class InstructionManual : MonoBehaviour
 
     [HideInInspector]
     public Sprite[] manualPages;
-
+    public Action OnNextPressedOnLastPage;
     private int _page;
     public int Page
     {
@@ -39,7 +40,7 @@ public class InstructionManual : MonoBehaviour
 
             if (Page == manualPages.Length - 1)
             {
-                nextText.text = "Play";
+                nextText.text = preGameVersion ? "Play" : "Close";
             }
             else
             {
@@ -55,10 +56,17 @@ public class InstructionManual : MonoBehaviour
             }
         }
     }
-
+    public bool OnLastPage
+    {
+        get { return Page == manualPages.Length - 1; }
+    }
+    public bool open = false;
+    public bool preGameVersion = true;
     // Start is called before the first frame update
     void Start()
     {
+        // Manual starts closed
+        GetComponent<Canvas>().enabled = false;
         manualPages = Resources.LoadAll<Sprite>("Sprites/InstructionManual/Manual");
         Page = 0;
         next.onClick.AddListener(NextPressed);
@@ -73,12 +81,15 @@ public class InstructionManual : MonoBehaviour
 
     void NextPressed()
     {
-        if (Page != manualPages.Length - 1)
+        if (!OnLastPage)
         {
             pageTurn.Play();
             Page += 1;
             prev.gameObject.SetActive(true);
-
+        }
+        else if (OnNextPressedOnLastPage != null)
+        {
+            OnNextPressedOnLastPage.Invoke();
         }
     }
 
@@ -91,8 +102,10 @@ public class InstructionManual : MonoBehaviour
         }
     }
 
-    public void OpenInstructions(bool atLog)
+    public void OpenManual(bool atLog = false)
     {
+        if (open) return;
+        open = true;
         bookOpenClose.PlayOneShot(bookOpen);
         GetComponent<Canvas>().enabled = true;
         if (atLog)
@@ -104,8 +117,10 @@ public class InstructionManual : MonoBehaviour
             Page = (int)ManualContents.instructions;
         }
     }
-    public void CloseInstructions()
+    public void CloseManual()
     {
+        if (!open) return;
+        open = false;
         bookOpenClose.PlayOneShot(bookClose);
         GetComponent<Canvas>().enabled = false;
     }

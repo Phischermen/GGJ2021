@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuActions : MonoBehaviour
 {
+    public static bool HasPlayed = false;
     public void Play()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(HasPlayed ? 1 : 7);
+        HasPlayed = true;
     }
 
     public void Credits()

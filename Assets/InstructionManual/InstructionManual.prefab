@@ -170,7 +170,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640416436588280956}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -244,6 +244,7 @@ MonoBehaviour:
   bookOpen: {fileID: 8300000, guid: 4b271288938a744b3b23279ac3efe284, type: 3}
   bookClose: {fileID: 8300000, guid: 0ff1340ba8b504cd593a3e1434fdb0fd, type: 3}
   manualPages: []
+  preGameVersion: 1
 --- !u!1 &1315441424661053967
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +484,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d49839a97f7d20f4a87d27fbd4daa96e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -684,7 +685,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
