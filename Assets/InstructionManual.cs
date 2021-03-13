@@ -8,8 +8,8 @@ public class InstructionManual : MonoBehaviour
 {
     enum ManualContents
     {
-        log,
-        instructions
+        log = 0,
+        instructions = 3
     }
     // Initialized via inspector
     public Button next;
