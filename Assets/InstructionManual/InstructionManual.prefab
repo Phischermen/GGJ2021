@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 6488395808020017763}
   prev: {fileID: 6813968843641872621}
+  nextText: {fileID: 3386420653441367687}
   image: {fileID: 330742006148970776}
   pageTurn: {fileID: 2292126734286832754}
   manualPages: []

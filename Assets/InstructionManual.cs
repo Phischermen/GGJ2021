@@ -5,17 +5,26 @@ using UnityEngine;
 
 public class InstructionManual : MonoBehaviour
 {
+    enum ManualContents
+    {
+        log,
+        instructions
+    }
     // Initialized via inspector
     public Button next;
     public Button prev;
+    public Text nextText;
 
     public Image image;
     public AudioSource pageTurn;
+    public AudioSource bookOpenClose;
+    public AudioClip bookOpen;
+    public AudioClip bookClose;
 
+    [HideInInspector]
     public Sprite[] manualPages;
 
     private int _page;
-    private int maxPage;
     public int Page
     {
         get
@@ -27,6 +36,23 @@ public class InstructionManual : MonoBehaviour
             value = (int)Mathf.Clamp(value, 0f, manualPages.Length);
             _page = value;
             image.sprite = manualPages[value];
+
+            if (Page == manualPages.Length - 1)
+            {
+                nextText.text = "Play";
+            }
+            else
+            {
+                nextText.text = "Next";
+            }
+            if (Page == 0)
+            {
+                prev.gameObject.SetActive(false);
+            }
+            else
+            {
+                prev.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -34,6 +60,7 @@ public class InstructionManual : MonoBehaviour
     void Start()
     {
         manualPages = Resources.LoadAll<Sprite>("Sprites/InstructionManual/Manual");
+        Page = 0;
         next.onClick.AddListener(NextPressed);
         prev.onClick.AddListener(PrevPressed);
     }
@@ -50,6 +77,8 @@ public class InstructionManual : MonoBehaviour
         {
             pageTurn.Play();
             Page += 1;
+            prev.gameObject.SetActive(true);
+
         }
     }
 
@@ -60,5 +89,24 @@ public class InstructionManual : MonoBehaviour
             pageTurn.Play();
             Page -= 1;
         }
+    }
+
+    public void OpenInstructions(bool atLog)
+    {
+        bookOpenClose.PlayOneShot(bookOpen);
+        GetComponent<Canvas>().enabled = true;
+        if (atLog)
+        {
+            Page = (int)ManualContents.log;
+        }
+        else
+        {
+            Page = (int)ManualContents.instructions;
+        }
+    }
+    public void CloseInstructions()
+    {
+        bookOpenClose.PlayOneShot(bookClose);
+        GetComponent<Canvas>().enabled = false;
     }
 }
