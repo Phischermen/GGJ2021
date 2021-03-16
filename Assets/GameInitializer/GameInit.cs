@@ -24,10 +24,6 @@ public class GameInit : MonoBehaviour
         // Instantiate and setup boat
         var boat = Instantiate(boatPrefab);
         var boatComponent = boat.GetComponent<Boat>();
-        // Instantiate and setup Obstacle Spawner
-        var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
-        obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
-        obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
         // Instantiate wind
         // Wind attaches itself to boat when instantiated
         var wind = Instantiate(windPrefab);
@@ -44,11 +40,17 @@ public class GameInit : MonoBehaviour
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
         var d = GetDistanceTraveledOverTime(boatComponent.steering.baseSpeed, minimumTravelTime);
+        // Instantiate and setup Obstacle Spawner
+        var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
+        obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
+        obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
         // Position boat and light house.
         // TODO place boat in the middle of obstacle grid, and place light house at an offset from this position.
-        boat.transform.position = Vector3.zero;
-        lightHouse.transform.position = new Vector3(Mathf.Sin(Mathf.Deg2Rad * initABBALH) * d, Mathf.Cos(Mathf.Deg2Rad * initABBALH) * d, 0f);
+        boat.transform.position = obstacleSpawner.obstacleGrid.CellToWorld(new Vector3Int(50, 50, 0));
+        lightHouse.transform.position = boat.transform.position + new Vector3(Mathf.Sin(Mathf.Deg2Rad * initABBALH) * d, Mathf.Cos(Mathf.Deg2Rad * initABBALH) * d, 0f);
         boat.transform.Rotate(0f, 0f, -initABBALH);
+        // Set light house location for obstacle spawner
+        obstacleSpawner.LighthouseLocation = lightHouse.transform.position;
     }
 
     public float GetDistanceTraveledOverTime(float speed, float time)

@@ -11,6 +11,8 @@ public class ObstacleSpawner : MonoBehaviour
     // Initialized outside of this component
     public Grid obstacleGrid;
     Vector3Int currentCell;
+    public Vector3 LighthouseLocation;
+    float LighthouseNoSpawnRadius = 20f;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,12 +88,13 @@ public class ObstacleSpawner : MonoBehaviour
     {
         foreach (var cell in cells)
         {
-            if (obstacleSpawns.In2DArrayBounds(cell))
+            var worldPosition = obstacleGrid.CellToWorld(new Vector3Int(cell.x, cell.y, 0));
+            if (obstacleSpawns.In2DArrayBounds(cell) && Vector3.Distance(worldPosition, LighthouseLocation) > LighthouseNoSpawnRadius)
             {
                 var gobj = obstacleSpawns[cell.x, cell.y];
                 if (gobj == null)
                 {
-                    var ob = obstacleSpawns[cell.x, cell.y] = Instantiate(obstaclePool[(int)(Random.value * obstaclePool.Length)], obstacleGrid.CellToWorld(new Vector3Int(cell.x, cell.y, 0)), Quaternion.identity);
+                    var ob = obstacleSpawns[cell.x, cell.y] = Instantiate(obstaclePool[(int)(Random.value * obstaclePool.Length)], worldPosition, Quaternion.identity);
                     for(var i = 0; i < ob.transform.childCount; i++)
                     {
                         var child = ob.transform.GetChild(i);
