@@ -7,15 +7,27 @@ public class Dialogue_ZFF : MonoBehaviour
 {
 
     public TextMeshProUGUI textDisplay;
+    public Sprite portraitDisplay;
     public Message[] sentences;
     private int index;
     public float typingSpeed;
+    public GameObject dismissButton;
+    
     [System.Serializable]
     public class Message
     {
         public string sentence;
         public Sprite portrait;
     }
+
+    private void Update()
+    {
+        if (textDisplay.text == sentences[index].sentence)
+        {
+            dismissButton.SetActive(true);
+        }
+    }
+
     private void Start()
     {
         StartCoroutine(Type());
@@ -30,6 +42,12 @@ public class Dialogue_ZFF : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
 
+    }
+
+    private void Dismiss()
+    {
+        // The dialogue box will *shoop!* downwards when dismissed
+        dismissButton.SetActive(false);
     }
 
 }

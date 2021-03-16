@@ -22,6 +22,8 @@ public class BoatWidget : MonoBehaviour
     public AudioSource clickSource;
     public AudioSource footStepLoop;
 
+    Button ManualButton;
+    
     Button RudderButton;
     Button HelmButton;
     Button SailButton;
@@ -70,7 +72,7 @@ public class BoatWidget : MonoBehaviour
                 StationButtonInvertedImage.type = Image.Type.Filled;
                 StationButtonInvertedImage.fillMethod = Image.FillMethod.Radial360;
                 StationButtonInvertedImage.fillAmount = 0f;
-                StationButtonInvertedImage.sprite = Resources.Load<Sprite>("Sprites/UI/" + sprite.name + "_Invert");
+                StationButtonInvertedImage.sprite = Resources.Load<Sprite>("Sprites/UI/uiButtons/" + sprite.name + "_invert");
             }
         }
         public void ProgressRepair(float rate)
@@ -132,9 +134,10 @@ public class BoatWidget : MonoBehaviour
     List<Sprite> WidgetImages;
 
     // Initializes outside of BoatWidget
-    // TODO Change this to the soon to come "Boat" component
     [HideInInspector]
     public Boat boat;
+    [HideInInspector]
+    public InstructionManual manual;
 
     StationNames currentStation;
     StationNames targetStation;
@@ -187,12 +190,16 @@ public class BoatWidget : MonoBehaviour
         targetDeckPosition = helmStationPosition;
         currentDeckPosition = helmStationPosition;
 
+        targetStation = StationNames.helm;
+        currentStation = StationNames.helm;
+
         // Get Buttons
         RudderButton = GameObject.Find("Rudder").GetComponent<Button>();
         HelmButton = GameObject.Find("Helm").GetComponent<Button>();
         SailButton = GameObject.Find("Sail").GetComponent<Button>();
         LanternButton = GameObject.Find("Lantern").GetComponent<Button>();
         TendButton = GameObject.Find("Tend").GetComponent<Button>();
+        ManualButton = GameObject.Find("Help").GetComponent<Button>();
 
         // Get walking animated image. It is assumed to be the first element of widget animated images.
         MurphyWalkWidgetAnimatedImage = widgetAnimatedImages[0];
@@ -223,6 +230,8 @@ public class BoatWidget : MonoBehaviour
         LanternButton.onClick.AddListener(AnyButtonPressed);
         TendButton.onClick.AddListener(TendButtonPressed);
         TendButton.onClick.AddListener(AnyButtonPressed);
+
+        ManualButton.onClick.AddListener(ManualButtonPressed);
     }
 
     void Update()
@@ -399,6 +408,20 @@ public class BoatWidget : MonoBehaviour
         TendButtonImage.sprite = TendNormalSprite;
         targetStation = StationNames.tend;
         targetDeckPosition = tendStationPosition;
+    }
+    public void ManualButtonPressed()
+    {
+        // Close instead of open if manual already open
+        if (manual.open)
+        {
+            CloseManualPressed();
+            return;
+        }
+        manual.OpenManual();
+    }
+    public void CloseManualPressed()
+    {
+        manual.CloseManual();
     }
     #endregion
     #region Station Manned Callbacks

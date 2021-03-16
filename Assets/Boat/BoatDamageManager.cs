@@ -6,7 +6,16 @@ using System;
 
 public class BoatDamageManager : MonoBehaviour
 {
+    public enum DamageActions
+    {
+        sail,
+        rudder,
+        captain,
+        lantern,
+        numberOfDamageActions
+    }
     public int hp = 3;
+    public DamageActions damageActionTest;
     int maxHp;
     public int iframes = 0;
 
@@ -34,14 +43,19 @@ public class BoatDamageManager : MonoBehaviour
     {
         // Setup damage actions
         damageActions = new List<Action>();
-        damageActions.Add(GetComponentInChildren<Sail>().TearSail);
-        damageActions[damageActions.Count - 1] += boatWidget.SailTorn;
-        damageActions.Add(GetComponentInChildren<Lantern>().Extinguish);
-        damageActions[damageActions.Count - 1] += boatWidget.LanternExtinguished;
-        damageActions.Add(GetComponent<BoatSteering>().RudderBreak);
-        damageActions[damageActions.Count - 1] += boatWidget.RudderBroke;
-        damageActions.Add(GetComponent<Captain>().Sleep);
-        damageActions[damageActions.Count - 1] += boatWidget.CaptainAsleep;
+        for (int i = 0; i < (int)DamageActions.numberOfDamageActions; i++)
+        {
+            // Initialize with empty actions
+            damageActions.Add(()=>{});
+        }
+        damageActions[(int)DamageActions.sail] += GetComponentInChildren<Sail>().TearSail;
+        damageActions[(int)DamageActions.sail] += boatWidget.SailTorn;
+        damageActions[(int)DamageActions.lantern] += GetComponentInChildren<Lantern>().Extinguish;
+        damageActions[(int)DamageActions.lantern] += boatWidget.LanternExtinguished;
+        damageActions[(int)DamageActions.rudder] += GetComponent<BoatSteering>().RudderBreak;
+        damageActions[(int)DamageActions.rudder] += boatWidget.RudderBroke;
+        damageActions[(int)DamageActions.captain] += GetComponent<Captain>().Sleep;
+        damageActions[(int)DamageActions.captain] += boatWidget.CaptainAsleep;
     }
 
     //// Update is called once per frame
@@ -79,10 +93,18 @@ public class BoatDamageManager : MonoBehaviour
             }
             else
             {
-                if (UnityEngine.Random.value < damageActionProbability)
+                if (damageActionTest == DamageActions.numberOfDamageActions)
                 {
-                    // Pick and execute random damage event
-                    damageActions[UnityEngine.Random.Range(0, damageActions.Count)].Invoke();
+                    if (UnityEngine.Random.value < damageActionProbability)
+                    {
+                        // Pick and execute random damage event
+                        damageActions[UnityEngine.Random.Range(0, damageActions.Count)].Invoke();
+                    }
+                }
+                else
+                {
+                    // Play specific damage event for testing
+                    damageActions[(int)damageActionTest].Invoke();
                 }
             }
         }

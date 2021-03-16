@@ -9,6 +9,7 @@ public class GameInit : MonoBehaviour
     public GameObject lightHousePrefab;
     public GameObject boatWidgetInScene;
     public GameObject windPrefab;
+    public InstructionManual instructionManualInScene;
     [HideInInspector]
     public float initialDistance;
     // How long the game would last if the player could drive straight towards the lighthouse.
@@ -35,6 +36,10 @@ public class GameInit : MonoBehaviour
         var boatWidget = boatWidgetInScene.GetComponent<BoatWidget>();
         boatComponent.BindBoatToBoatWidget(boatWidget);
         boatComponent.damageManager.gameMaster = gameMaster.GetComponent<GameMaster>();
+        // Setup instruction manual
+        boatWidget.manual = instructionManualInScene;
+        boatWidget.manual.preGameVersion = false;
+        boatWidget.manual.OnNextPressedOnLastPage += boatWidget.CloseManualPressed;
         // Instantiate and setup light house
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
