@@ -14,7 +14,10 @@ public class InstructionManual : MonoBehaviour
     // Initialized via inspector
     public Button next;
     public Button prev;
-    public Text nextText;
+    public Image nextImage;
+    public Sprite nextSprite;
+    public Sprite playSprite;
+    public Sprite closeSprite;
 
     public Image image;
     public AudioSource pageTurn;
@@ -40,11 +43,11 @@ public class InstructionManual : MonoBehaviour
 
             if (Page == manualPages.Length - 1)
             {
-                nextText.text = preGameVersion ? "Play" : "Close";
+                nextImage.sprite = preGameVersion ? playSprite : closeSprite;
             }
             else
             {
-                nextText.text = "Next";
+                nextImage.sprite = nextSprite;
             }
             if (Page == 0)
             {
