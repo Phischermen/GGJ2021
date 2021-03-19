@@ -86,6 +86,7 @@ public class Sail : MonoBehaviour
             // Play tear sail sound
             sailBreakAudioSource.PlayOneShot(sailTear);
             torn = true;
+            SetSprites(Fill.Torn);
         }
     }
     public void RepairSail()
@@ -142,6 +143,9 @@ public class Sail : MonoBehaviour
                 lightSail.ChangeSprite(lightSail.full);
                 return;
             case Fill.Torn:
+                darkSail.ChangeSprite(darkSail.torn);
+                lightSail.ChangeSprite(lightSail.torn);
+                return;
             case Fill.Closed:
                 darkSail.ChangeSprite(darkSail.tied);
                 lightSail.ChangeSprite(lightSail.tied);

@@ -8,6 +8,7 @@ public class SailSprite : MonoBehaviour
     public Sprite medium;
     public Sprite low;
     public Sprite tied;
+    public Sprite torn;
 
     public SpriteRenderer sprRenderer;
     // Start is called before the first frame update

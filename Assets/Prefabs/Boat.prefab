@@ -971,6 +971,7 @@ MonoBehaviour:
   medium: {fileID: -8875707784900380884, guid: 87980fbea60d1674bad6b37a4b1bf090, type: 3}
   low: {fileID: 8935904046756266341, guid: 5662b3bfe14819f44a028f799c41d651, type: 3}
   tied: {fileID: 7999071501714396811, guid: 4a7daa54e61ad1e44990f933ddb3b228, type: 3}
+  torn: {fileID: 21300000, guid: c82519a7f517e0b46ba5eb755ec566f8, type: 3}
   sprRenderer: {fileID: 4462014654717824608}
 --- !u!1 &7124280420165535652
 GameObject:
@@ -1262,6 +1263,7 @@ MonoBehaviour:
   medium: {fileID: 7022277049653161960, guid: c65d45257bd954449bc5ab5292e50e17, type: 3}
   low: {fileID: 8574839721658120958, guid: a1e8e2f605d605f4fbd2f3cc212d5d07, type: 3}
   tied: {fileID: -5518227172153344089, guid: 99d05d0cd28ec06429cc672940e4fd50, type: 3}
+  torn: {fileID: 21300000, guid: edb04b4f78a0da3458091d33a6e51aa3, type: 3}
   sprRenderer: {fileID: 5867167132338654702}
 --- !u!1 &8101542482302158868
 GameObject:
