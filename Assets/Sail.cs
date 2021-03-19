@@ -50,6 +50,10 @@ public class Sail : MonoBehaviour
             if (Mathf.Abs(rotation) > .1)
             {
                 transform.Rotate(Vector3.forward * rotation * turnSpeed * Time.deltaTime);
+                float rotationZ = transform.localRotation.eulerAngles.z;
+                rotationZ = rotationZ > 180? Mathf.Clamp(rotationZ, 270, 360) : Mathf.Clamp(rotationZ, 0, 90);
+                Debug.Log("pre clamp: " + transform.localRotation.eulerAngles.z + "post clamp: " + rotationZ);
+                transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
             }
         }
     }
