@@ -6,7 +6,8 @@ public class BoatSteering : MonoBehaviour
 {
     public float baseSpeed = 10;
     public float turnSpeed = 5;
-    public float accelerationLerp = .2f;
+    public float accelerationLerp = 20f;
+    public float brakeLerp = 1f;
     [SerializeField]
     bool rudderWorking = true;
     [SerializeField]
@@ -57,7 +58,7 @@ public class BoatSteering : MonoBehaviour
         sailOpen = boat.sail.open && !boat.sail.torn;
         //Forward Motion: Move forward if sail is up, lerp towards new move vector
         Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero; // TODO Replace Vector3.zero with a "drifting" movement
-        moveVector = Vector3.Lerp(moveVector, targetVector, accelerationLerp * Time.deltaTime);
+        moveVector = Vector3.Lerp(moveVector, targetVector, (!boat.sail.torn ? accelerationLerp : brakeLerp) * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
         var windVector = (wind != null) ? wind.windVector : Vector2.zero;
         float windDotSail = Vector2.Dot(windVector.normalized, boat.sail.transform.up.normalized);

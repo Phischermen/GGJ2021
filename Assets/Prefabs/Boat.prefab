@@ -179,6 +179,7 @@ MonoBehaviour:
   baseSpeed: 1.5
   turnSpeed: 50
   accelerationLerp: 20
+  brakeLerp: 1
   rudderWorking: 1
   sailOpen: 1
   atHelm: 1
