@@ -17,7 +17,10 @@ public class BoatDamageManager : MonoBehaviour
     public int hp = 3;
     public DamageActions damageActionTest;
     int maxHp;
+    [HideInInspector]
     public int iframes = 0;
+    public int iframesOnHit = 60;
+    public int iframesOnConsecutiveHit = 10;
 
     public List<SpriteRenderer> sprites;
     // Initialized outside of class
@@ -77,12 +80,12 @@ public class BoatDamageManager : MonoBehaviour
         if (iframes > 0)
         {
             // Add a few more iframes
-            iframes += 10;
+            iframes += iframesOnConsecutiveHit;
         }
         else if (iframes == 0)
         {
             // Start flashing
-            iframes = 60;
+            iframes = iframesOnHit;
             hp -= 1;
             if (hp <= 0)
             {
