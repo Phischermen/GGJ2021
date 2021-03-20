@@ -236,6 +236,11 @@ public class BoatWidget : MonoBehaviour
 
     void Update()
     {
+        // Check input
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            HelmButton.onClick.Invoke();
+        }
         // Move Murphey across the deck
         var delta = (targetDeckPosition - currentDeckPosition) * stationChangeTravelScale;
         if (Mathf.Abs(delta) > stationChangeAcceptableRange)
