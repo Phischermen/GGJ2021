@@ -178,10 +178,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 1.5
   turnSpeed: 50
+  rudderBrokenTurnSpeed: 10
   accelerationLerp: 20
   brakeLerp: 1
   rudderWorking: 1
-  sailOpen: 1
+  sailOpenAndNotTorn: 1
   atHelm: 1
   moveVector: {x: 0, y: 0}
   moveMagnitude: 0
@@ -202,9 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0516bfec290e6d8408f919dfc1d51213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 4
+  hp: 5
   damageActionTest: 4
   iframes: 0
+  iframesOnHit: 60
+  iframesOnConsecutiveHit: 30
   sprites: []
   gameMaster: {fileID: 0}
   boatWidget: {fileID: 0}

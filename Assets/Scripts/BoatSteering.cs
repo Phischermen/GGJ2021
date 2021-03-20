@@ -5,13 +5,14 @@ using UnityEngine;
 public class BoatSteering : MonoBehaviour
 {
     public float baseSpeed = 10;
-    public float turnSpeed = 5;
+    public float turnSpeed = 50f;
+    public float rudderBrokenTurnSpeed = 10f;
     public float accelerationLerp = 20f;
     public float brakeLerp = 1f;
     [SerializeField]
     bool rudderWorking = true;
     [SerializeField]
-    bool sailOpen = true;
+    bool sailOpenAndNotTorn = true;
     public bool atHelm = true;
 
     public Vector2 moveVector;
@@ -41,29 +42,30 @@ public class BoatSteering : MonoBehaviour
             sail.OpenClose();
         }
         //Test Script: Break/Fix rudder with Right Click
-        */
+        
         if (Input.GetButtonDown("Fire2"))
         {
             RudderBreakFix();
         }
+        */
         //Ship turning
-        if (rudderWorking && atHelm)
+        if (atHelm)
         {
             float rotation = Input.GetAxis("Horizontal");
             if (Mathf.Abs(rotation) > .1)
             {
-                transform.Rotate(Vector3.back * rotation * turnSpeed * Time.deltaTime);
+                transform.Rotate(Vector3.back * rotation * (rudderWorking ? turnSpeed : rudderBrokenTurnSpeed) * Time.deltaTime);
             }
         }
-        sailOpen = boat.sail.open && !boat.sail.torn;
+        sailOpenAndNotTorn = boat.sail.open && !boat.sail.torn;
         //Forward Motion: Move forward if sail is up, lerp towards new move vector
-        Vector3 targetVector = sailOpen ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero; // TODO Replace Vector3.zero with a "drifting" movement
+        Vector3 targetVector = sailOpenAndNotTorn ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero;
         moveVector = Vector3.Lerp(moveVector, targetVector, (!boat.sail.torn ? accelerationLerp : brakeLerp) * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
         var windVector = (wind != null) ? wind.windVector : Vector2.zero;
         float windDotSail = Vector2.Dot(windVector.normalized, boat.sail.transform.up.normalized);
-        float windEffect = sailOpen ? 1 - Mathf.Abs(windDotSail) : 0;
-        if (sailOpen) { boat.sail.UpdateWind(windVector.normalized); }
+        float windEffect = sailOpenAndNotTorn ? 1 - Mathf.Abs(windDotSail) : 0;
+        if (sailOpenAndNotTorn) { boat.sail.UpdateWind(windVector.normalized); }
         windVector = windEffect * windVector * Time.deltaTime;
         Vector2 finalVector = windVector + moveVector;
         //Debug.Log(finalVector);
