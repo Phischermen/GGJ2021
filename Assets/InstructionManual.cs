@@ -70,7 +70,7 @@ public class InstructionManual : MonoBehaviour
     {
         // Manual starts closed
         GetComponent<Canvas>().enabled = false;
-        manualPages = Resources.LoadAll<Sprite>("Sprites/InstructionManual/Manual");
+        manualPages = Resources.LoadAll<Sprite>("Sprites/InstructionManual/Manual01");
         Page = 0;
         next.onClick.AddListener(NextPressed);
         prev.onClick.AddListener(PrevPressed);
