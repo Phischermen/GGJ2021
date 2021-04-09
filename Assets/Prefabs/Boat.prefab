@@ -205,9 +205,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   damageActionTest: 4
+  objectDestroyPrefab: {fileID: 954593871253175784, guid: 353c38304b7d5274d89b7912db46c594,
+    type: 3}
   iframes: 0
-  iframesOnHit: 60
-  iframesOnConsecutiveHit: 30
   sprites: []
   gameMaster: {fileID: 0}
   boatWidget: {fileID: 0}
