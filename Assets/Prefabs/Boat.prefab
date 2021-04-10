@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   damageActionTest: 4
-  reboundStrength: 1
+  reboundStrength: 0.1
   objectDestroyPrefab: {fileID: 954593871253175784, guid: 353c38304b7d5274d89b7912db46c594,
     type: 3}
   iframes: 0
