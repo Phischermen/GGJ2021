@@ -17,6 +17,7 @@ public class BoatDamageManager : MonoBehaviour
     public int hp = 3;
     public DamageActions damageActionTest;
     int maxHp;
+    public float reboundStrength = 0.5f;
     public GameObject objectDestroyPrefab;
     [HideInInspector]
     public int iframes = 0;
@@ -27,6 +28,7 @@ public class BoatDamageManager : MonoBehaviour
     // Initialized outside of class
     public GameMaster gameMaster;
     public BoatWidget boatWidget;
+    public Boat boat;
     public Image lifeRing;
 
     private AudioSource audioSource;
@@ -79,46 +81,65 @@ public class BoatDamageManager : MonoBehaviour
         {
             // Play crash sfx
             audioSource.PlayOneShot(ds.crashSFX);
-            // Disable collision shape to avoid another collision
-            Destroy(collision.gameObject);
-            Instantiate(objectDestroyPrefab, collision.transform.position, Quaternion.identity);
-            if (iframes > 0)
+            if (ds.rebounder)
             {
-                // Add a few more iframes
-                iframes += ds.iframesToDealOnConsecutiveHit;
-            }
-            else if (iframes == 0)
-            {
-                // Start flashing
-                iframes = ds.iframesToDealOnHit;
-                hp -= ds.damageToDeal;
-                if (hp <= 0)
+                // Bounce the boat away from obstacle.
+                Vector2 normal = Vector2.zero;
+                foreach(var contact in collision.contacts)
                 {
-                    ShowSprites(false);
-                    iframes = 0;
-                    var end = UnityEngine.Random.value > .5 ? GameMaster.endScene.badEnding : GameMaster.endScene.badEnding2;
-                    gameMaster.EndGame(false, GameMaster.endScene.badEnding);
+                    normal += contact.normal;
                 }
-                else
+                normal = normal.normalized;
+                boat.steering.moveVector += normal * reboundStrength;
+            }
+            else
+            {
+                // Destroy damage specifier object to avoid another collision
+                Destroy(ds.gameObject);
+                Instantiate(objectDestroyPrefab, collision.transform.position, Quaternion.identity);
+            }
+            // Check if damage has been dealt to avoid dealing damage again.
+            if (ds.damageDealt == false)
+            {
+                ds.damageDealt = true;
+                if (iframes > 0)
                 {
-                    // Check bits and determine the damage select process to be executed
-                    var random = ((int)ds.damageSelectType & 0b01) == 0b01;
-                    var coinflip = ((int)ds.damageSelectType & 0b10) == 0b10;
-                    if (coinflip)
+                    // Add a few more iframes
+                    iframes += ds.iframesToDealOnConsecutiveHit;
+                }
+                else if (iframes == 0)
+                {
+                    // Start flashing
+                    iframes = ds.iframesToDealOnHit;
+                    hp -= ds.damageToDeal;
+                    if (hp <= 0)
                     {
-                        if (UnityEngine.Random.value > 0.5f)
-                        {
-                            // Coin flip passed. Invoke event(s).
-                            PickEvent(ds, random);
-                        }
-                        else
-                        {
-                            // Coin flip did not pass. Don't invoke anything.
-                        }
+                        ShowSprites(false);
+                        iframes = 0;
+                        var end = UnityEngine.Random.value > .5 ? GameMaster.endScene.badEnding : GameMaster.endScene.badEnding2;
+                        gameMaster.EndGame(false, GameMaster.endScene.badEnding);
                     }
                     else
                     {
-                        PickEvent(ds, random);
+                        // Check bits and determine the damage select process to be executed
+                        var random = ((int)ds.damageSelectType & 0b01) == 0b01;
+                        var coinflip = ((int)ds.damageSelectType & 0b10) == 0b10;
+                        if (coinflip)
+                        {
+                            if (UnityEngine.Random.value > 0.5f)
+                            {
+                                // Coin flip passed. Invoke event(s).
+                                PickEvent(ds, random);
+                            }
+                            else
+                            {
+                                // Coin flip did not pass. Don't invoke anything.
+                            }
+                        }
+                        else
+                        {
+                            PickEvent(ds, random);
+                        }
                     }
                 }
             }

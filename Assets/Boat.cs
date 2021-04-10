@@ -19,7 +19,7 @@ public class Boat : MonoBehaviour
         sail = GetComponentInChildren<Sail>();
         captain = GetComponentInChildren<Captain>();
 
-        steering.boat = this;
+        damageManager.boat = steering.boat = this;
 
         //Find main camera and attach camera controller script
         var camera = GameObject.FindGameObjectWithTag("MainCamera");

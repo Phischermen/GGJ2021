@@ -179,7 +179,7 @@ MonoBehaviour:
   baseSpeed: 1.5
   turnSpeed: 50
   rudderBrokenTurnSpeed: 10
-  accelerationLerp: 20
+  accelerationLerp: 5
   brakeLerp: 1
   rudderWorking: 1
   sailOpenAndNotTorn: 1
@@ -205,12 +205,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   damageActionTest: 4
+  reboundStrength: 1
   objectDestroyPrefab: {fileID: 954593871253175784, guid: 353c38304b7d5274d89b7912db46c594,
     type: 3}
   iframes: 0
   sprites: []
   gameMaster: {fileID: 0}
   boatWidget: {fileID: 0}
+  boat: {fileID: 0}
   lifeRing: {fileID: 2543724036521668076}
   damageActionProbability: 0.7
 --- !u!114 &3410432279370793322

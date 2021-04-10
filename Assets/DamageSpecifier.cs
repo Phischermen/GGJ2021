@@ -23,6 +23,9 @@ public class DamageSpecifier : MonoBehaviour
     public int damageToDeal = 1;
     public int iframesToDealOnHit = 60;
     public int iframesToDealOnConsecutiveHit = 10;
+    [HideInInspector]
+    public bool damageDealt;
+    public bool rebounder;
     public DamageSelectType damageSelectType;
     public ShipDamageEvent shipDamageEvent;
     public AudioClip crashSFX;
