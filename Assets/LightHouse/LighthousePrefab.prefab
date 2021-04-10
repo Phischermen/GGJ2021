@@ -189,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6446611583438468398}
+  - component: {fileID: 8265727299786144092}
   m_Layer: 0
   m_Name: LighthousePrefab
   m_TagString: Untagged
@@ -212,6 +213,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8265727299786144092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6922449383568349439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 0
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 1
+  damageSelectType: 0
+  shipDamageEvent: 0
+  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
 --- !u!1 &7354585007723719310
 GameObject:
   m_ObjectHideFlags: 0
