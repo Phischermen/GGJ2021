@@ -48,9 +48,11 @@ MonoBehaviour:
   damageToDeal: 1
   iframesToDealOnHit: 30
   iframesToDealOnConsecutiveHit: 5
+  damageDealt: 0
+  rebounder: 0
   damageSelectType: 2
   shipDamageEvent: 2
-  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
+  crashSFX: {fileID: 8300000, guid: d9cd6fdcd271347738fa8e249c6a614b, type: 3}
 --- !u!1 &1053573608347430188
 GameObject:
   m_ObjectHideFlags: 0

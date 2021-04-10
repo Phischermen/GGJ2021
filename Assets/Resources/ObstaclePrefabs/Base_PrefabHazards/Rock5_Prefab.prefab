@@ -264,4 +264,4 @@ MonoBehaviour:
   rebounder: 1
   damageSelectType: 0
   shipDamageEvent: 4
-  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
+  crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
