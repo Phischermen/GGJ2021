@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 3410432279370793322}
   - component: {fileID: -6836766349076380557}
   - component: {fileID: 5519845650742846220}
+  - component: {fileID: 1413242809830614588}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Boat
@@ -204,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  damageActionTest: 4
   reboundStrength: 0.1
   objectDestroyPrefab: {fileID: 954593871253175784, guid: 353c38304b7d5274d89b7912db46c594,
     type: 3}
@@ -213,6 +213,7 @@ MonoBehaviour:
   gameMaster: {fileID: 0}
   boatWidget: {fileID: 0}
   boat: {fileID: 0}
+  flag: {fileID: 0}
   lifeRing: {fileID: 2543724036521668076}
   damageActionProbability: 0.7
 --- !u!114 &3410432279370793322
@@ -352,6 +353,25 @@ MonoBehaviour:
   lantern: {fileID: 0}
   sail: {fileID: 0}
   captain: {fileID: 0}
+--- !u!95 &1413242809830614588
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451127304452718726}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1bcab25e2b36b144cb654055b9fd4ebb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3754201804223744696
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class BoatDamageManager : MonoBehaviour
         numberOfDamageActions
     }
     public int hp = 3;
-    public DamageActions damageActionTest;
+    //public DamageActions damageActionTest;
     int maxHp;
     public float reboundStrength = 0.5f;
     public GameObject objectDestroyPrefab;
@@ -29,9 +29,11 @@ public class BoatDamageManager : MonoBehaviour
     public GameMaster gameMaster;
     public BoatWidget boatWidget;
     public Boat boat;
+    public GameObject flag;
     public Image lifeRing;
 
     private AudioSource audioSource;
+    private Animator animator;
 
     public float damageActionProbability = 0.3f;
     List<Action> damageActions;
@@ -44,6 +46,7 @@ public class BoatDamageManager : MonoBehaviour
         //gameMaster = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         //gameMaster = GameObject.FindObjectOfType<GameMaster>();
         audioSource = GameObject.Find("CrashAudio").GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
     public void SetupDamageActions()
     {
@@ -76,6 +79,7 @@ public class BoatDamageManager : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (hp <= 0) return;
         var ds = collision.gameObject.GetComponentInParent<DamageSpecifier>();
         if (ds)
         {
@@ -85,7 +89,7 @@ public class BoatDamageManager : MonoBehaviour
             {
                 // Bounce the boat away from obstacle.
                 Vector2 normal = Vector2.zero;
-                foreach(var contact in collision.contacts)
+                foreach (var contact in collision.contacts)
                 {
                     normal += contact.normal;
                 }
@@ -114,10 +118,10 @@ public class BoatDamageManager : MonoBehaviour
                     hp -= ds.damageToDeal;
                     if (hp <= 0)
                     {
-                        ShowSprites(false);
+                        ShowSprites(true);
                         iframes = 0;
-                        var end = UnityEngine.Random.value > .5 ? GameMaster.endScene.badEnding : GameMaster.endScene.badEnding2;
-                        gameMaster.EndGame(false, GameMaster.endScene.badEnding);
+                        animator.SetBool("sink", true);
+                        flag.SetActive(false);
                     }
                     else
                     {
@@ -150,6 +154,8 @@ public class BoatDamageManager : MonoBehaviour
 
     private void ShowSprites(bool show)
     {
+        // If we are not playing the floating animation, then we don't want to effect sprites visibility
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("floating") == false) return;
         foreach (var sprite in sprites)
         {
             sprite.enabled = show;
@@ -176,5 +182,12 @@ public class BoatDamageManager : MonoBehaviour
                 damageActions[(int)choice].Invoke();
             }
         }
+    }
+
+
+    private void GoToGameOverScreen()
+    {
+        //var end = UnityEngine.Random.value > .5 ? GameMaster.endScene.badEnding : GameMaster.endScene.badEnding2;
+        gameMaster.EndGame(false, GameMaster.endScene.badEnding);
     }
 }
