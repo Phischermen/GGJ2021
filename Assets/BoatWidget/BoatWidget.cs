@@ -23,7 +23,7 @@ public class BoatWidget : MonoBehaviour
     public AudioSource footStepLoop;
 
     Button ManualButton;
-    
+
     Button RudderButton;
     Button HelmButton;
     Button SailButton;
@@ -52,6 +52,7 @@ public class BoatWidget : MonoBehaviour
         public bool repaired = true;
         public float repair = 1f;
         public float repairRate = 0.5f;
+        public int brokenTimeStamp = 0;
         public Station(Action onManStation, Image image, Sprite sprite, bool repairable = false, Action onRepairStation = null, float _repairRate = 0.5f)
         {
             OnManStation = onManStation;
@@ -59,19 +60,24 @@ public class BoatWidget : MonoBehaviour
             StationButtonImage = image;
             StationButtonSprite = sprite;
             repairRate = _repairRate;
-
+            // TODO Add flare
             if (repairable)
             {
+                // Add the inverted background
                 var StationInvertedBackground = new GameObject();
+                // Add a rect transform
                 var rt = StationInvertedBackground.AddComponent<RectTransform>();
+                // Set parent to uninverted image, then match its transform
                 StationInvertedBackground.transform.SetParent(image.transform, worldPositionStays: false);
                 rt.MatchOther(image.rectTransform);
                 rt.Translate(-Vector3.forward);
+                // Add image component
                 StationButtonInvertedImage = StationInvertedBackground.AddComponent<Image>();
                 StationButtonInvertedImage.raycastTarget = false;
                 StationButtonInvertedImage.type = Image.Type.Filled;
                 StationButtonInvertedImage.fillMethod = Image.FillMethod.Radial360;
                 StationButtonInvertedImage.fillAmount = 0f;
+                // Set sprite to inverted version of univerted image
                 StationButtonInvertedImage.sprite = Resources.Load<Sprite>("Sprites/UI/uiButtons/" + sprite.name + "_invert");
             }
         }
@@ -84,6 +90,18 @@ public class BoatWidget : MonoBehaviour
                 if (OnRepairStation != null) OnRepairStation.Invoke();
             }
             StationButtonInvertedImage.fillAmount = 1f - repair;
+        }
+        public void ProcessBrokenness()
+        {
+            var delta = Time.frameCount - brokenTimeStamp;
+            if (delta < 60)
+            {
+                StationButtonInvertedImage.enabled = (delta % 4) >= 2;
+            }
+            else
+            {
+                StationButtonInvertedImage.enabled = true;
+            }
         }
     }
     public Station[] stations = new Station[(int)StationNames.noStation];
@@ -117,7 +135,7 @@ public class BoatWidget : MonoBehaviour
     public WidgetAnimatedImage[] widgetAnimatedImages;
 
     private WidgetAnimatedImage MurphyWalkWidgetAnimatedImage;
-    
+
     [SerializeField]
     public WidgetSpriteVariants[] MurpheyWalkingUp;
     [SerializeField]
@@ -285,13 +303,17 @@ public class BoatWidget : MonoBehaviour
                     s.ProgressRepair(-0.1f);
                 }
             }
+            if (Time.frameCount - s.brokenTimeStamp < 90)
+            {
+                s.ProcessBrokenness();
+            }
         }
         // Set sprite variants based on light level
         // TODO calculate light level
         var lightLevel = 1f;
-        if (lantern != null)
+        if (boat.lantern != null)
         {
-            lightLevel = (lantern.lit) ? 1f : 0.5f;
+            lightLevel = (boat.lantern.lit) ? 1f : 0.5f;
         }
         BoatCR.SetColor(Color.Lerp(Color.black, Color.white, lightLevel));
         // Iterate through images
@@ -341,28 +363,29 @@ public class BoatWidget : MonoBehaviour
         }
     }
     #region Damage Event UI Response Methods
+    private void DisrepairStation(Station station)
+    {
+        station.repaired = false;
+        station.repair = 0f;
+        station.brokenTimeStamp = Time.frameCount;
+    }
     public void SailTorn()
     {
-        stations[(int)StationNames.sail].repaired = false;
-        stations[(int)StationNames.sail].repair = 0f;
+        DisrepairStation(stations[(int)StationNames.sail]);
     }
     public void LanternExtinguished()
     {
-
-        stations[(int)StationNames.lantern].repaired = false;
-        stations[(int)StationNames.lantern].repair = 0f;
+        DisrepairStation(stations[(int)StationNames.lantern]);
     }
 
     public void RudderBroke()
     {
-        stations[(int)StationNames.rudder].repaired = false;
-        stations[(int)StationNames.rudder].repair = 0f;
+        DisrepairStation(stations[(int)StationNames.rudder]);
     }
 
     public void CaptainAsleep()
     {
-        stations[(int)StationNames.tend].repaired = false;
-        stations[(int)StationNames.tend].repair = 0f;
+        DisrepairStation(stations[(int)StationNames.tend]);
     }
     #endregion
     #region Button Callbacks
