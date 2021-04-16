@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0516bfec290e6d8408f919dfc1d51213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1
+  hp: 5
   reboundStrength: 0.1
   objectDestroyPrefab: {fileID: 954593871253175784, guid: 353c38304b7d5274d89b7912db46c594,
     type: 3}
