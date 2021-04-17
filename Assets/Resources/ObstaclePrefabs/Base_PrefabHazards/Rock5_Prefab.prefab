@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8246796884691585037}
   - component: {fileID: 8246796884691585036}
-  - component: {fileID: 951223856}
   m_Layer: 0
   m_Name: rock5_dark
   m_TagString: Untagged
@@ -82,55 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!60 &951223856
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8246796884691585035}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.7, y: 4.02}
-    newSize: {x: 3.7, y: 4.02}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.10882801, y: 1.4165227}
-      - {x: 0.70473266, y: 0.94460595}
-      - {x: 0.6617937, y: 1.4119443}
-      - {x: 0.7877138, y: 1.7025522}
-      - {x: 1.1415633, y: 1.545316}
-      - {x: 1.1352835, y: 0.89377797}
-      - {x: 1.3041124, y: 0.41143036}
-      - {x: 1.2460065, y: -0.24934983}
-      - {x: 0.883887, y: -0.06624496}
-      - {x: 0.89213926, y: -0.6850606}
-      - {x: 0.034141034, y: -1.0047859}
-      - {x: -0.57404697, y: -0.911713}
-      - {x: -1.0201573, y: -1.2984166}
-      - {x: -1.4080925, y: -0.68571305}
-      - {x: -1.0301249, y: -0.14230633}
-      - {x: -1.1020806, y: 0.35513747}
-      - {x: -0.9489992, y: 0.76302934}
-      - {x: -0.67135715, y: 1.1448007}
-      - {x: -0.4732197, y: 1.5735518}
-    - - {x: -0.16989169, y: -1.7264421}
-      - {x: -0.14001764, y: -1.3446808}
-      - {x: -0.37741914, y: -1.225713}
-      - {x: -0.55753976, y: -1.3884125}
-      - {x: -0.39636913, y: -1.7105162}
 --- !u!1 &8246796884870603176
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246796885016387792}
+  - component: {fileID: 1729891954910497129}
   m_Layer: 0
   m_Name: Rock5_Prefab
   m_TagString: Untagged
@@ -294,3 +245,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729891954910497129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246796885016387823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 1
+  damageSelectType: 0
+  shipDamageEvent: 4
+  crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}

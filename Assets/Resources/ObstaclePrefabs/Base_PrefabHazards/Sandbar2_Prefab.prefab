@@ -140,6 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6619583449312584630}
+  - component: {fileID: 9001264962725711921}
   m_Layer: 0
   m_Name: Sandbar2_Prefab
   m_TagString: Untagged
@@ -163,6 +164,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9001264962725711921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619583449312584631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageSelectType: 1
+  shipDamageEvent: 14
+  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
 --- !u!1 &6619583449326462310
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +192,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6619583449326462312}
   - component: {fileID: 6619583449326462313}
-  - component: {fileID: 6619583449326462315}
   m_Layer: 0
   m_Name: Unanimated_SandBars_Dark_1
   m_TagString: Untagged
@@ -246,51 +264,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!60 &6619583449326462315
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6619583449326462310}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.65, y: 1.73}
-    newSize: {x: 3.65, y: 1.73}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.73905313, y: -0.69033813}
-      - {x: -1.3869907, y: -0.30541778}
-      - {x: -1.6939142, y: 0.3094678}
-      - {x: -1.5250752, y: 0.50330603}
-      - {x: -1.4609574, y: 0.68708396}
-      - {x: -1.3038293, y: 0.8524684}
-      - {x: -1.1378846, y: 0.8312971}
-      - {x: -0.9745903, y: 0.4433968}
-      - {x: -0.5863664, y: 0.0015552044}
-      - {x: -0.16996223, y: -0.103351355}
-      - {x: 0.19698384, y: -0.06802845}
-      - {x: 0.5110223, y: -0.3134445}
-      - {x: 0.8045565, y: -0.2650107}
-      - {x: 0.9395286, y: 0.14903283}
-      - {x: 1.1449022, y: 0.18022704}
-      - {x: 1.2718298, y: 0.099817395}
-      - {x: 1.436393, y: 0.1359551}
-      - {x: 1.5629263, y: 0.24955487}
-      - {x: 1.7192404, y: 0.1990735}
-      - {x: 1.7002376, y: 0.009395361}
-      - {x: 1.3784074, y: -0.34181106}
-      - {x: 0.627722, y: -0.7677362}
-      - {x: 0.10346699, y: -0.77449197}

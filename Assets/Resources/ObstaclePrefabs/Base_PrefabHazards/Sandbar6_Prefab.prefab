@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4918609132003987770}
+  - component: {fileID: 6908894904417511130}
   m_Layer: 0
   m_Name: Sandbar6_Prefab
   m_TagString: Untagged
@@ -152,6 +153,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6908894904417511130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918609132003987771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageSelectType: 1
+  shipDamageEvent: 14
+  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
 --- !u!1 &4918609132395708332
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +181,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4918609132395708334}
   - component: {fileID: 4918609132395708335}
-  - component: {fileID: 4918609132395708321}
   m_Layer: 0
   m_Name: Unanimated_SandBars_Dark_6
   m_TagString: Untagged
@@ -235,40 +253,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!60 &4918609132395708321
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4918609132395708332}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.79, y: 0.77}
-    newSize: {x: 1.79, y: 0.77}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.79025984, y: 0.12547755}
-      - {x: -0.5755285, y: -0.15079701}
-      - {x: -0.115525484, y: -0.31502032}
-      - {x: 0.47720456, y: -0.2639712}
-      - {x: 0.86673236, y: 0.08665037}
-      - {x: 0.72097516, y: 0.2830491}
-      - {x: 0.5321877, y: 0.33011222}
-      - {x: 0.21866989, y: 0.24541533}
-      - {x: -0.23780596, y: 0.012839317}
-      - {x: -0.3816892, y: 0.28541422}
-      - {x: -0.5241817, y: 0.4060359}
-      - {x: -0.7339976, y: 0.32345143}
