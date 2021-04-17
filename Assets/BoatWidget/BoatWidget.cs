@@ -103,7 +103,7 @@ public class BoatWidget : MonoBehaviour
             }
             StationButtonInvertedImage.fillAmount = 1f - repair;
         }
-        public void ProcessBrokenness()
+        public void ProcessBrokenness(bool playerIsAtStation)
         {
             var delta = Time.frameCount - brokenTimeStamp;
             if (delta < 60)
@@ -114,8 +114,13 @@ public class BoatWidget : MonoBehaviour
                 // h = -60
                 // v = 10
                 // x = delta
-                flareRT.localScale = Vector2.one * (-0.00277f * ((delta - 60) * (delta - 60)) + 10f) ;
+                flareRT.localScale = Vector2.one * (-0.00277f * ((delta - 60) * (delta - 60)) + 10f);
                 flareCR.SetAlpha((60 - delta) / 150f);
+            }
+            else if (delta % 600 >= 540 && !playerIsAtStation)
+            {
+                // Periodic reminder flash
+                StationButtonInvertedImage.enabled = (delta % 4) >= 2;
             }
             else
             {
@@ -317,15 +322,13 @@ public class BoatWidget : MonoBehaviour
                 if (i == (int)currentStation)
                 {
                     s.ProgressRepair(1f);
+                    s.ProcessBrokenness(playerIsAtStation: true);
                 }
                 else
                 {
                     s.ProgressRepair(-0.1f);
+                    s.ProcessBrokenness(playerIsAtStation: false);
                 }
-            }
-            if (Time.frameCount - s.brokenTimeStamp < 90)
-            {
-                s.ProcessBrokenness();
             }
         }
         // Set sprite variants based on light level
