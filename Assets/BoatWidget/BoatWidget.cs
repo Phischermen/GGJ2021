@@ -49,10 +49,12 @@ public class BoatWidget : MonoBehaviour
         Image StationButtonImage;
         Image StationButtonInvertedImage;
         Sprite StationButtonSprite;
+        RectTransform flareRT;
+        CanvasRenderer flareCR;
         public bool repaired = true;
         public float repair = 1f;
         public float repairRate = 0.5f;
-        public int brokenTimeStamp = 0;
+        public int brokenTimeStamp = -1000;
         public Station(Action onManStation, Image image, Sprite sprite, bool repairable = false, Action onRepairStation = null, float _repairRate = 0.5f)
         {
             OnManStation = onManStation;
@@ -61,6 +63,16 @@ public class BoatWidget : MonoBehaviour
             StationButtonSprite = sprite;
             repairRate = _repairRate;
             // TODO Add flare
+            var flare = new GameObject();
+            // Add a rect transform
+            flareRT = flare.AddComponent<RectTransform>();
+            flareRT.SetParent(image.transform, worldPositionStays: false);
+            flareRT.MatchOther(image.rectTransform);
+            // Add image component
+            var flareIMG = flare.AddComponent<Image>();
+            flareCR = flareIMG.canvasRenderer;
+            flareIMG.raycastTarget = false;
+            flareIMG.sprite = image.sprite;
             if (repairable)
             {
                 // Add the inverted background
@@ -97,10 +109,18 @@ public class BoatWidget : MonoBehaviour
             if (delta < 60)
             {
                 StationButtonInvertedImage.enabled = (delta % 4) >= 2;
+                // a(x + h)^2 + v
+                // a = -0.00277
+                // h = -60
+                // v = 10
+                // x = delta
+                flareRT.localScale = Vector2.one * (-0.00277f * ((delta - 60) * (delta - 60)) + 10f) ;
+                flareCR.SetAlpha((60 - delta) / 150f);
             }
             else
             {
                 StationButtonInvertedImage.enabled = true;
+                flareCR.SetAlpha(0);
             }
         }
     }
