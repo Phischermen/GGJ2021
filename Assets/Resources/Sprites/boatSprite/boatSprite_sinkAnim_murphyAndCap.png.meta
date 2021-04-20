@@ -1,7 +1,43 @@
 fileFormatVersion: 2
 guid: dc15626b6a031a547be5959e8dae8e5e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5407758190841617112
+    second: boatSprite_sinkAnim_murphyAndCap_0
+  - first:
+      213: -7332115559303568636
+    second: boatSprite_sinkAnim_murphyAndCap_1
+  - first:
+      213: -3976709393823786190
+    second: boatSprite_sinkAnim_murphyAndCap_2
+  - first:
+      213: 6224802892828561407
+    second: boatSprite_sinkAnim_murphyAndCap_3
+  - first:
+      213: -5420543175023412357
+    second: boatSprite_sinkAnim_murphyAndCap_4
+  - first:
+      213: 8319704391679174311
+    second: boatSprite_sinkAnim_murphyAndCap_5
+  - first:
+      213: 4829372865066268251
+    second: boatSprite_sinkAnim_murphyAndCap_6
+  - first:
+      213: -5431064613220656
+    second: boatSprite_sinkAnim_murphyAndCap_7
+  - first:
+      213: -6400321497308455173
+    second: boatSprite_sinkAnim_murphyAndCap_8
+  - first:
+      213: 1607001134562217485
+    second: boatSprite_sinkAnim_murphyAndCap_9
+  - first:
+      213: -7580785155234475295
+    second: boatSprite_sinkAnim_murphyAndCap_10
+  - first:
+      213: -5283672334125945894
+    second: boatSprite_sinkAnim_murphyAndCap_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +76,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -61,7 +97,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -73,7 +121,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dad25c4c673c0b40800000000000000
+      internalID: 5407758190841617112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1200
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403a89bfeb71f3a90800000000000000
+      internalID: -7332115559303568636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_2
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1200
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b9c2630e3efc8c0800000000000000
+      internalID: -3976709393823786190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_3
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1200
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fffced72041f26650800000000000000
+      internalID: 6224802892828561407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7bbf0b93bc56c4b0800000000000000
+      internalID: -5420543175023412357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a66b468017857370800000000000000
+      internalID: 8319704391679174311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b567f2e9801650340800000000000000
+      internalID: 4829372865066268251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_7
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 600
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de0afab974bceff0800000000000000
+      internalID: -5431064613220656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe12a0328d7d27a0800000000000000
+      internalID: -6400321497308455173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e0b3384073d4610800000000000000
+      internalID: 1607001134562217485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_10
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e2d1b7e014abc690800000000000000
+      internalID: -7580785155234475295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boatSprite_sinkAnim_murphyAndCap_11
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb2dd69100aca6b0800000000000000
+      internalID: -5283672334125945894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

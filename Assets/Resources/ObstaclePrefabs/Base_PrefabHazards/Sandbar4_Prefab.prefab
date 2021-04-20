@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4721621289239068176}
   - component: {fileID: 4721621289239068183}
-  - component: {fileID: 4721621289239068177}
   m_Layer: 0
   m_Name: Unanimated_SandBars_Dark_3
   m_TagString: Untagged
@@ -83,48 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!60 &4721621289239068177
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4721621289239068182}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.07, y: 2.58}
-    newSize: {x: 3.07, y: 2.58}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.1696053, y: -0.0062767267}
-      - {x: 0.9047997, y: -0.08513999}
-      - {x: 0.31216764, y: -0.07771349}
-      - {x: -0.28716815, y: 0.14188075}
-      - {x: -0.19482839, y: 0.54289705}
-      - {x: -0.3830241, y: 0.64276695}
-      - {x: -0.8257948, y: 0.69634956}
-      - {x: -1.204001, y: 0.9764213}
-      - {x: -1.3727013, y: 0.8642497}
-      - {x: -1.3584802, y: 0.5145271}
-      - {x: -1.0484226, y: 0.40713656}
-      - {x: -1.0108325, y: -0.11374068}
-      - {x: -0.34219694, y: -0.83877206}
-      - {x: 0.4524026, y: -1.1402309}
-      - {x: 1.2008364, y: -0.9920192}
-      - {x: 1.516756, y: -0.62017274}
-      - {x: 1.455212, y: -0.09309679}
 --- !u!1 &4721621289406759532
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4721621289406759533}
+  - component: {fileID: 7705550832043446548}
   m_Layer: 0
   m_Name: Sandbar4_Prefab
   m_TagString: Untagged
@@ -157,6 +115,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7705550832043446548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721621289406759532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageSelectType: 1
+  shipDamageEvent: 14
+  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
 --- !u!1 &4721621289769470784
 GameObject:
   m_ObjectHideFlags: 0
