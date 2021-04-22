@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4297079119270924198}
   - component: {fileID: 4297079119270924217}
-  - component: {fileID: 4297079119270924199}
   m_Layer: 0
   m_Name: Unanimated_SandBars_Dark_4
   m_TagString: Untagged
@@ -83,52 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!60 &4297079119270924199
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4297079119270924216}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.59, y: 3.4}
-    newSize: {x: 5.59, y: 3.4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.76237, y: -1.2712109}
-      - {x: 2.1651597, y: -0.7201483}
-      - {x: 1.3765796, y: 0.22509062}
-      - {x: 1.1018723, y: 0.81281745}
-      - {x: 0.68835545, y: 1.163145}
-      - {x: -0.4331541, y: 1.2126906}
-      - {x: -1.0419456, y: 1.0705827}
-      - {x: -1.3261338, y: 1.5982165}
-      - {x: -2.0360684, y: 1.669416}
-      - {x: -2.5728183, y: 1.4975927}
-      - {x: -2.6635091, y: 1.2792531}
-      - {x: -2.310591, y: 0.6736149}
-      - {x: -1.4057587, y: 0.4203869}
-      - {x: -1.0974512, y: 0.114421606}
-      - {x: -0.5961257, y: -0.011719465}
-      - {x: 0.033661842, y: -0.32238483}
-      - {x: 0.78050697, y: -0.3202052}
-      - {x: 1.5366563, y: -0.43937683}
-      - {x: 1.9088606, y: -1.0590222}
-      - {x: 2.6293988, y: -1.6071637}
-      - {x: 2.7794266, y: -1.5107639}
 --- !u!1 &4297079119807284362
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4297079120423012348}
+  - component: {fileID: 3076971230115433644}
   m_Layer: 0
   m_Name: Sandbar5_Prefab
   m_TagString: Untagged
@@ -290,3 +244,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3076971230115433644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297079120423012351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageSelectType: 1
+  shipDamageEvent: 14
+  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}

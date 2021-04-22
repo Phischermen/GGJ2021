@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634484843483567377}
+  - component: {fileID: 8780435362738014888}
   m_Layer: 0
   m_Name: Sandbar1_Prefab
   m_TagString: Untagged
@@ -32,6 +33,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8780435362738014888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634484843483567382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageSelectType: 1
+  shipDamageEvent: 14
+  crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
 --- !u!1 &7634484844811377792
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +61,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7634484844811377794}
   - component: {fileID: 7634484844811377795}
-  - component: {fileID: 7634484844811377805}
   m_Layer: 0
   m_Name: Unanimated_SandBars_Dark_0
   m_TagString: Untagged
@@ -115,82 +133,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!60 &7634484844811377805
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7634484844811377792}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.52, y: 2.52}
-    newSize: {x: 2.52, y: 2.52}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.8509787, y: -0.45090318}
-      - {x: -0.72231734, y: -0.25977433}
-      - {x: -0.538474, y: -0.16660345}
-      - {x: -0.6781375, y: -0.043229938}
-      - {x: -0.92254406, y: 0.02271986}
-      - {x: -1.0709352, y: -0.11412072}
-      - {x: -0.9608119, y: -0.23061872}
-      - {x: -1.0145781, y: -0.35711312}
-    - - {x: -1.0225133, y: -0.63448644}
-      - {x: -1.021018, y: -0.8015225}
-      - {x: -0.8620134, y: -1.0303766}
-      - {x: -0.6552253, y: -1.0833147}
-      - {x: -0.5900405, y: -0.9862585}
-      - {x: -0.33694625, y: -0.9983032}
-      - {x: -0.40610117, y: -0.83740926}
-      - {x: -0.66728675, y: -0.7273582}
-      - {x: -0.7991526, y: -0.5493177}
-    - - {x: 0.19275567, y: 0.41979623}
-      - {x: -0.33152604, y: 0.077804446}
-      - {x: -0.3354541, y: -0.14365518}
-      - {x: 0.178143, y: 0.030807257}
-      - {x: 0.4037804, y: 0.008188963}
-      - {x: 0.7884812, y: 0.211025}
-      - {x: 0.9429389, y: 0.41465527}
-      - {x: 0.91076875, y: 0.64733565}
-      - {x: 0.75559956, y: 0.6671291}
-    - - {x: -0.023418248, y: -0.5133164}
-      - {x: 0.007861033, y: -0.37555778}
-      - {x: 0.19273873, y: -0.18430305}
-      - {x: 0.15982938, y: -0.044400454}
-      - {x: -0.27119023, y: -0.24287629}
-      - {x: -0.4926877, y: -0.49262643}
-      - {x: -0.34441108, y: -0.63440394}
-    - - {x: 0.6287067, y: -0.18658209}
-      - {x: 0.29559252, y: -0.44711494}
-      - {x: 0.0032724738, y: -0.5678673}
-      - {x: 0.062201113, y: -0.88610053}
-      - {x: 0.39574492, y: -0.9103626}
-      - {x: 0.70969903, y: -0.7616916}
-      - {x: 0.7097935, y: -0.6399964}
-      - {x: 0.84635156, y: -0.5140867}
-      - {x: 0.84559596, y: -0.28287613}
-    - - {x: 0.42541093, y: 1.0164716}
-      - {x: 0.7414431, y: 1.0545574}
-      - {x: 0.898991, y: 1.1530644}
-      - {x: 1.1812192, y: 1.0942373}
-      - {x: 1.1169556, y: 1.013758}
-      - {x: 1.2742479, y: 0.8567917}
-      - {x: 0.61597955, y: 0.70007247}
-      - {x: 0.3016086, y: 0.7035807}
-      - {x: 0.2674615, y: 0.907131}
 --- !u!1 &7634484845203891847
 GameObject:
   m_ObjectHideFlags: 0

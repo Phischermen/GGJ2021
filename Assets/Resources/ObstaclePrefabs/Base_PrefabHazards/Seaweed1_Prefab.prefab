@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1053573608267442671}
+  - component: {fileID: 4975913017885474863}
   m_Layer: 0
   m_Name: Seaweed1_Prefab
   m_TagString: Untagged
@@ -32,6 +33,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4975913017885474863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053573608267442656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 30
+  iframesToDealOnConsecutiveHit: 5
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 2
+  shipDamageEvent: 2
+  crashSFX: {fileID: 8300000, guid: d9cd6fdcd271347738fa8e249c6a614b, type: 3}
 --- !u!1 &1053573608347430188
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +175,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1053573608745749993}
   - component: {fileID: 1053573608745749992}
-  - component: {fileID: 2090104070}
   m_Layer: 0
   m_Name: seaweed1_dark
   m_TagString: Untagged
@@ -226,33 +246,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!60 &2090104070
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053573608745749994}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 1.34}
-    newSize: {x: 1.24, y: 1.34}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.21948642, y: -0.42855656}
-      - {x: 0.24965775, y: 0.017330289}
-      - {x: 0.16201228, y: 0.30484998}
-      - {x: -0.25243518, y: 0.053622246}
-      - {x: -0.32724425, y: -0.30641878}
