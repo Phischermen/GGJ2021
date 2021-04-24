@@ -46,15 +46,22 @@ public class Captain : MonoBehaviour
 
     public void Sleep()
     {
-        Debug.Log("Captain action");
+        Sleep(false);
+    }
+    public void Sleep(bool silently)
+    {
+        //Debug.Log("Captain action");
         if (awake == true)
         {
             awake = false;
-            IncrementTic(ref tic2, captainTendedClips);
-            audio.PlayOneShot(captainDownClips[tic2]);
+            if (silently == false)
+            {
+                IncrementTic(ref tic2, captainTendedClips);
+                audio.PlayOneShot(captainDownClips[tic2]);
+            }
             img.sprite = sleepingSpr;
         }
-        else if(Random.value <= fallChance)
+        else if (Random.value <= fallChance)
         {
             Fall();
         }

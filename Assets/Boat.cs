@@ -10,6 +10,11 @@ public class Boat : MonoBehaviour
     public Lantern lantern;
     public Sail sail;
     public Captain captain;
+
+    public CameraController cameraController;
+
+    public bool startCrashed;
+    public bool objectiveDelivered;
     private void Awake()
     {
         // Initialize sub components
@@ -23,7 +28,7 @@ public class Boat : MonoBehaviour
 
         //Find main camera and attach camera controller script
         var camera = GameObject.FindGameObjectWithTag("MainCamera");
-        var cameraController = camera.AddComponent<CameraController>();
+        cameraController = camera.AddComponent<CameraController>();
         cameraController.Boat = gameObject;
     }
     public void BindBoatToBoatWidget(BoatWidget widget)
@@ -33,5 +38,26 @@ public class Boat : MonoBehaviour
         captain.img = captain.anim.gameObject.GetComponent<Image>();
         damageManager.boatWidget = widget;
         damageManager.SetupDamageActions();
+        if (startCrashed)
+        {
+            widget.CaptainAsleep();
+            captain.Sleep(silently: true);
+            sail.OpenClose(false, silently: true);
+        }
+    }
+    public void DeliverObjective()
+    {
+        if (startCrashed && objectiveDelivered == false)
+        {
+            objectiveDelivered = true;
+            DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.gameStart);
+            StartCoroutine(ShowLighthouse());
+        }
+    }
+    private IEnumerator ShowLighthouse()
+    {
+        cameraController.Boat = GameObject.FindGameObjectWithTag("Lighthouse");
+        yield return new WaitForSeconds(5f);
+        cameraController.Boat = GameObject.FindGameObjectWithTag("Boat");
     }
 }

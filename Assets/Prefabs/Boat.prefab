@@ -353,6 +353,8 @@ MonoBehaviour:
   lantern: {fileID: 0}
   sail: {fileID: 0}
   captain: {fileID: 0}
+  cameraController: {fileID: 0}
+  startCrashed: 1
 --- !u!95 &1413242809830614588
 Animator:
   serializedVersion: 3

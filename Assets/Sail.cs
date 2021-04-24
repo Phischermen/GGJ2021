@@ -65,11 +65,12 @@ public class Sail : MonoBehaviour
         open = !open;
     }
 
-    public void OpenClose(bool opening)
+    public void OpenClose(bool opening, bool silently = false)
     {
         Fill fill = opening ? Fill.Low : Fill.Closed;
         SetSprites(fill);
         open = opening;
+        if (silently) return;
         if (opening)
         {
             sailBreakAudioSource.PlayOneShot(sailRaise);
