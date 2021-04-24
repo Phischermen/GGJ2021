@@ -19,6 +19,8 @@ public class Sail : MonoBehaviour
     [SerializeField]
     private bool flipSail = false;
 
+    public AudioSource sailRotateLoop;
+
     public AudioSource sailFillLoop;
 
     public AudioClip fullSailLoop;
@@ -33,6 +35,8 @@ public class Sail : MonoBehaviour
     void Start()
     {
         sailFillLoop = GameObject.Find("SailFillAudio").GetComponent<AudioSource>();
+        sailRotateLoop.Play();
+        sailRotateLoop.Pause();
     }
 
     // Update is called once per frame
@@ -49,11 +53,16 @@ public class Sail : MonoBehaviour
             float rotation = Input.GetAxis("Horizontal");
             if (Mathf.Abs(rotation) > .1)
             {
+                sailRotateLoop.UnPause();
                 transform.Rotate(Vector3.forward * rotation * turnSpeed * Time.deltaTime);
                 float rotationZ = transform.localRotation.eulerAngles.z;
                 rotationZ = rotationZ > 180? Mathf.Clamp(rotationZ, 270, 360) : Mathf.Clamp(rotationZ, 0, 90);
                 //Debug.Log("pre clamp: " + transform.localRotation.eulerAngles.z + "post clamp: " + rotationZ);
                 transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+            }
+            else
+            {
+                sailRotateLoop.Pause();
             }
         }
     }

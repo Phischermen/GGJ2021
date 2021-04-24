@@ -5,6 +5,8 @@ using UnityEngine;
 public class Lantern : MonoBehaviour
 {
     new AudioSource audio;
+    new public AudioClip light;
+    public AudioClip douse;
     SpriteMask illum;
     public bool lit = true;
 
@@ -23,13 +25,14 @@ public class Lantern : MonoBehaviour
 
     public void Light()
     {
-        audio.Play();
+        audio.PlayOneShot(light);
         lit = true;
         illum.enabled = true;
     }
 
     public void Extinguish()
     {
+        audio.PlayOneShot(douse);
         lit = false;
         illum.enabled = false;
     }
