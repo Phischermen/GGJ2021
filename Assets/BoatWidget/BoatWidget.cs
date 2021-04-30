@@ -220,6 +220,16 @@ public class BoatWidget : MonoBehaviour
     public float SailRepairRate = 0.5f;
     public float LanternRepairRate = 0.5f;
 
+    private void Awake()
+    {
+        // Setup stations
+        stations[(int)StationNames.rudder] = new Station(RudderManned, RudderButtonImage, RudderNormalSprite, true, RepairRudder, RudderRepairRate);
+        stations[(int)StationNames.helm] = new Station(HelmManned, HelmButtonImage, HelmNormalSprite);
+        stations[(int)StationNames.sail] = new Station(SailManned, SailButtonImage, SailNormalSprite, true, RepairSail, SailRepairRate);
+        stations[(int)StationNames.lantern] = new Station(ManLantern, LanternButtonImage, LanternNormalSprite, true, RepairLantern, LanternRepairRate);
+        stations[(int)StationNames.tend] = new Station(ManTend, TendButtonImage, TendNormalSprite, true, RepairTend, TendRepairRate);
+
+    }
     void Start()
     {
         MurpheyPosition = MurpheyWalk.GetComponent<RectTransform>();
@@ -247,13 +257,7 @@ public class BoatWidget : MonoBehaviour
         // Get walking animated image. It is assumed to be the first element of widget animated images.
         MurphyWalkWidgetAnimatedImage = widgetAnimatedImages[0];
 
-        // Setup stations
-        stations[(int)StationNames.rudder] = new Station(RudderManned, RudderButtonImage, RudderNormalSprite, true, RepairRudder, RudderRepairRate);
-        stations[(int)StationNames.helm] = new Station(HelmManned, HelmButtonImage, HelmNormalSprite);
-        stations[(int)StationNames.sail] = new Station(SailManned, SailButtonImage, SailNormalSprite, true, RepairSail, SailRepairRate);
-        stations[(int)StationNames.lantern] = new Station(ManLantern, LanternButtonImage, LanternNormalSprite, true, RepairLantern, LanternRepairRate);
-        stations[(int)StationNames.tend] = new Station(ManTend, TendButtonImage, TendNormalSprite, true, RepairTend, TendRepairRate);
-
+        
         // Setup station positions
         deckTop = SailButton.transform.position.y;
         deckBottom = RudderButton.transform.position.y;
@@ -515,6 +519,7 @@ public class BoatWidget : MonoBehaviour
     public void RepairTend()
     {
         boat.captain.Wake();
+        boat.DeliverObjective();
     }
     #endregion
 }
