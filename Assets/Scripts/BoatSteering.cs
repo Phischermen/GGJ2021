@@ -59,15 +59,15 @@ public class BoatSteering : MonoBehaviour
         }
         sailOpenAndNotTorn = boat.sail.open && !boat.sail.torn;
         //Forward Motion: Move forward if sail is up, lerp towards new move vector
-        Vector3 targetVector = sailOpenAndNotTorn ? transform.up * baseSpeed * Time.deltaTime : Vector3.zero;
+        Vector3 targetVector = sailOpenAndNotTorn ? transform.up * baseSpeed: Vector3.zero;
         moveVector = Vector3.Lerp(moveVector, targetVector, (!boat.sail.torn ? accelerationLerp : brakeLerp) * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
         var windVector = (wind != null) ? wind.windVector : Vector2.zero;
         float windDotSail = Vector2.Dot(windVector.normalized, boat.sail.transform.up.normalized);
         float windEffect = sailOpenAndNotTorn ? 1 - Mathf.Abs(windDotSail) : 0;
         if (sailOpenAndNotTorn) { boat.sail.UpdateWind(windVector.normalized); }
-        windVector = windEffect * windVector * Time.deltaTime;
-        Vector2 finalVector = windVector + moveVector;
+        windVector = windEffect * windVector;
+        Vector2 finalVector = (windVector + moveVector) * Time.deltaTime;
         //Debug.Log(finalVector);
         transform.position = new Vector3(transform.position.x + finalVector.x, transform.position.y + finalVector.y, transform.position.z);
     }
