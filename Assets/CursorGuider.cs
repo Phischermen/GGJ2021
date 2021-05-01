@@ -29,6 +29,7 @@ public class CursorGuider : MonoBehaviour
 
     private void buttonClicked()
     {
+        if (isActiveAndEnabled == false) return;
         Destroy(gameObject);
         if (nextGuider != null)
             nextGuider.gameObject.SetActive(true);

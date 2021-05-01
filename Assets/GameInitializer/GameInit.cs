@@ -50,7 +50,10 @@ public class GameInit : MonoBehaviour
         lightHouse.transform.position = boat.transform.position + new Vector3(Mathf.Sin(Mathf.Deg2Rad * initABBALH) * d, Mathf.Cos(Mathf.Deg2Rad * initABBALH) * d, 0f);
         boat.transform.Rotate(0f, 0f, -initABBALH);
         // Set light house location for obstacle spawner
-        obstacleSpawner.LighthouseLocation = lightHouse.transform.position;
+        obstacleSpawner.NoSpawns[0].gameObjectLocation = lightHouse.transform;
+        obstacleSpawner.NoSpawns[0].noSpawnRadius = 20f;
+        obstacleSpawner.NoSpawns[1].gameObjectLocation = boat.transform;
+        obstacleSpawner.NoSpawns[1].noSpawnRadius = 10f;
     }
 
     public float GetDistanceTraveledOverTime(float speed, float time)

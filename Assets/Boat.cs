@@ -66,19 +66,33 @@ public class Boat : MonoBehaviour
     }
     private IEnumerator ShowLighthouse()
     {
+        var progress = 0f;
         var camera = cameraController.GetComponent<Camera>();
-        while (camera.orthographicSize < 125)
+        var lighthouse = GameObject.FindGameObjectWithTag("Lighthouse");
+        cameraController.enabled = false;
+        while (progress < 0.99f)
         {
-            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 126, 1f * Time.deltaTime);
+            progress += Time.deltaTime / 2f;
+            progress = Mathf.Clamp01(progress);
+            Vector3 v = Vector3.Lerp(transform.position, lighthouse.transform.position, progress);
+            v.z = -10;
+            camera.transform.position = v;
+            camera.orthographicSize = Mathf.Lerp(5, 20, progress);
             yield return new WaitForEndOfFrame();
         }
-        camera.orthographicSize = 125;
         yield return new WaitForSeconds(2f);
-        while (camera.orthographicSize > 5)
+        progress = 0f;
+        while (progress < 0.99f)
         {
-            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 4, 1f * Time.deltaTime);
+            progress += Time.deltaTime / 2f;
+            progress = Mathf.Clamp01(progress);
+            Vector3 v = Vector3.Lerp(lighthouse.transform.position, transform.position, progress);
+            v.z = -10;
+            camera.transform.position = v; 
+            camera.orthographicSize = Mathf.Lerp(20, 5, progress);
             yield return new WaitForEndOfFrame();
         }
+        cameraController.enabled = true;
         camera.orthographicSize = 5;
     }
     public void TeleportBoat(Vector3 position)

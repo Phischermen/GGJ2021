@@ -11,8 +11,14 @@ public class ObstacleSpawner : MonoBehaviour
     // Initialized outside of this component
     public Grid obstacleGrid;
     Vector3Int currentCell;
-    public Vector3 LighthouseLocation;
-    float LighthouseNoSpawnRadius = 20f;
+    //public Vector3 LighthouseLocation;
+    //float LighthouseNoSpawnRadius = 20f;
+    public NoSpawn[] NoSpawns = new NoSpawn[2]; //Size 2 to accomadate boat and lighthouse.
+    public struct NoSpawn
+    {
+        public Transform gameObjectLocation;
+        public float noSpawnRadius;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -89,8 +95,16 @@ public class ObstacleSpawner : MonoBehaviour
         foreach (var cell in cells)
         {
             var worldPosition = obstacleGrid.CellToWorld(new Vector3Int(cell.x, cell.y, 0));
-            if (obstacleSpawns.In2DArrayBounds(cell) && Vector3.Distance(worldPosition, LighthouseLocation) > LighthouseNoSpawnRadius)
+            
+            if (obstacleSpawns.In2DArrayBounds(cell))
             {
+                foreach (var noSpawn in NoSpawns)
+                {
+                    if (Vector3.Distance(worldPosition, noSpawn.gameObjectLocation.position) < noSpawn.noSpawnRadius)
+                    {
+                        goto EndOfFirstForEach;
+                    }
+                }
                 var gobj = obstacleSpawns[cell.x, cell.y];
                 if (gobj == null)
                 {
@@ -106,6 +120,7 @@ public class ObstacleSpawner : MonoBehaviour
                     }
                 }
             }
+            EndOfFirstForEach:;
         }
     }
 }
