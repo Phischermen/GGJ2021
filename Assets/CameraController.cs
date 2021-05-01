@@ -17,8 +17,9 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            Vector2 finalVector = Vector2.zero;
-            finalVector.Set(boat.steering.moveVector.x, boat.steering.moveVector.y);
+            var finalVector = Vector2.zero;
+            var steering = boat.steering;
+            finalVector.Set(steering.moveVector.x + (steering.reboundVector.x / 2) , boat.steering.moveVector.y + (steering.reboundVector.y / 2));
             finalVector *= cameraLead;
             Vector3 target = boat.transform.position + new Vector3(finalVector.x, finalVector.y, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, target, 0.1f);

@@ -15,7 +15,11 @@ public class BoatSteering : MonoBehaviour
     bool sailOpenAndNotTorn = true;
     public bool atHelm = true;
 
+    [HideInInspector]
     public Vector2 moveVector;
+    [HideInInspector]
+    public Vector2 reboundVector;
+    public float reboundRecovery;
     [SerializeField]
     float moveMagnitude;
 
@@ -26,6 +30,7 @@ public class BoatSteering : MonoBehaviour
 
     public AudioClip breakClip;
     public AudioClip repairClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,12 +67,15 @@ public class BoatSteering : MonoBehaviour
         Vector3 targetVector = sailOpenAndNotTorn ? transform.up * baseSpeed: Vector3.zero;
         moveVector = Vector3.Lerp(moveVector, targetVector, (!boat.sail.torn ? accelerationLerp : brakeLerp) * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
+        // Wind
         var windVector = (wind != null) ? wind.windVector : Vector2.zero;
         float windDotSail = Vector2.Dot(windVector.normalized, boat.sail.transform.up.normalized);
         float windEffect = sailOpenAndNotTorn ? 1 - Mathf.Abs(windDotSail) : 0;
         if (sailOpenAndNotTorn) { boat.sail.UpdateWind(windVector.normalized); }
         windVector = windEffect * windVector;
-        Vector2 finalVector = (windVector + moveVector) * Time.deltaTime;
+        // Rebound
+        reboundVector = Vector2.Lerp(reboundVector, Vector2.zero, reboundRecovery * Time.deltaTime);
+        Vector2 finalVector = (windVector + moveVector + reboundVector) * Time.deltaTime;
         //Debug.Log(finalVector);
         transform.position = new Vector3(transform.position.x + finalVector.x, transform.position.y + finalVector.y, transform.position.z);
     }
