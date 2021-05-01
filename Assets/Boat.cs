@@ -66,9 +66,20 @@ public class Boat : MonoBehaviour
     }
     private IEnumerator ShowLighthouse()
     {
-        //cameraController.boat = GameObject.FindGameObjectWithTag("Lighthouse").transform;
-        yield return new WaitForSeconds(5f);
-        //cameraController.boat = GameObject.FindGameObjectWithTag("Boat").transform;
+        var camera = cameraController.GetComponent<Camera>();
+        while (camera.orthographicSize < 125)
+        {
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 126, 1f * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        camera.orthographicSize = 125;
+        yield return new WaitForSeconds(2f);
+        while (camera.orthographicSize > 5)
+        {
+            camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, 4, 1f * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        camera.orthographicSize = 5;
     }
     public void TeleportBoat(Vector3 position)
     {

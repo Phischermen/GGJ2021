@@ -356,6 +356,7 @@ MonoBehaviour:
   cameraController: {fileID: 0}
   startCrashed: 1
   objectiveDelivered: 0
+  cameraLead: 1
 --- !u!95 &1413242809830614588
 Animator:
   serializedVersion: 3
