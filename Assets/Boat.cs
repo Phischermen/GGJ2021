@@ -23,6 +23,7 @@ public class Boat : MonoBehaviour
     [HideInInspector]
     public bool objectiveDelivered;
 
+    public AnimationCurve cameraToLightHouse;
     public float cameraLead = 5;
     private void Awake()
     {
@@ -74,10 +75,11 @@ public class Boat : MonoBehaviour
         {
             progress += Time.deltaTime / 2f;
             progress = Mathf.Clamp01(progress);
-            Vector3 v = Vector3.Lerp(transform.position, lighthouse.transform.position, progress);
+            var t = cameraToLightHouse.Evaluate(progress);
+            Vector3 v = Vector3.Lerp(transform.position, lighthouse.transform.position, t);
             v.z = -10;
             camera.transform.position = v;
-            camera.orthographicSize = Mathf.Lerp(5, 20, progress);
+            camera.orthographicSize = Mathf.Lerp(5, 20, t);
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(2f);
@@ -86,10 +88,11 @@ public class Boat : MonoBehaviour
         {
             progress += Time.deltaTime / 2f;
             progress = Mathf.Clamp01(progress);
-            Vector3 v = Vector3.Lerp(lighthouse.transform.position, transform.position, progress);
+            var t = cameraToLightHouse.Evaluate(progress);
+            Vector3 v = Vector3.Lerp(lighthouse.transform.position, transform.position, t);
             v.z = -10;
             camera.transform.position = v; 
-            camera.orthographicSize = Mathf.Lerp(20, 5, progress);
+            camera.orthographicSize = Mathf.Lerp(20, 5, t);
             yield return new WaitForEndOfFrame();
         }
         cameraController.enabled = true;
