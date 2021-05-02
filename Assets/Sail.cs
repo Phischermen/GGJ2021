@@ -65,6 +65,10 @@ public class Sail : MonoBehaviour
                 sailRotateLoop.Pause();
             }
         }
+        else
+        {
+            sailRotateLoop.Pause();
+        }
     }
 
     public void OpenClose()
