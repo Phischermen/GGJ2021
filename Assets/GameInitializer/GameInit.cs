@@ -36,6 +36,7 @@ public class GameInit : MonoBehaviour
         boatWidget.manual = instructionManualInScene;
         boatWidget.manual.preGameVersion = false;
         boatWidget.manual.OnNextPressedOnLastPage += boatWidget.CloseManualPressed;
+        boatWidget.manual.OnPageOpen += boatWidget.OnManualPageOpen;
         // Instantiate and setup light house
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();

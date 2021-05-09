@@ -6,10 +6,20 @@ using UnityEngine;
 
 public class InstructionManual : MonoBehaviour
 {
-    enum ManualContents
+    public enum ManualContents
     {
         log = 0,
-        instructions = 3
+        log1 = 0,
+        log2 = 1,
+        log3 = 2,
+        instructions = 3,
+        manning = 3,
+        repairing = 4,
+        helm = 5,
+        rudder = 6,
+        sail = 7,
+        lantern = 8,
+        captain = 9,
     }
     // Initialized via inspector
     public Button next;
@@ -28,6 +38,7 @@ public class InstructionManual : MonoBehaviour
     [HideInInspector]
     public Sprite[] manualPages;
     public Action OnNextPressedOnLastPage;
+    public Action<int> OnPageOpen;
     private int _page;
     public int Page
     {
@@ -70,7 +81,7 @@ public class InstructionManual : MonoBehaviour
     {
         // Manual starts closed
         GetComponent<Canvas>().enabled = false;
-        manualPages = Resources.LoadAll<Sprite>("Sprites/InstructionManual/Manual");
+        manualPages = Resources.LoadAll<Sprite>("Sprites/InstructionManual/Manual01");
         Page = 0;
         next.onClick.AddListener(NextPressed);
         prev.onClick.AddListener(PrevPressed);
@@ -88,12 +99,14 @@ public class InstructionManual : MonoBehaviour
         {
             pageTurn.Play();
             Page += 1;
+            OnPageOpen?.Invoke(Page);
             prev.gameObject.SetActive(true);
         }
-        else if (OnNextPressedOnLastPage != null)
+        else
         {
-            OnNextPressedOnLastPage.Invoke();
+            OnNextPressedOnLastPage?.Invoke();
         }
+        
     }
 
     void PrevPressed()
@@ -102,6 +115,7 @@ public class InstructionManual : MonoBehaviour
         {
             pageTurn.Play();
             Page -= 1;
+            OnPageOpen?.Invoke(Page);
         }
     }
 

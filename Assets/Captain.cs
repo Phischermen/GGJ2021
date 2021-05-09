@@ -21,6 +21,8 @@ public class Captain : MonoBehaviour
     public Animator anim;
     [HideInInspector]
     public Image img;
+    [HideInInspector]
+    public BoatWidget boatWidget;
 
     public Sprite awakeSpr;
     public Sprite sleepingSpr;
@@ -74,6 +76,7 @@ public class Captain : MonoBehaviour
             onBorad = false;
             ship.sprite = noCaptain;
             anim.Play("CaptainSlide");
+            boatWidget.stations[(int)BoatWidget.StationNames.tend].HideSelf(totally: true);
         }
     }
 

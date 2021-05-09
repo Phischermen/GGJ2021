@@ -11,7 +11,7 @@ public class Lantern : MonoBehaviour
     public bool lit = true;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         illum = GetComponent<SpriteMask>();
         audio = GetComponent<AudioSource>();
@@ -29,10 +29,13 @@ public class Lantern : MonoBehaviour
         lit = true;
         illum.enabled = true;
     }
-
     public void Extinguish()
     {
-        audio.PlayOneShot(douse);
+        Extinguish(false);
+    }
+    public void Extinguish(bool silently)
+    {
+        if (!silently) audio.PlayOneShot(douse);
         lit = false;
         illum.enabled = false;
     }
