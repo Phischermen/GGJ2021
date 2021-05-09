@@ -15,7 +15,7 @@ public class GameInit : MonoBehaviour
     // How long the game would last if the player could drive straight towards the lighthouse.
     public float minimumTravelTime;
     // Initial Angle Between Boat And LightHouse
-    public float initABBALH;
+    public Vector2 initABBALHMinMax;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +47,7 @@ public class GameInit : MonoBehaviour
         // Position boat and light house.
         // TODO place boat in the middle of obstacle grid, and place light house at an offset from this position.
         boatComponent.TeleportBoat(obstacleSpawner.obstacleGrid.CellToWorld(new Vector3Int(50, 50, 0)));
+        var initABBALH = Random.Range(initABBALHMinMax.x, initABBALHMinMax.y);
         lightHouse.transform.position = boat.transform.position + new Vector3(Mathf.Sin(Mathf.Deg2Rad * initABBALH) * d, Mathf.Cos(Mathf.Deg2Rad * initABBALH) * d, 0f);
         boat.transform.Rotate(0f, 0f, -initABBALH);
         // Set light house location for obstacle spawner
