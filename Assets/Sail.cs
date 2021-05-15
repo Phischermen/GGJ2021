@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sail : MonoBehaviour
 {
+    public Boat boat;
+
     public bool open = true;
     public bool torn = false;
     public bool atSail = false;
@@ -49,6 +51,10 @@ public class Sail : MonoBehaviour
             {
                 bool opening = raiselower > 0 ? true : false;
                 if (opening != open) OpenClose(opening);
+                if (opening && !boat.sailRaisedForFirstTime)
+                {
+                    boat.RaiseSailForFirstTime();
+                }
             }
             float rotation = Input.GetAxis("Horizontal");
             if (Mathf.Abs(rotation) > .1)
@@ -64,6 +70,10 @@ public class Sail : MonoBehaviour
             {
                 sailRotateLoop.Pause();
             }
+        }
+        else
+        {
+            sailRotateLoop.Pause();
         }
     }
 

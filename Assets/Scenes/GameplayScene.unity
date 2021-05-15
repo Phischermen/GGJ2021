@@ -196,7 +196,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 200, y: 200}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -428,7 +428,10 @@ MonoBehaviour:
   instructionManualInScene: {fileID: 1246509024}
   initialDistance: 0
   minimumTravelTime: 100
-  initABBALH: 45
+  initABBALHMinMax: {x: -45, y: 45}
+  difficultyThresholds:
+  - 50
+  - 100
 --- !u!4 &976430351
 Transform:
   m_ObjectHideFlags: 0
@@ -589,7 +592,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 200, y: 200}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

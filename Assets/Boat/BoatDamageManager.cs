@@ -94,7 +94,7 @@ public class BoatDamageManager : MonoBehaviour
                     normal += contact.normal;
                 }
                 normal = normal.normalized;
-                boat.steering.moveVector += normal * reboundStrength;
+                boat.steering.reboundVector += normal * reboundStrength;
             }
             else
             {
@@ -123,7 +123,7 @@ public class BoatDamageManager : MonoBehaviour
                         animator.SetBool("sink", true);
                         flag.SetActive(false);
                     }
-                    else
+                    else if (boatWidget)
                     {
                         // Check bits and determine the damage select process to be executed
                         var random = ((int)ds.damageSelectType & 0b01) == 0b01;

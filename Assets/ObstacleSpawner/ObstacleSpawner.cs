@@ -5,19 +5,30 @@ using UnityEditor;
 using Extensions;
 public class ObstacleSpawner : MonoBehaviour
 {
-    public string ObstacleDirectory = "ObstaclePrefabs";
-    public GameObject[] obstaclePool;
+    public string EasyObstacleDirectory = "ObstaclePrefabs/Easy Levels";
+    public string MediumObstacleDirectory = "ObstaclePrefabs/Medium Levels";
+    public string HardObstacleDirectory = "ObstaclePrefabs/Hard Levels";
+    public float[] difficultyThresholds;
+    public List<GameObject[]> obstaclePool = new List<GameObject[]>();
     GameObject[,] obstacleSpawns;
     // Initialized outside of this component
     public Grid obstacleGrid;
     Vector3Int currentCell;
-    public Vector3 LighthouseLocation;
-    float LighthouseNoSpawnRadius = 20f;
+    //public Vector3 LighthouseLocation;
+    //float LighthouseNoSpawnRadius = 20f;
+    public NoSpawn[] NoSpawns = new NoSpawn[2]; //Size 2 to accomadate boat and lighthouse.
+    public struct NoSpawn
+    {
+        public Transform gameObjectLocation;
+        public float noSpawnRadius;
+    }
     // Start is called before the first frame update
     void Start()
     {
         obstacleSpawns = new GameObject[100, 100];
-        obstaclePool = Resources.LoadAll<GameObject>(ObstacleDirectory);
+        obstaclePool.Add(Resources.LoadAll<GameObject>(HardObstacleDirectory));
+        obstaclePool.Add(Resources.LoadAll<GameObject>(MediumObstacleDirectory));
+        obstaclePool.Add(Resources.LoadAll<GameObject>(EasyObstacleDirectory));
     }
 
     // Update is called once per frame
@@ -89,13 +100,33 @@ public class ObstacleSpawner : MonoBehaviour
         foreach (var cell in cells)
         {
             var worldPosition = obstacleGrid.CellToWorld(new Vector3Int(cell.x, cell.y, 0));
-            if (obstacleSpawns.In2DArrayBounds(cell) && Vector3.Distance(worldPosition, LighthouseLocation) > LighthouseNoSpawnRadius)
+
+            if (obstacleSpawns.In2DArrayBounds(cell))
             {
+                foreach (var noSpawn in NoSpawns)
+                {
+                    if (Vector3.Distance(worldPosition, noSpawn.gameObjectLocation.position) < noSpawn.noSpawnRadius)
+                    {
+                        goto EndOfFirstForEach;
+                    }
+                }
                 var gobj = obstacleSpawns[cell.x, cell.y];
                 if (gobj == null)
                 {
-                    var ob = obstacleSpawns[cell.x, cell.y] = Instantiate(obstaclePool[(int)(Random.value * obstaclePool.Length)], worldPosition, Quaternion.identity);
-                    for(var i = 0; i < ob.transform.childCount; i++)
+                    // Get appropriate obstacle pool
+                    var i = 0;
+                    var d = Vector3.Distance(transform.position, NoSpawns[0].gameObjectLocation.position);
+                    foreach (var t in difficultyThresholds)
+                    {
+                        if (d < t) break;
+                        i += 1;
+                    }
+                    Debug.Log(d);
+                    Debug.Log(i);
+                    GameObject[] pool = obstaclePool[i];
+                    // Instantiate object
+                    var ob = obstacleSpawns[cell.x, cell.y] = Instantiate(pool[(int)(Random.value * pool.Length)], worldPosition, Quaternion.identity);
+                    for (i = 0; i < ob.transform.childCount; i++)
                     {
                         var child = ob.transform.GetChild(i);
                         if (child.transform.position.z != 0f)
@@ -106,6 +137,7 @@ public class ObstacleSpawner : MonoBehaviour
                     }
                 }
             }
+        EndOfFirstForEach:;
         }
     }
 }

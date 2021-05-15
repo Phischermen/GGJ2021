@@ -15,7 +15,8 @@ public class GameInit : MonoBehaviour
     // How long the game would last if the player could drive straight towards the lighthouse.
     public float minimumTravelTime;
     // Initial Angle Between Boat And LightHouse
-    public float initABBALH;
+    public Vector2 initABBALHMinMax;
+    public float[] difficultyThresholds;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,21 +37,27 @@ public class GameInit : MonoBehaviour
         boatWidget.manual = instructionManualInScene;
         boatWidget.manual.preGameVersion = false;
         boatWidget.manual.OnNextPressedOnLastPage += boatWidget.CloseManualPressed;
+        boatWidget.manual.OnPageOpen += boatWidget.OnManualPageOpen;
         // Instantiate and setup light house
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
         var d = GetDistanceTraveledOverTime(boatComponent.steering.baseSpeed, minimumTravelTime);
         // Instantiate and setup Obstacle Spawner
-        var obstacleSpawner = boat.AddComponent<ObstacleSpawner>();
+        var obstacleSpawner = boatComponent.cameraController.gameObject.AddComponent<ObstacleSpawner>();
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
         obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
+        obstacleSpawner.difficultyThresholds = difficultyThresholds;
         // Position boat and light house.
         // TODO place boat in the middle of obstacle grid, and place light house at an offset from this position.
-        boat.transform.position = obstacleSpawner.obstacleGrid.CellToWorld(new Vector3Int(50, 50, 0));
+        boatComponent.TeleportBoat(obstacleSpawner.obstacleGrid.CellToWorld(new Vector3Int(50, 50, 0)));
+        var initABBALH = Random.Range(initABBALHMinMax.x, initABBALHMinMax.y);
         lightHouse.transform.position = boat.transform.position + new Vector3(Mathf.Sin(Mathf.Deg2Rad * initABBALH) * d, Mathf.Cos(Mathf.Deg2Rad * initABBALH) * d, 0f);
         boat.transform.Rotate(0f, 0f, -initABBALH);
         // Set light house location for obstacle spawner
-        obstacleSpawner.LighthouseLocation = lightHouse.transform.position;
+        obstacleSpawner.NoSpawns[0].gameObjectLocation = lightHouse.transform;
+        obstacleSpawner.NoSpawns[0].noSpawnRadius = 20f;
+        obstacleSpawner.NoSpawns[1].gameObjectLocation = boat.transform;
+        obstacleSpawner.NoSpawns[1].noSpawnRadius = 10f;
     }
 
     public float GetDistanceTraveledOverTime(float speed, float time)

@@ -186,6 +186,8 @@ MonoBehaviour:
   sailOpenAndNotTorn: 1
   atHelm: 1
   moveVector: {x: 0, y: 0}
+  reboundVector: {x: 0, y: 0}
+  reboundRecovery: 4
   moveMagnitude: 0
   boat: {fileID: 0}
   wind: {fileID: 0}
@@ -205,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  reboundStrength: 0.1
+  reboundStrength: 10
   objectDestroyPrefab: {fileID: 954593871253175784, guid: 353c38304b7d5274d89b7912db46c594,
     type: 3}
   iframes: 0
@@ -237,6 +239,7 @@ MonoBehaviour:
   captainTendedClipDirectory: Sound/captain_tended
   anim: {fileID: 0}
   img: {fileID: 0}
+  boatWidget: {fileID: 0}
   awakeSpr: {fileID: 21300000, guid: 6f35f3cb890798644895a1a4cb765a94, type: 3}
   sleepingSpr: {fileID: 21300000, guid: 84948ba7fa03ced468fd51972bc0b6cd, type: 3}
   audio: {fileID: 2752125011137291303}
@@ -354,8 +357,35 @@ MonoBehaviour:
   sail: {fileID: 0}
   captain: {fileID: 0}
   cameraController: {fileID: 0}
+  boatWidget: {fileID: 0}
   startCrashed: 1
   objectiveDelivered: 0
+  sailRaisedForFirstTime: 0
+  cameraToLightHouse:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  cameraLead: 1
 --- !u!95 &1413242809830614588
 Animator:
   serializedVersion: 3
@@ -885,6 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22f6055689523f47965b5822e0fafa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boat: {fileID: 0}
   open: 1
   torn: 0
   atSail: 0
@@ -1099,7 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 8300000, guid: d20e39f51ac1ad74c828b48d4efe8e9b, type: 3}
-  douse: {fileID: 8300000, guid: 97c806411f9654d8ea762822a1a60481, type: 3}
+  douse: {fileID: 8300000, guid: 990ad5925791b4f1f8ca51440b0becc6, type: 3}
   lit: 1
 --- !u!82 &1725910249031130347
 AudioSource:
@@ -1466,7 +1497,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e9f3a4e27295a43dc9fcd70f815b3768, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 324ee0516f62c43f3899b7107727fa96, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
