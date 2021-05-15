@@ -121,8 +121,8 @@ public class ObstacleSpawner : MonoBehaviour
                         if (d < t) break;
                         i += 1;
                     }
-                    Debug.Log(d);
-                    Debug.Log(i);
+                    //Debug.Log(d);
+                    //Debug.Log(i);
                     GameObject[] pool = obstaclePool[i];
                     // Instantiate object
                     var ob = obstacleSpawns[cell.x, cell.y] = Instantiate(pool[(int)(Random.value * pool.Length)], worldPosition, Quaternion.identity);
