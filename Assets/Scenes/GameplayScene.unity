@@ -429,6 +429,9 @@ MonoBehaviour:
   initialDistance: 0
   minimumTravelTime: 100
   initABBALHMinMax: {x: -45, y: 45}
+  difficultyThresholds:
+  - 50
+  - 100
 --- !u!4 &976430351
 Transform:
   m_ObjectHideFlags: 0

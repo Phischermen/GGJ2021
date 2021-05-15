@@ -16,6 +16,7 @@ public class GameInit : MonoBehaviour
     public float minimumTravelTime;
     // Initial Angle Between Boat And LightHouse
     public Vector2 initABBALHMinMax;
+    public float[] difficultyThresholds;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,7 @@ public class GameInit : MonoBehaviour
         var obstacleSpawner = boatComponent.cameraController.gameObject.AddComponent<ObstacleSpawner>();
         obstacleSpawner.obstacleGrid = gameObject.AddComponent<Grid>();
         obstacleSpawner.obstacleGrid.cellSize = new Vector3(10, 10);
+        obstacleSpawner.difficultyThresholds = difficultyThresholds;
         // Position boat and light house.
         // TODO place boat in the middle of obstacle grid, and place light house at an offset from this position.
         boatComponent.TeleportBoat(obstacleSpawner.obstacleGrid.CellToWorld(new Vector3Int(50, 50, 0)));
