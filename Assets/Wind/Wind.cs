@@ -10,13 +10,17 @@ public class Wind : MonoBehaviour
     public Vector2 windDirection;
     public Vector2 targetDirection;
     public Vector2 windChangeRange = new Vector2(15, 20);
+    [Range(0, 1)]
+    public float windChangeToFaceLighthouseOverFaceRandomRatio = 0.75f;
+    [Range(-1, 1)]
+    public float minDotBetweenBoatAndLighthouse = 0;
     public Vector2 windVector;
-    public BoatSteering boat;
+    public Boat boat;
     // Start is called before the first frame update
     void Start()
     {
-        boat = boat == null ? GameObject.FindWithTag("Boat").GetComponent<BoatSteering>() : boat;
-        boat.wind = this;
+        boat = boat == null ? GameObject.FindWithTag("Boat").GetComponent<Boat>() : boat;
+        boat.steering.wind = this;
         var bdm = boat.GetComponent<BoatDamageManager>();
         bdm.sprites.Add(GetComponentInChildren<SpriteRenderer>());
         bdm.flag = gameObject;
@@ -35,8 +39,30 @@ public class Wind : MonoBehaviour
 
     void ChangeWind()
     {
-        targetForce = Random.Range(0, maxWind);
-        targetDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        targetForce = maxWind;
+        if (Random.value > windChangeToFaceLighthouseOverFaceRandomRatio)
+        {
+            var targetVector = (GameObject.FindGameObjectWithTag("Lighthouse").transform.position - transform.position).normalized;
+            var remainingTries = 5;
+            var bestDot = -1f;
+            var bestVector = Vector3.zero;
+            do
+            {
+                targetDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+                remainingTries -= 1;
+                var dot = Vector3.Dot(targetDirection, targetVector);
+                if (dot > bestDot)
+                {
+                    bestDot = dot;
+                    bestVector = targetDirection;
+                }
+            } while (remainingTries != 0 && bestDot < minDotBetweenBoatAndLighthouse);
+            targetDirection = bestVector;
+        }
+        else
+        {
+            targetDirection = (GameObject.FindGameObjectWithTag("Lighthouse").transform.position - transform.position).normalized;
+        }
         StartCoroutine(windChangeDelay(Random.Range(windChangeRange.x, windChangeRange.y)));
     }
 

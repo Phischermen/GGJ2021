@@ -428,7 +428,10 @@ MonoBehaviour:
   instructionManualInScene: {fileID: 1246509024}
   initialDistance: 0
   minimumTravelTime: 100
-  initABBALH: 45
+  initABBALHMinMax: {x: -45, y: 45}
+  difficultyThresholds:
+  - 50
+  - 100
 --- !u!4 &976430351
 Transform:
   m_ObjectHideFlags: 0

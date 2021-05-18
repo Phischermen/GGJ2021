@@ -8,7 +8,7 @@ public class MenuActions : MonoBehaviour
     public static bool HasPlayed = false;
     public void Play()
     {
-        SceneManager.LoadScene(HasPlayed ? 1 : 7);
+        SceneManager.LoadScene(HasPlayed ? 1 : 8);
         HasPlayed = true;
     }
 

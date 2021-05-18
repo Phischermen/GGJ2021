@@ -46,6 +46,7 @@ public class BoatWidget : MonoBehaviour
     {
         public Action OnManStation;
         Action OnRepairStation;
+        Button StationButton;
         Image StationButtonImage;
         Image StationButtonInvertedImage;
         Sprite StationButtonSprite;
@@ -55,14 +56,16 @@ public class BoatWidget : MonoBehaviour
         public float repair = 1f;
         public float repairRate = 0.5f;
         public int brokenTimeStamp = -1000;
-        public Station(Action onManStation, Image image, Sprite sprite, bool repairable = false, Action onRepairStation = null, float _repairRate = 0.5f)
+        public int revealTimeStamp = -1000;
+        public bool hidden = false;
+        public Station(Action onManStation, Button button, Image image, Sprite sprite, bool repairable = false, Action onRepairStation = null, float _repairRate = 0.5f)
         {
             OnManStation = onManStation;
             OnRepairStation = onRepairStation;
+            StationButton = button;
             StationButtonImage = image;
             StationButtonSprite = sprite;
             repairRate = _repairRate;
-            // TODO Add flare
             var flare = new GameObject();
             // Add a rect transform
             flareRT = flare.AddComponent<RectTransform>();
@@ -103,8 +106,9 @@ public class BoatWidget : MonoBehaviour
             }
             StationButtonInvertedImage.fillAmount = 1f - repair;
         }
-        public void ProcessBrokenness(bool playerIsAtStation)
+        public void ProcessFlareAndFlashForDisrepair(bool playerIsAtStation)
         {
+            if (!StationButtonInvertedImage) return;
             var delta = Time.frameCount - brokenTimeStamp;
             if (delta < 60)
             {
@@ -117,7 +121,7 @@ public class BoatWidget : MonoBehaviour
                 flareRT.localScale = Vector2.one * (-0.00277f * ((delta - 60) * (delta - 60)) + 10f);
                 flareCR.SetAlpha((60 - delta) / 150f);
             }
-            else if (delta % 600 >= 540 && !playerIsAtStation)
+            else if (delta % 600 >= 540 && !playerIsAtStation && !hidden)
             {
                 // Periodic reminder flash
                 StationButtonInvertedImage.enabled = (delta % 4) >= 2;
@@ -128,7 +132,55 @@ public class BoatWidget : MonoBehaviour
                 flareCR.SetAlpha(0);
             }
         }
+        public void ProcessFlareForReveal(bool playerIsAtStation)
+        {
+            var delta = Time.frameCount - revealTimeStamp;
+            if (delta < 60)
+            {
+                // a(x + h)^2 + v
+                // a = -0.00277
+                // h = -60
+                // v = 10
+                // x = delta
+                flareRT.localScale = Vector2.one * (-0.00277f * ((delta - 60) * (delta - 60)) + 10f);
+                flareCR.SetAlpha((60 - delta) / 150f);
+            }
+            else
+            {
+                flareCR.SetAlpha(0);
+            }
+        }
+        public void RevealSelf()
+        {
+            hidden = false;
+            StationButton.gameObject.SetActive(true);
+            StationButton.interactable = true;
+            StationButtonImage.color = new Color(1f, 1f, 1f, 1f);
+            if (StationButtonInvertedImage) StationButtonInvertedImage.color = new Color(1f, 1f, 1f, 1f);
+            revealTimeStamp = Time.frameCount;
+        }
+        public void HideSelf(bool totally = false)
+        {
+            hidden = true;
+            StationButton.interactable = false;
+            if (repaired)
+            {
+                StationButtonImage.color = new Color(1f, 1f, 1f, 0.5f);
+                StationButtonInvertedImage.color = new Color(1f, 1f, 1f, 0f);
+            }
+            else if (totally)
+            {
+                StationButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                StationButtonImage.color = new Color(1f, 1f, 1f, 0f);
+                StationButtonInvertedImage.color = new Color(1f, 1f, 1f, 0.5f);
+
+            }
+        }
     }
+
     public Station[] stations = new Station[(int)StationNames.noStation];
 
     [System.Serializable]
@@ -222,13 +274,19 @@ public class BoatWidget : MonoBehaviour
 
     private void Awake()
     {
+        // Get Buttons
+        RudderButton = GameObject.Find("Rudder").GetComponent<Button>();
+        HelmButton = GameObject.Find("Helm").GetComponent<Button>();
+        SailButton = GameObject.Find("Sail").GetComponent<Button>();
+        LanternButton = GameObject.Find("Lantern").GetComponent<Button>();
+        TendButton = GameObject.Find("Tend").GetComponent<Button>();
+        ManualButton = GameObject.Find("Help").GetComponent<Button>();
         // Setup stations
-        stations[(int)StationNames.rudder] = new Station(RudderManned, RudderButtonImage, RudderNormalSprite, true, RepairRudder, RudderRepairRate);
-        stations[(int)StationNames.helm] = new Station(HelmManned, HelmButtonImage, HelmNormalSprite);
-        stations[(int)StationNames.sail] = new Station(SailManned, SailButtonImage, SailNormalSprite, true, RepairSail, SailRepairRate);
-        stations[(int)StationNames.lantern] = new Station(ManLantern, LanternButtonImage, LanternNormalSprite, true, RepairLantern, LanternRepairRate);
-        stations[(int)StationNames.tend] = new Station(ManTend, TendButtonImage, TendNormalSprite, true, RepairTend, TendRepairRate);
-
+        stations[(int)StationNames.rudder] = new Station(RudderManned, RudderButton, RudderButtonImage, RudderNormalSprite, true, RepairRudder, RudderRepairRate);
+        stations[(int)StationNames.helm] = new Station(HelmManned, HelmButton, HelmButtonImage, HelmNormalSprite);
+        stations[(int)StationNames.sail] = new Station(SailManned, SailButton, SailButtonImage, SailNormalSprite, true, RepairSail, SailRepairRate);
+        stations[(int)StationNames.lantern] = new Station(ManLantern, LanternButton, LanternButtonImage, LanternNormalSprite, true, RepairLantern, LanternRepairRate);
+        stations[(int)StationNames.tend] = new Station(ManTend, TendButton, TendButtonImage, TendNormalSprite, true, RepairTend, TendRepairRate);
     }
     void Start()
     {
@@ -246,18 +304,12 @@ public class BoatWidget : MonoBehaviour
         targetStation = StationNames.helm;
         currentStation = StationNames.helm;
 
-        // Get Buttons
-        RudderButton = GameObject.Find("Rudder").GetComponent<Button>();
-        HelmButton = GameObject.Find("Helm").GetComponent<Button>();
-        SailButton = GameObject.Find("Sail").GetComponent<Button>();
-        LanternButton = GameObject.Find("Lantern").GetComponent<Button>();
-        TendButton = GameObject.Find("Tend").GetComponent<Button>();
-        ManualButton = GameObject.Find("Help").GetComponent<Button>();
+
 
         // Get walking animated image. It is assumed to be the first element of widget animated images.
         MurphyWalkWidgetAnimatedImage = widgetAnimatedImages[0];
 
-        
+
         // Setup station positions
         deckTop = SailButton.transform.position.y;
         deckBottom = RudderButton.transform.position.y;
@@ -321,19 +373,20 @@ public class BoatWidget : MonoBehaviour
         for (var i = 0; i < (int)StationNames.noStation; i++)
         {
             var s = stations[(int)i];
+            var playerIsAtStation = i == (int)currentStation;
             if (!s.repaired)
             {
-                if (i == (int)currentStation)
+                if (playerIsAtStation)
                 {
                     s.ProgressRepair(1f);
-                    s.ProcessBrokenness(playerIsAtStation: true);
                 }
                 else
                 {
                     s.ProgressRepair(-0.1f);
-                    s.ProcessBrokenness(playerIsAtStation: false);
                 }
+                s.ProcessFlareAndFlashForDisrepair(playerIsAtStation);
             }
+            s.ProcessFlareForReveal(playerIsAtStation);
         }
         // Set sprite variants based on light level
         // TODO calculate light level
@@ -389,11 +442,21 @@ public class BoatWidget : MonoBehaviour
             }
         }
     }
+    // Callbacks
+    public void OnManualPageOpen(int page)
+    {
+        if (page == (int)InstructionManual.ManualContents.helm) stations[(int)StationNames.helm].RevealSelf();
+        else if (page == (int)InstructionManual.ManualContents.sail) stations[(int)StationNames.sail].RevealSelf();
+        else if (page == (int)InstructionManual.ManualContents.lantern) stations[(int)StationNames.lantern].RevealSelf();
+        else if (page == (int)InstructionManual.ManualContents.captain) stations[(int)StationNames.tend].RevealSelf();
+        else if (page == (int)InstructionManual.ManualContents.rudder) stations[(int)StationNames.rudder].RevealSelf();
+    }
     #region Damage Event UI Response Methods
     private void DisrepairStation(Station station)
     {
         station.repaired = false;
         station.repair = 0f;
+        if (station.hidden) station.HideSelf();
         station.brokenTimeStamp = Time.frameCount;
     }
     public void SailTorn()
