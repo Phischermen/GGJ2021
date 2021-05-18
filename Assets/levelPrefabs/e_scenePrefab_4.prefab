@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860077249579963978}
   m_Layer: 0
-  m_Name: C_Sceneprefab_8
+  m_Name: easy_scenePrefab_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -294,12 +294,12 @@ PrefabInstance:
     - target: {fileID: 7473706234954228407, guid: c312b76aaa5956449900580d1a009eda,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.03
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 7473706234954228407, guid: c312b76aaa5956449900580d1a009eda,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.68
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 7473706234954228407, guid: c312b76aaa5956449900580d1a009eda,
         type: 3}
