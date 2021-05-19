@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4654961073856426015}
   - component: {fileID: 4654961073856426000}
   - component: {fileID: 4654961073856426013}
+  - component: {fileID: 3320892236352364992}
   m_Layer: 0
   m_Name: basic_orbitBarrel
   m_TagString: Untagged
@@ -117,6 +118,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 4654961075612385878}
   speed: 30
+--- !u!58 &3320892236352364992
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654961073856426001}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03554988, y: 0.012614548}
+  serializedVersion: 2
+  m_Radius: 0.094590604
 --- !u!1 &4654961075250502419
 GameObject:
   m_ObjectHideFlags: 0

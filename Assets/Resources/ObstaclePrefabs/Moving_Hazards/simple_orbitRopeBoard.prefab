@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9202993742492328149}
   - component: {fileID: 9202993742492328148}
   - component: {fileID: 9202993742492328147}
+  - component: {fileID: 6708159430665376294}
   m_Layer: 0
   m_Name: simple_orbitBoard
   m_TagString: Untagged
@@ -117,6 +118,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 9202993743856336841}
   speed: 25
+--- !u!70 &6708159430665376294
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202993742492328151}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.011639759, y: -0.010670728}
+  m_Size: {x: 0.34531012, y: 0.10862943}
+  m_Direction: 1
 --- !u!1 &9202993743754819068
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +178,7 @@ GameObject:
   - component: {fileID: 9202993743856336839}
   - component: {fileID: 9202993743856336838}
   - component: {fileID: 9202993743856336837}
+  - component: {fileID: 1877340499873227709}
   m_Layer: 0
   m_Name: simple_orbitRope
   m_TagString: Untagged
@@ -266,3 +284,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 9202993742492328151}
   speed: 45
+--- !u!70 &1877340499873227709
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202993743856336841}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.002074015, y: 0.028004032}
+  m_Size: {x: 0.4666262, y: 0.21594648}
+  m_Direction: 1

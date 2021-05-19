@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7983643163680342742}
   - component: {fileID: 7983643163680342743}
   - component: {fileID: 7983643163680342736}
+  - component: {fileID: 1337039930881856182}
   m_Layer: 0
   m_Name: basic_orbitBarrel_W
   m_TagString: Untagged
@@ -117,6 +118,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 7983643163930699918}
   speed: 30
+--- !u!58 &1337039930881856182
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643163680342738}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.042587936, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09262723
 --- !u!1 &7983643163930699918
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +176,7 @@ GameObject:
   - component: {fileID: 7983643164580207144}
   - component: {fileID: 7983643164580207145}
   - component: {fileID: 7983643164580207146}
+  - component: {fileID: 7673313624382725217}
   m_Layer: 0
   m_Name: basic_orbitBarrel_N
   m_TagString: Untagged
@@ -264,6 +282,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 7983643163930699918}
   speed: 30
+--- !u!58 &7673313624382725217
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643164580207140}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.045007482, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09550016
 --- !u!1 &7983643164904624407
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +345,7 @@ GameObject:
   - component: {fileID: 7983643165426147738}
   - component: {fileID: 7983643165426147739}
   - component: {fileID: 7983643165426147732}
+  - component: {fileID: 5759945057395746505}
   m_Layer: 0
   m_Name: basic_orbitBarrel_S
   m_TagString: Untagged
@@ -416,6 +451,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 7983643163930699918}
   speed: 30
+--- !u!58 &5759945057395746505
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643165426147734}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04077576, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.0944394
 --- !u!1 &7983643165812055346
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +479,7 @@ GameObject:
   - component: {fileID: 7983643165812055350}
   - component: {fileID: 7983643165812055351}
   - component: {fileID: 7983643165812055344}
+  - component: {fileID: 8630326054319200984}
   m_Layer: 0
   m_Name: basic_orbitBarrel_E
   m_TagString: Untagged
@@ -533,3 +585,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {fileID: 7983643163930699918}
   speed: 30
+--- !u!58 &8630326054319200984
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643165812055346}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.042587876, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09262717

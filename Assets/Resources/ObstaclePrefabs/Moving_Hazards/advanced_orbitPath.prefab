@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 131459910368592690}
   - component: {fileID: 131459910368592691}
   - component: {fileID: 131459910368592076}
+  - component: {fileID: 7092531286368989572}
   m_Layer: 0
   m_Name: basic_pathCrate
   m_TagString: Untagged
@@ -121,6 +122,22 @@ MonoBehaviour:
   - {fileID: 131459912096426454}
   - {fileID: 131459910972190545}
   moveSpeed: 0.8
+--- !u!58 &7092531286368989572
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131459910368592078}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0025415123, y: -0.025414228}
+  serializedVersion: 2
+  m_Radius: 0.11889464
 --- !u!1 &131459910972190546
 GameObject:
   m_ObjectHideFlags: 0
