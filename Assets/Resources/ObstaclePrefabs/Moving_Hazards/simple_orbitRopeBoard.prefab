@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9202993742492328148}
   - component: {fileID: 9202993742492328147}
   - component: {fileID: 6708159430665376294}
+  - component: {fileID: 8273096813884181787}
   m_Layer: 0
   m_Name: simple_orbitBoard
   m_TagString: Untagged
@@ -134,6 +135,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0.011639759, y: -0.010670728}
   m_Size: {x: 0.34531012, y: 0.10862943}
   m_Direction: 1
+--- !u!114 &8273096813884181787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202993742492328151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 0
+  shipDamageEvent: 2
+  crashSFX: {fileID: 0}
 --- !u!1 &9202993743754819068
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +200,7 @@ GameObject:
   - component: {fileID: 9202993743856336838}
   - component: {fileID: 9202993743856336837}
   - component: {fileID: 1877340499873227709}
+  - component: {fileID: 6296037701259530793}
   m_Layer: 0
   m_Name: simple_orbitRope
   m_TagString: Untagged
@@ -294,9 +316,29 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.002074015, y: 0.028004032}
   m_Size: {x: 0.4666262, y: 0.21594648}
   m_Direction: 1
+--- !u!114 &6296037701259530793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202993743856336841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 0
+  shipDamageEvent: 2
+  crashSFX: {fileID: 0}

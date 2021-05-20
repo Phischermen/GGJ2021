@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7983643163680342743}
   - component: {fileID: 7983643163680342736}
   - component: {fileID: 1337039930881856182}
+  - component: {fileID: 1796113739773828313}
   m_Layer: 0
   m_Name: basic_orbitBarrel_W
   m_TagString: Untagged
@@ -134,6 +135,26 @@ CircleCollider2D:
   m_Offset: {x: 0.042587936, y: 0}
   serializedVersion: 2
   m_Radius: 0.09262723
+--- !u!114 &1796113739773828313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643163680342738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 0
+  shipDamageEvent: 0
+  crashSFX: {fileID: 0}
 --- !u!1 &7983643163930699918
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +198,7 @@ GameObject:
   - component: {fileID: 7983643164580207145}
   - component: {fileID: 7983643164580207146}
   - component: {fileID: 7673313624382725217}
+  - component: {fileID: 3776962646752663381}
   m_Layer: 0
   m_Name: basic_orbitBarrel_N
   m_TagString: Untagged
@@ -298,6 +320,26 @@ CircleCollider2D:
   m_Offset: {x: 0.045007482, y: 0}
   serializedVersion: 2
   m_Radius: 0.09550016
+--- !u!114 &3776962646752663381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643164580207140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 0
+  shipDamageEvent: 0
+  crashSFX: {fileID: 0}
 --- !u!1 &7983643164904624407
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +388,7 @@ GameObject:
   - component: {fileID: 7983643165426147739}
   - component: {fileID: 7983643165426147732}
   - component: {fileID: 5759945057395746505}
+  - component: {fileID: 4613382636296402016}
   m_Layer: 0
   m_Name: basic_orbitBarrel_S
   m_TagString: Untagged
@@ -467,6 +510,26 @@ CircleCollider2D:
   m_Offset: {x: 0.04077576, y: 0}
   serializedVersion: 2
   m_Radius: 0.0944394
+--- !u!114 &4613382636296402016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643165426147734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 0
+  shipDamageEvent: 0
+  crashSFX: {fileID: 0}
 --- !u!1 &7983643165812055346
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +543,7 @@ GameObject:
   - component: {fileID: 7983643165812055351}
   - component: {fileID: 7983643165812055344}
   - component: {fileID: 8630326054319200984}
+  - component: {fileID: 8881706874144533586}
   m_Layer: 0
   m_Name: basic_orbitBarrel_E
   m_TagString: Untagged
@@ -601,3 +665,23 @@ CircleCollider2D:
   m_Offset: {x: 0.042587876, y: 0}
   serializedVersion: 2
   m_Radius: 0.09262717
+--- !u!114 &8881706874144533586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983643165812055346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 0
+  shipDamageEvent: 0
+  crashSFX: {fileID: 0}

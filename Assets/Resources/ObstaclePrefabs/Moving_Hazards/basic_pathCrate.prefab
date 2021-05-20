@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 8441210616378417745}
   - component: {fileID: 8441210616378417774}
   - component: {fileID: 115577820159159524}
+  - component: {fileID: 4901399969540397474}
   m_Layer: 0
   m_Name: basic_pathCrate
   m_TagString: Untagged
@@ -173,6 +174,26 @@ CircleCollider2D:
   m_Offset: {x: -0.012685776, y: -0.046212494}
   serializedVersion: 2
   m_Radius: 0.11074972
+--- !u!114 &4901399969540397474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441210616378417746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 1
+  iframesToDealOnHit: 60
+  iframesToDealOnConsecutiveHit: 10
+  damageDealt: 0
+  rebounder: 0
+  damageSelectType: 0
+  shipDamageEvent: 0
+  crashSFX: {fileID: 0}
 --- !u!1 &8441210616507358624
 GameObject:
   m_ObjectHideFlags: 0
