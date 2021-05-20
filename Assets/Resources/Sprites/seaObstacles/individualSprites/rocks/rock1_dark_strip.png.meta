@@ -104,7 +104,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 125
+        width: 126
         height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -123,9 +123,9 @@ TextureImporter:
       name: rock1_dark_strip_1
       rect:
         serializedVersion: 2
-        x: 125
+        x: 126
         y: 0
-        width: 125
+        width: 126
         height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -144,9 +144,9 @@ TextureImporter:
       name: rock1_dark_strip_2
       rect:
         serializedVersion: 2
-        x: 250
+        x: 252
         y: 0
-        width: 125
+        width: 126
         height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,9 +165,9 @@ TextureImporter:
       name: rock1_dark_strip_3
       rect:
         serializedVersion: 2
-        x: 375
+        x: 378
         y: 0
-        width: 125
+        width: 126
         height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
