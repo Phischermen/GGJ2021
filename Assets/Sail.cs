@@ -92,10 +92,12 @@ public class Sail : MonoBehaviour
         if (silently) return;
         if (opening)
         {
+            sailBreakAudioSource.Stop();
             sailBreakAudioSource.PlayOneShot(sailRaise);
         }
         else
         {
+            sailBreakAudioSource.Stop();
             sailBreakAudioSource.PlayOneShot(sailLower);
         }
     }
