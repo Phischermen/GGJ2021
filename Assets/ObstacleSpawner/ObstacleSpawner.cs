@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEditor;
 using Extensions;
 public class ObstacleSpawner : MonoBehaviour
 {
-    public string EasyObstacleDirectory = "ObstaclePrefabs/Easy Levels";
-    public string MediumObstacleDirectory = "ObstaclePrefabs/Medium Levels";
-    public string HardObstacleDirectory = "ObstaclePrefabs/Hard Levels";
+    public string ObstacleDirectory = "LevelPrefabs";
     public float[] difficultyThresholds;
-    public List<GameObject[]> obstaclePool = new List<GameObject[]>();
+    public List<List<GameObject>> obstaclePool = new List<List<GameObject>>();
     GameObject[,] obstacleSpawns;
     // Initialized outside of this component
     public Grid obstacleGrid;
@@ -26,9 +25,34 @@ public class ObstacleSpawner : MonoBehaviour
     void Start()
     {
         obstacleSpawns = new GameObject[100, 100];
-        obstaclePool.Add(Resources.LoadAll<GameObject>(HardObstacleDirectory));
-        obstaclePool.Add(Resources.LoadAll<GameObject>(MediumObstacleDirectory));
-        obstaclePool.Add(Resources.LoadAll<GameObject>(EasyObstacleDirectory));
+        obstaclePool.Add(new List<GameObject>());
+        obstaclePool.Add(new List<GameObject>());
+        obstaclePool.Add(new List<GameObject>());
+        foreach (var resource in Resources.LoadAll<GameObject>(ObstacleDirectory))
+        {
+            // Get first characters in prefab's name.
+            var firstUnderScore = resource.name.IndexOf('_');
+            var tag = resource.name.Remove(firstUnderScore);
+            // Add obstacle to appropriate pools based on tag.
+            foreach (var c in tag)
+            {
+                if (c == 'e')
+                {
+                    // Add to easy pool
+                    obstaclePool[2].Add(resource);
+                }
+                else if (c == 'm')
+                {
+                    // Add to medium pool
+                    obstaclePool[1].Add(resource);
+                }
+                else if (c == 'h')
+                {
+                    // Add to hard pool
+                    obstaclePool[0].Add(resource);
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -123,9 +147,9 @@ public class ObstacleSpawner : MonoBehaviour
                     }
                     //Debug.Log(d);
                     //Debug.Log(i);
-                    GameObject[] pool = obstaclePool[i];
+                    var pool = obstaclePool[i];
                     // Instantiate object
-                    var ob = obstacleSpawns[cell.x, cell.y] = Instantiate(pool[(int)(Random.value * pool.Length)], worldPosition, Quaternion.identity);
+                    var ob = obstacleSpawns[cell.x, cell.y] = Instantiate(pool[(int)(Random.value * pool.Count)], worldPosition, Quaternion.identity);
                     for (i = 0; i < ob.transform.childCount; i++)
                     {
                         var child = ob.transform.GetChild(i);
