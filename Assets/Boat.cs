@@ -70,7 +70,7 @@ public class Boat : MonoBehaviour
     }
     public void DeliverObjective()
     {
-        if (startCrashed && objectiveDelivered == false)
+        if (startCrashed == true && objectiveDelivered == false)
         {
             objectiveDelivered = true;
             DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.gameStart);
@@ -97,7 +97,7 @@ public class Boat : MonoBehaviour
         cameraController.enabled = false;
         while (progress < 0.99f)
         {
-            progress += Time.deltaTime / 2f;
+            progress += Time.deltaTime / 4f;
             progress = Mathf.Clamp01(progress);
             var t = cameraToLightHouse.Evaluate(progress);
             Vector3 v = Vector3.Lerp(transform.position, lighthouse.transform.position, t);
@@ -106,7 +106,7 @@ public class Boat : MonoBehaviour
             camera.orthographicSize = Mathf.Lerp(5, 20, t);
             yield return new WaitForEndOfFrame();
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         progress = 0f;
         while (progress < 0.99f)
         {
