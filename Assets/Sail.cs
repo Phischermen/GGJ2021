@@ -9,7 +9,10 @@ public class Sail : MonoBehaviour
     public bool open = true;
     public bool torn = false;
     public bool atSail = false;
+    [HideInInspector]
+    public bool rotatingSail = false;
     public float turnSpeed = 5;
+    public float turnSpeedFromHelm = 5;
     public SailSprite lightSail;
     public SailSprite darkSail;
 
@@ -59,22 +62,29 @@ public class Sail : MonoBehaviour
             float rotation = Input.GetAxis("Horizontal");
             if (Mathf.Abs(rotation) > .1)
             {
-                sailRotateLoop.UnPause();
-                transform.Rotate(Vector3.forward * rotation * turnSpeed * Time.deltaTime);
-                float rotationZ = transform.localRotation.eulerAngles.z;
-                rotationZ = rotationZ > 180? Mathf.Clamp(rotationZ, 270, 360) : Mathf.Clamp(rotationZ, 0, 90);
-                //Debug.Log("pre clamp: " + transform.localRotation.eulerAngles.z + "post clamp: " + rotationZ);
-                transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+                RotateSail(rotation, turnSpeed);
             }
-            else
-            {
-                sailRotateLoop.Pause();
-            }
+        }
+        // Only play sail rotation if sail is rotating
+        if (rotatingSail)
+        {
+            rotatingSail = false;
+            sailRotateLoop.UnPause();
         }
         else
         {
             sailRotateLoop.Pause();
         }
+    }
+
+    public void RotateSail(float rotation, float speed)
+    {
+        rotatingSail = true;
+        transform.Rotate(Vector3.forward * rotation * speed * Time.deltaTime);
+        float rotationZ = transform.localRotation.eulerAngles.z;
+        rotationZ = rotationZ > 180 ? Mathf.Clamp(rotationZ, 270, 360) : Mathf.Clamp(rotationZ, 0, 90);
+        //Debug.Log("pre clamp: " + transform.localRotation.eulerAngles.z + "post clamp: " + rotationZ);
+        transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
     }
 
     public void OpenClose()

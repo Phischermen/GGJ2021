@@ -338,7 +338,14 @@ public class BoatWidget : MonoBehaviour
         // Check input
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            HelmButton.onClick.Invoke();
+            if (currentStation == StationNames.helm || targetStation == StationNames.helm)
+            {
+                SailButton.onClick.Invoke();
+            }
+            else
+            {
+                HelmButton.onClick.Invoke();
+            }
         }
         // Move Murphey across the deck
         var delta = (targetDeckPosition - currentDeckPosition) * stationChangeTravelScale;

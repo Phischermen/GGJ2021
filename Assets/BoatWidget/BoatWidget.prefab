@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 968059686797499354}
-  spriteRenderer: {fileID: 0}
+  rawImage: {fileID: 0}
   nextGuider: {fileID: 4980109606223258734}
   first: 0
   timeScale: 2
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 6086966195927246847}
-  spriteRenderer: {fileID: 0}
+  rawImage: {fileID: 0}
   nextGuider: {fileID: 0}
   first: 0
   timeScale: 2
@@ -1562,7 +1562,7 @@ MonoBehaviour:
   stationChangeMinSpeed: 1
   stationChangeTopSpeed: 2
   stationChangeTravelScale: 2
-  stationChangeAcceptableRange: 0.01
+  stationChangeAcceptableRange: 0.05
   TendRepairRate: 0.5
   RudderRepairRate: 0.5
   SailRepairRate: 0.5
@@ -2006,7 +2006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 6086966196726792996}
-  spriteRenderer: {fileID: 0}
+  rawImage: {fileID: 0}
   nextGuider: {fileID: 3025723507505439805}
   first: 1
   timeScale: 2
