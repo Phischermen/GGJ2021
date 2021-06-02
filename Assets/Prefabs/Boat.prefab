@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  reboundStrength: 10
+  reboundStrength: 5
   objectDestroyPrefab: {fileID: 954593871253175784, guid: 353c38304b7d5274d89b7912db46c594,
     type: 3}
   iframes: 0
@@ -920,7 +920,8 @@ MonoBehaviour:
   open: 1
   torn: 0
   atSail: 0
-  turnSpeed: 50
+  turnSpeed: 66
+  turnSpeedFromHelm: 11.333333
   lightSail: {fileID: 4405043959184450484}
   darkSail: {fileID: 4449517957293940955}
   midSailMin: 0.33

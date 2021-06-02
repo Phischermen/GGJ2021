@@ -272,6 +272,9 @@ public class BoatWidget : MonoBehaviour
     public float SailRepairRate = 0.5f;
     public float LanternRepairRate = 0.5f;
 
+    public CursorGuider ManualCursorGuider;
+    public CursorGuider SailCursorGuider;
+
     private void Awake()
     {
         // Get Buttons
@@ -338,7 +341,14 @@ public class BoatWidget : MonoBehaviour
         // Check input
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            HelmButton.onClick.Invoke();
+            if (currentStation == StationNames.helm || targetStation == StationNames.helm)
+            {
+                SailButton.onClick.Invoke();
+            }
+            else
+            {
+                HelmButton.onClick.Invoke();
+            }
         }
         // Move Murphey across the deck
         var delta = (targetDeckPosition - currentDeckPosition) * stationChangeTravelScale;
@@ -446,7 +456,11 @@ public class BoatWidget : MonoBehaviour
     public void OnManualPageOpen(int page)
     {
         if (page == (int)InstructionManual.ManualContents.helm) stations[(int)StationNames.helm].RevealSelf();
-        else if (page == (int)InstructionManual.ManualContents.sail) stations[(int)StationNames.sail].RevealSelf();
+        else if (page == (int)InstructionManual.ManualContents.sail) 
+        {
+            stations[(int)StationNames.sail].RevealSelf();
+            SailCursorGuider.Reveal();
+        }
         else if (page == (int)InstructionManual.ManualContents.lantern) stations[(int)StationNames.lantern].RevealSelf();
         else if (page == (int)InstructionManual.ManualContents.captain) stations[(int)StationNames.tend].RevealSelf();
         else if (page == (int)InstructionManual.ManualContents.rudder) stations[(int)StationNames.rudder].RevealSelf();

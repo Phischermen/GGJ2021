@@ -121,6 +121,7 @@ public class Boat : MonoBehaviour
         }
         cameraController.enabled = true;
         camera.orthographicSize = 5;
+        boatWidget.ManualCursorGuider.Reveal();
     }
     public void TeleportBoat(Vector3 position)
     {

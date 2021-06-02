@@ -53,13 +53,18 @@ public class BoatSteering : MonoBehaviour
             RudderBreakFix();
         }
         */
-        //Ship turning
+        //Ship and rudimentry sail turning
         if (atHelm)
         {
             float rotation = Input.GetAxis("Horizontal");
+            float sailRotation = Input.GetAxis("Horizontal2");
             if (Mathf.Abs(rotation) > .1)
             {
                 transform.Rotate(Vector3.back * rotation * (rudderWorking ? turnSpeed : rudderBrokenTurnSpeed) * Time.deltaTime);
+            }
+            if (Mathf.Abs(sailRotation) > .1)
+            {
+                boat.sail.RotateSail(sailRotation, boat.sail.turnSpeedFromHelm);
             }
         }
         sailOpenAndNotTorn = boat.sail.open && !boat.sail.torn;

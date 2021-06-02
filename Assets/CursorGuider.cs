@@ -9,7 +9,7 @@ public class CursorGuider : MonoBehaviour
     [HideInInspector]
     public RawImage rawImage;
     public CursorGuider nextGuider;
-    public bool first = false;
+    public bool hideOnPlay = false;
 
     RectTransform rt;
     Vector2 startPos;
@@ -21,7 +21,7 @@ public class CursorGuider : MonoBehaviour
         rawImage = GetComponent<RawImage>();
         rt = GetComponent<RectTransform>();
         startPos = button.transform.position;
-        if (first == false) gameObject.SetActive(false);
+        if (hideOnPlay) gameObject.SetActive(false);
     }
 
     private void Update()
@@ -29,6 +29,11 @@ public class CursorGuider : MonoBehaviour
         var offset = Mathf.Abs(Mathf.Sin(Time.time * timeScale)) * 10f;
         rt.position = startPos + new Vector2(offset, -offset);
         rawImage.enabled = button.isActiveAndEnabled;
+    }
+
+    public void Reveal()
+    {
+        gameObject.SetActive(true);
     }
 
     private void buttonClicked()
