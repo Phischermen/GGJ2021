@@ -6,7 +6,7 @@ using UnityEditor;
 using Extensions;
 public class ObstacleSpawner : MonoBehaviour
 {
-    public string ObstacleDirectory = "LevelPrefabs";
+    public string ObstacleDirectory = "LevelPrefabs_Normal";
     public float[] difficultyThresholds;
     public List<List<GameObject>> obstaclePool = new List<List<GameObject>>();
     GameObject[,] obstacleSpawns;
