@@ -396,33 +396,25 @@ MonoBehaviour:
   portraitDisplay: {fileID: 8891341298555026881}
   sentences:
   - sentence: The storm's coming. Make for the lighthouse quickly!
+    portrait: {fileID: 21300000, guid: e53c02a819239a7448c16f44107734d3, type: 3}
+  - sentence: "We\u2019re at the mercy of the sea without that sail!"
+    portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
+  - sentence: "We\u2019ll need that rudder to navigate the rocks."
     portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
-  - sentence: 
-    portrait: {fileID: 0}
+  - sentence: "A dark tempest is no friend of ours\u2026"
+    portrait: {fileID: 21300000, guid: e53c02a819239a7448c16f44107734d3, type: 3}
+  - sentence: Eyes on the rocks, Murphy!
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Murphy, navigate from the wheel!
+    portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
+  - sentence: "Remember Murphy, hoist n\u2019 lower the sail from the mast!"
+    portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
+  - sentence: Captain? Captain!
+    portrait: {fileID: 21300000, guid: e919774a7e8541043bca19da8de5d21e, type: 3}
+  - sentence: Ah, the wheel!
+    portrait: {fileID: 21300000, guid: 686e94c23b68d18478ad16a8c10a75a1, type: 3}
+  - sentence: "Oh, the sail\u2026"
+    portrait: {fileID: 21300000, guid: 686e94c23b68d18478ad16a8c10a75a1, type: 3}
   canvas: {fileID: 3927973004260438739}
   typingSpeed: 0.03
 --- !u!1 &9175088722449173509

@@ -152,8 +152,8 @@ MonoBehaviour:
   iframesToDealOnConsecutiveHit: 10
   damageDealt: 0
   rebounder: 0
-  damageSelectType: 0
-  shipDamageEvent: 0
+  damageSelectType: 3
+  shipDamageEvent: -1
   crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
 --- !u!1 &7983643163930699918
 GameObject:
@@ -337,8 +337,8 @@ MonoBehaviour:
   iframesToDealOnConsecutiveHit: 10
   damageDealt: 0
   rebounder: 0
-  damageSelectType: 0
-  shipDamageEvent: 0
+  damageSelectType: 3
+  shipDamageEvent: -1
   crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
 --- !u!1 &7983643164904624407
 GameObject:
@@ -527,8 +527,8 @@ MonoBehaviour:
   iframesToDealOnConsecutiveHit: 10
   damageDealt: 0
   rebounder: 0
-  damageSelectType: 0
-  shipDamageEvent: 0
+  damageSelectType: 3
+  shipDamageEvent: -1
   crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
 --- !u!1 &7983643165812055346
 GameObject:
@@ -682,6 +682,6 @@ MonoBehaviour:
   iframesToDealOnConsecutiveHit: 10
   damageDealt: 0
   rebounder: 0
-  damageSelectType: 0
-  shipDamageEvent: 0
+  damageSelectType: 3
+  shipDamageEvent: -1
   crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
