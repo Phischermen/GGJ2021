@@ -10,6 +10,8 @@ public class levelLoader : MonoBehaviour
 
     public float transitionTime = 1f;
 
+    public AudioClip transitionSFX;
+
     // Update is called once per frame
     void Update()
     {
