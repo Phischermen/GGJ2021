@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToDeal: 1
+  damageToDeal: 2
   iframesToDealOnHit: 60
   iframesToDealOnConsecutiveHit: 10
   damageDealt: 0

@@ -125,13 +125,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fac6bdb12e7bda4bb632c4835fc06b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToDeal: 1
+  damageToDeal: 2
   iframesToDealOnHit: 60
   iframesToDealOnConsecutiveHit: 10
   damageDealt: 0
   rebounder: 1
-  damageSelectType: 0
-  shipDamageEvent: 4
+  damageSelectType: 1
+  shipDamageEvent: 7
   crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
 --- !u!1001 &5757221321973112527
 PrefabInstance:
