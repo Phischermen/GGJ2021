@@ -516,10 +516,6 @@ public class BoatWidget : MonoBehaviour
         RudderButtonImage.sprite = RudderNormalSprite;
         targetStation = StationNames.rudder;
         targetDeckPosition = rudderStationPosition;
-        if (stations[(int)targetStation].repaired == false)
-        {
-            boat.steering.StartRudderFix();
-        }
     }
     public void HelmButtonPressed()
     {
@@ -538,10 +534,6 @@ public class BoatWidget : MonoBehaviour
         LanternButtonImage.sprite = LanternNormalSprite;
         targetStation = StationNames.lantern;
         targetDeckPosition = lanternStationPosition;
-        if (stations[(int)targetStation].repaired == false)
-        {
-            boat.lantern.StartLight();
-        }
     }
     public void TendButtonPressed()
     {
@@ -578,10 +570,18 @@ public class BoatWidget : MonoBehaviour
     public void RudderManned()
     {
         MurpheyRudder.SetActive(true);
+        if (stations[(int)targetStation].repaired == false)
+        {
+            boat.steering.StartRudderFix();
+        }
     }
     public void ManLantern()
     {
         MurpheyLantern.SetActive(true);
+        if (stations[(int)targetStation].repaired == false)
+        {
+            boat.lantern.StartLight();
+        }
     }
     public void ManTend()
     {
