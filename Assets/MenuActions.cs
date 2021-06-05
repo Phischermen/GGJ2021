@@ -25,7 +25,7 @@ public class MenuActions : MonoBehaviour
 
     public void Return()
     {
-        levelLoader.LoadLevel("TitleCard")
+        levelLoader.LoadLevel("TitleCard");
     }
 
     public void Quit()

@@ -10,7 +10,7 @@ public class levelLoader : MonoBehaviour
 
     public float transitionTime = 1f;
 
-    public AudioClip transitionSFX;
+    public AudioSource transitionSFX;
 
     // Update is called once per frame
     void Update()
@@ -26,9 +26,8 @@ public class levelLoader : MonoBehaviour
     IEnumerator LoadLevelTransition(string levelName)
     {
         transition.SetTrigger("start");
-
+        transitionSFX.Play();
         yield return new WaitForSeconds(transitionTime);
-
         SceneManager.LoadScene(levelName);
     }
 
