@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 131459910368592691}
   - component: {fileID: 131459910368592076}
   - component: {fileID: 7092531286368989572}
-  - component: {fileID: 5432579160851262993}
+  - component: {fileID: 1317751118926696777}
   m_Layer: 0
   m_Name: basic_pathCrate
   m_TagString: Untagged
@@ -139,7 +139,7 @@ CircleCollider2D:
   m_Offset: {x: 0.0025415123, y: -0.025414228}
   serializedVersion: 2
   m_Radius: 0.11889464
---- !u!114 &5432579160851262993
+--- !u!114 &1317751118926696777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   rebounder: 0
   damageSelectType: 0
   shipDamageEvent: 0
-  crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
+  crashSFX: {fileID: 8300000, guid: 1b02a1e06df1e4299ac2e049094636f6, type: 3}
 --- !u!1 &131459910972190546
 GameObject:
   m_ObjectHideFlags: 0

@@ -193,7 +193,7 @@ MonoBehaviour:
   rebounder: 0
   damageSelectType: 3
   shipDamageEvent: -1
-  crashSFX: {fileID: 8300000, guid: af7f77698fd1a446d96fa125232b573d, type: 3}
+  crashSFX: {fileID: 8300000, guid: 1b02a1e06df1e4299ac2e049094636f6, type: 3}
 --- !u!1 &8441210616507358624
 GameObject:
   m_ObjectHideFlags: 0

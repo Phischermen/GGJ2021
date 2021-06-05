@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -570,10 +570,18 @@ public class BoatWidget : MonoBehaviour
     public void RudderManned()
     {
         MurpheyRudder.SetActive(true);
+        if (stations[(int)targetStation].repaired == false)
+        {
+            boat.steering.StartRudderFix();
+        }
     }
     public void ManLantern()
     {
         MurpheyLantern.SetActive(true);
+        if (stations[(int)targetStation].repaired == false)
+        {
+            boat.lantern.StartLight();
+        }
     }
     public void ManTend()
     {
