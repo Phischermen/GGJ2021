@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuActions : MonoBehaviour
 {
+    public levelLoader levelLoader;
     public static bool HasPlayed = false;
     public void Play()
     {
-        SceneManager.LoadScene(HasPlayed ? 1 : 8);
+        levelLoader.LoadLevel(HasPlayed ? "GameplayScene" : "PreGame1");
         HasPlayed = true;
     }
 
@@ -19,7 +20,7 @@ public class MenuActions : MonoBehaviour
 
     public void Return()
     {
-        SceneManager.LoadScene(0);
+        levelLoader.LoadLevel("TitleCard")
     }
 
     public void Quit()
