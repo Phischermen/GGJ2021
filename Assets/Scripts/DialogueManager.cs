@@ -50,10 +50,12 @@ public class DialogueManager : MonoBehaviour
         public string sentence;
         public Sprite portrait;
     }
-
-    public void Start()
+    public void Awake()
     {
         singleton = this;
+    }
+    public void Start()
+    {
         waitForSeconds = new WaitForSeconds(typingSpeed);
         waitUntilDismissed = new WaitUntil(() => { return dismiss == true; });
         canvas.enabled = false;
