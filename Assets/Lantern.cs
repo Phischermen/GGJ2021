@@ -23,9 +23,12 @@ public class Lantern : MonoBehaviour
         if (illum.enabled != lit) { illum.enabled = lit; }
     }
 
-    public void Light()
+    public void StartLight()
     {
         audio.PlayOneShot(light);
+    }
+    public void Light()
+    { 
         lit = true;
         illum.enabled = true;
     }

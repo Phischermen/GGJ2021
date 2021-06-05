@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -516,6 +516,10 @@ public class BoatWidget : MonoBehaviour
         RudderButtonImage.sprite = RudderNormalSprite;
         targetStation = StationNames.rudder;
         targetDeckPosition = rudderStationPosition;
+        if (stations[(int)targetStation].repaired == false)
+        {
+            boat.steering.StartRudderFix();
+        }
     }
     public void HelmButtonPressed()
     {
@@ -534,6 +538,10 @@ public class BoatWidget : MonoBehaviour
         LanternButtonImage.sprite = LanternNormalSprite;
         targetStation = StationNames.lantern;
         targetDeckPosition = lanternStationPosition;
+        if (stations[(int)targetStation].repaired == false)
+        {
+            boat.lantern.StartLight();
+        }
     }
     public void TendButtonPressed()
     {

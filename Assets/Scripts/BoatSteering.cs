@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -89,13 +89,16 @@ public class BoatSteering : MonoBehaviour
     {
         rudderWorking = !rudderWorking;
     }
+    public void StartRudderFix()
+    {
+        // Play repair
+        audioSource.PlayOneShot(repairClip);
+    }
     public void RudderFix()
     {
         if (!rudderWorking)
         {
             rudderWorking = true;
-            // Play repair
-            audioSource.PlayOneShot(repairClip);
         }
     }
     public void RudderBreak()
