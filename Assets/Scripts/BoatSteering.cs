@@ -31,6 +31,7 @@ public class BoatSteering : MonoBehaviour
     public AudioClip breakClip;
     public AudioClip repairClip;
 
+    private float timeSpentSteeringIncorrectly;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,9 +55,9 @@ public class BoatSteering : MonoBehaviour
         }
         */
         //Ship and rudimentry sail turning
+        float rotation = Input.GetAxis("Horizontal");
         if (atHelm)
         {
-            float rotation = Input.GetAxis("Horizontal");
             float sailRotation = Input.GetAxis("Horizontal2");
             if (Mathf.Abs(rotation) > .1)
             {
@@ -67,9 +68,23 @@ public class BoatSteering : MonoBehaviour
                 boat.sail.RotateSail(sailRotation, boat.sail.turnSpeedFromHelm);
             }
         }
+        else if (!boat.sail.atSail && rotation != 0)
+        {
+            timeSpentSteeringIncorrectly += Time.deltaTime;
+            if (timeSpentSteeringIncorrectly > 2)
+            {
+                timeSpentSteeringIncorrectly = 0;
+                DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.steeringAwayFromWheel);
+
+            }
+        }
+        else
+        {
+            timeSpentSteeringIncorrectly = Mathf.Max(0, timeSpentSteeringIncorrectly - Time.deltaTime);
+        }
         sailOpenAndNotTorn = boat.sail.open && !boat.sail.torn;
         //Forward Motion: Move forward if sail is up, lerp towards new move vector
-        Vector3 targetVector = sailOpenAndNotTorn ? transform.up * baseSpeed: Vector3.zero;
+        Vector3 targetVector = sailOpenAndNotTorn ? transform.up * baseSpeed : Vector3.zero;
         moveVector = Vector3.Lerp(moveVector, targetVector, (!boat.sail.torn ? accelerationLerp : brakeLerp) * Time.deltaTime);
         moveMagnitude = moveVector.magnitude;
         // Wind

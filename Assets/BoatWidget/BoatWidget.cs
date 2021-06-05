@@ -476,20 +476,24 @@ public class BoatWidget : MonoBehaviour
     public void SailTorn()
     {
         DisrepairStation(stations[(int)StationNames.sail]);
+        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.sailTorn);
     }
     public void LanternExtinguished()
     {
         DisrepairStation(stations[(int)StationNames.lantern]);
+        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.lanternOut);
     }
 
     public void RudderBroke()
     {
         DisrepairStation(stations[(int)StationNames.rudder]);
+        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.rudderBroken);
     }
 
     public void CaptainAsleep()
     {
         DisrepairStation(stations[(int)StationNames.tend]);
+        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.captainPassesOut);
     }
     #endregion
     #region Button Callbacks

@@ -359,7 +359,7 @@ MonoBehaviour:
   captain: {fileID: 0}
   cameraController: {fileID: 0}
   boatWidget: {fileID: 0}
-  startCrashed: 1
+  startCrashed: 0
   objectiveDelivered: 0
   sailRaisedForFirstTime: 0
   cameraToLightHouse:

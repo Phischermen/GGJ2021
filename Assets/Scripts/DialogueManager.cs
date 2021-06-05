@@ -16,15 +16,16 @@ public class DialogueManager : MonoBehaviour
     public Coroutine TypingRoutine;
     public enum Messages
     {
-        gameStart,
-        sailTorn,
-        rudderBroken,
-        lanternOut,
-        windPickingUp,
+        gameStart, //in
+        sailTorn, //in
+        rudderBroken, //in
+        lanternOut, //in
+        windPickingUp, 
         wavePickingUp,
         brokenHullReminder,
         steeringAwayFromWheel,
         raisingSailAwayFromSail,
+        captainPassesOut,
         getHitWhileAwayFromTheWheel,
         BrokenSailReminder,
         objectiveReminder,
@@ -70,12 +71,15 @@ public class DialogueManager : MonoBehaviour
     public void DisplayMessage(Messages message)
     {
         if (typing == true) return;
-        TypingRoutine = StartCoroutine(Type((int)message));
+        var idx = (int)message;
+        TypingRoutine = StartCoroutine(Type(idx));
+        portraitDisplay.sprite = sentences[idx].portrait;
     }
 
 
     IEnumerator Type(int index)
     {
+        textDisplay.text = "";
         typing = true;
         canvas.enabled = true;
         foreach (char letter in sentences[index].sentence.ToCharArray())
@@ -91,6 +95,7 @@ public class DialogueManager : MonoBehaviour
         textDisplay.text = sentences[index].sentence;
         yield return waitUntilDismissed;
         typing = false;
+        dismiss = false;
         canvas.enabled = false;
     }
 
