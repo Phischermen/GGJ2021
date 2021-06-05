@@ -17,6 +17,27 @@ public class DialogueManager : MonoBehaviour
     public enum Messages
     {
         gameStart,
+        sailTorn,
+        rudderBroken,
+        lanternOut,
+        windPickingUp,
+        wavePickingUp,
+        brokenHullReminder,
+        steeringAwayFromWheel,
+        raisingSailAwayFromSail,
+        getHitWhileAwayFromTheWheel,
+        BrokenSailReminder,
+        objectiveReminder,
+        directionCallNorth,
+        directionCallSouth,
+        directionCallEast,
+        directionCallWest,
+        directionCallNorthEast,
+        directionCallNorthWest,
+        directionCallSouthEast,
+        directionCallSouthWest,
+        wrongDirection,
+        brokenLanternReminder
     }
     public float typingSpeed;
     private bool dismiss;

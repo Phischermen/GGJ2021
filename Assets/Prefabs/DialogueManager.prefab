@@ -397,24 +397,50 @@ MonoBehaviour:
   sentences:
   - sentence: The storm's coming. Make for the lighthouse quickly!
     portrait: {fileID: 21300000, guid: e53c02a819239a7448c16f44107734d3, type: 3}
-  - sentence: "We\u2019re at the mercy of the sea without that sail!"
+  - sentence: The sail's ripped, we're at mercy of the sea now!
     portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
-  - sentence: "We\u2019ll need that rudder to navigate the rocks."
+  - sentence: Arg, there goes the damned rudder.
     portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
-  - sentence: "A dark tempest is no friend of ours\u2026"
+  - sentence: Hey, it's getting dark here!
     portrait: {fileID: 21300000, guid: e53c02a819239a7448c16f44107734d3, type: 3}
-  - sentence: Eyes on the rocks, Murphy!
+  - sentence: The wind's waking up, be warry of it's fury!
     portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
-  - sentence: Murphy, navigate from the wheel!
+  - sentence: Ha! The might of the sea is getting angry today!
     portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
-  - sentence: "Remember Murphy, hoist n\u2019 lower the sail from the mast!"
+  - sentence: The hull ain't gonna fix itself!
     portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
-  - sentence: Captain? Captain!
+  - sentence: You think a boat steers itself! Get back to the wheel dog!
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: 
+    portrait: {fileID: 21300000, guid: 686e94c23b68d18478ad16a8c10a75a1, type: 3}
+  - sentence: Captain? Captain! Oh no...
     portrait: {fileID: 21300000, guid: e919774a7e8541043bca19da8de5d21e, type: 3}
-  - sentence: Ah, the wheel!
+  - sentence: Agh, the wheel!
     portrait: {fileID: 21300000, guid: 686e94c23b68d18478ad16a8c10a75a1, type: 3}
-  - sentence: "Oh, the sail\u2026"
-    portrait: {fileID: 21300000, guid: 686e94c23b68d18478ad16a8c10a75a1, type: 3}
+  - sentence: Don't forget to tend to the sails Murph!
+    portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
+  - sentence: Focus on the light! It guides our way home.
+    portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
+  - sentence: Oi, to the north!
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Ay, ay to the south!
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Get my girl heading east.
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Head west my boy!
+    portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
+  - sentence: Head north east.
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Guide us north west.
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Remember, head south east.
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Move us south west, ya hear me?
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: Wrong way you fool! The lighthouse is behind us!
+    portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
+  - sentence: I can hardly see. Light the lantern for me will ya.
+    portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
   canvas: {fileID: 3927973004260438739}
   typingSpeed: 0.03
 --- !u!1 &9175088722449173509
