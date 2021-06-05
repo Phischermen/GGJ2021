@@ -13,6 +13,11 @@ public class MenuActions : MonoBehaviour
         HasPlayed = true;
     }
 
+    public void HardMode()
+    {
+        //
+    }
+
     public void Credits()
     {
         SceneManager.LoadScene(6);
