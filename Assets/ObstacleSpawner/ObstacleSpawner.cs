@@ -24,6 +24,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ObstacleDirectory = (MenuActions.HardModeEnabled) ? "LevelPrefabs_Hard" : "LevelPrefabs_Normal";
         obstacleSpawns = new GameObject[100, 100];
         obstaclePool.Add(new List<GameObject>());
         obstaclePool.Add(new List<GameObject>());

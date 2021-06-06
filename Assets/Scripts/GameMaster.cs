@@ -27,6 +27,9 @@ public class GameMaster : MonoBehaviour
 
     public void EndGame(bool win, endScene sceneID)
     {
+        MenuActions.HasWon = true;
+        PlayerPrefs.SetInt("HasWon", 1);
+        PlayerPrefs.Save();
         string str = win ? "You win" : "You lose";
         Debug.Log(str);
         StartCoroutine(LoadLevel((int)sceneID));
