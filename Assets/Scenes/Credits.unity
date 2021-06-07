@@ -121,6 +121,140 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &341496652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341496653}
+  - component: {fileID: 341496655}
+  - component: {fileID: 341496654}
+  m_Layer: 0
+  m_Name: Hard Mode Unlocked
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &341496653
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341496652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1838319313}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -31.200012, y: 92.51013}
+  m_SizeDelta: {x: 188.99646, y: 80.97975}
+  m_Pivot: {x: 1, y: 0}
+--- !u!114 &341496654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341496652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Hard Mode has been unlocked
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: ae49440a7c122294cbf9c0f2dc0d6a12, type: 2}
+  m_sharedMaterial: {fileID: 4762373543213141196, guid: ae49440a7c122294cbf9c0f2dc0d6a12,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 23.17
+  m_fontSizeBase: 23.17
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &341496655
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341496652}
+  m_CullTransparentMesh: 0
 --- !u!114 &494487341 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3489437298252828456, guid: 5805ef7335267b0468b9a4937275cfdd,
@@ -163,11 +297,11 @@ RectTransform:
   m_LocalScale: {x: 0.77, y: 0.76, z: 1}
   m_Children: []
   m_Father: {fileID: 1838319313}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5, y: 38}
+  m_AnchoredPosition: {x: -5.0000305, y: 38}
   m_SizeDelta: {x: 318.39648, y: 86.45465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &757877143
@@ -196,40 +330,40 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 58
-    m_Alignment: 1
-    m_AlignByGeometry: 0
+    m_Alignment: 4
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: '
 
-    Kevin Fisher, Team Founder & Engineer
+    Kevin Fisher: Team Founder & Engineer
 
-    Kham-Shem Toure, Engineer
-
-
-    Zachary
-    Fuller, Project Manager & Designer
+    Kham-Shem Toure: Engineer
 
 
-    Christine Duong, Writer, Designer &
-    Playtester
+    Kyle
+    Campbell: Artist
+
+    Miles Dievendorf: Artist
 
 
-    Kyle Campbell, Artist
-
-    Miles Dievendorf, Artist
-
-
-    Daniel
-    Sabsay, Sound & Music Designer
+    Daniel Sabsay: Sound & Music
+    Designer
 
 
-    Grant Dunford, Voice Actor (Murphy)
+    Zachary Fuller: Project Manager & Designer
 
-    Saba
-    Salari, Voice Actor (Captain)'
+
+    Christine Duong:
+    Writer, Designer & Playtester
+
+
+    Saba Salari: Voice Actor (Captain)
+
+    Grant
+    Dunford: Voice Actor (Murphy)'
 --- !u!222 &757877144
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -732,6 +866,7 @@ RectTransform:
   m_Children:
   - {fileID: 1001444437}
   - {fileID: 1157375261}
+  - {fileID: 341496653}
   - {fileID: 757877142}
   - {fileID: 2040396596}
   m_Father: {fileID: 1680950274}
@@ -908,7 +1043,7 @@ RectTransform:
   m_LocalScale: {x: 1.0002719, y: 1.0002719, z: 1.0002719}
   m_Children: []
   m_Father: {fileID: 1838319313}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -928,6 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoader: {fileID: 494487341}
+  IsHardModeButton: 0
 --- !u!114 &2040396598
 MonoBehaviour:
   m_ObjectHideFlags: 0

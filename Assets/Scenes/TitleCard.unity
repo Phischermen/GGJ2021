@@ -224,6 +224,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!82 &277335100 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6264563085835488689, guid: 5805ef7335267b0468b9a4937275cfdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 351086041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &284427911
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +308,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3489437298252828456, guid: 5805ef7335267b0468b9a4937275cfdd,
+        type: 3}
+      propertyPath: transitionSFX
+      value: 
+      objectReference: {fileID: 277335100}
     - target: {fileID: 3489437298252828462, guid: 5805ef7335267b0468b9a4937275cfdd,
         type: 3}
       propertyPath: m_Name
@@ -781,6 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoader: {fileID: 1369908942}
+  IsHardModeButton: 0
 --- !u!1 &920623586
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoader: {fileID: 1369908942}
+  IsHardModeButton: 0
 --- !u!114 &1369908942 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3489437298252828456, guid: 5805ef7335267b0468b9a4937275cfdd,
@@ -1054,6 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLoader: {fileID: 1369908942}
+  IsHardModeButton: 0
 --- !u!114 &1988837795
 MonoBehaviour:
   m_ObjectHideFlags: 0
