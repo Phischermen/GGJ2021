@@ -275,6 +275,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 895214961076354275, guid: 8584c16bcf15f1e439b6a8ca76a2b23a,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494894976019799665, guid: 8584c16bcf15f1e439b6a8ca76a2b23a,
+        type: 3}
+      propertyPath: m_Text
+      value: Read the manual to learn how to sail the ship.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494894976019799665, guid: 8584c16bcf15f1e439b6a8ca76a2b23a,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467558447701576203, guid: 8584c16bcf15f1e439b6a8ca76a2b23a,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6086966195576490390, guid: 8584c16bcf15f1e439b6a8ca76a2b23a,
         type: 3}
       propertyPath: m_Name
@@ -528,6 +548,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568454557278626937, guid: f928ec39353f49a4da68de3043cd0060,
+        type: 3}
+      propertyPath: m_Text
+      value: The storm is coming... Make for the lighthouse quickly!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8568454557278626937, guid: f928ec39353f49a4da68de3043cd0060,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f928ec39353f49a4da68de3043cd0060, type: 3}
