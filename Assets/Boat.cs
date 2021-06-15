@@ -48,6 +48,12 @@ public class Boat : MonoBehaviour
     }
     public void BindBoatToBoatWidget(BoatWidget widget)
     {
+        // Setup status methods
+        widget.stations[(int) BoatWidget.StationNames.rudder].GetStationStatus = steering.GetRudderStatus;
+        widget.stations[(int) BoatWidget.StationNames.helm].GetStationStatus = GetHelmStatus;
+        widget.stations[(int) BoatWidget.StationNames.sail].GetStationStatus = sail.GetSailStatus;
+        widget.stations[(int) BoatWidget.StationNames.lantern].GetStationStatus = lantern.GetLanternStatus;
+        widget.stations[(int) BoatWidget.StationNames.tend].GetStationStatus = captain.GetCaptainStatus;
         boatWidget = widget;
         widget.boat = this;
         captain.anim = widget.GetComponentInChildren<Animator>();
@@ -128,5 +134,26 @@ public class Boat : MonoBehaviour
         var offset = cameraController.transform.position - transform.position;
         transform.position = position;
         cameraController.transform.position = transform.position + offset;
+    }
+
+    public string GetHelmStatus(bool control)
+    {
+        if (control)
+        {
+            return "[A & D] Steer left or right \n[Q & E] Rotate sail left or right";
+        }
+        else
+        {
+            if (captain.awake == false)
+            {
+                return captain.GetCaptainStatus();
+            }
+            if (lantern.lit == false)
+            {
+                return lantern.GetLanternStatus();
+            }
+            return steering.GetRudderStatus() + "\n" + sail.GetSailStatus();
+        }
+        
     }
 }

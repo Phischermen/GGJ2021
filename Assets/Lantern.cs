@@ -42,4 +42,9 @@ public class Lantern : MonoBehaviour
         lit = false;
         illum.enabled = false;
     }
+
+    public string GetLanternStatus(bool b = false)
+    {
+        return lit ? "Lantern is lit." : "Lantern is doused.";
+    }
 }

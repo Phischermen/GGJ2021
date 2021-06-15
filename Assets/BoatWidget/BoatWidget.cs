@@ -24,6 +24,11 @@ public class BoatWidget : MonoBehaviour
 
     Button ManualButton;
 
+    public GameObject SubManual;
+    private Text SubManualText;
+    public float timeToDisplayControls;
+    public float timeToDisplayStatus;
+
     Button RudderButton;
     Button HelmButton;
     Button SailButton;
@@ -46,6 +51,7 @@ public class BoatWidget : MonoBehaviour
     {
         public Action OnManStation;
         Action OnRepairStation;
+        public Func<bool, string> GetStationStatus;
         Button StationButton;
         Image StationButtonImage;
         Image StationButtonInvertedImage;
@@ -58,7 +64,7 @@ public class BoatWidget : MonoBehaviour
         public int brokenTimeStamp = -1000;
         public int revealTimeStamp = -1000;
         public bool hidden = false;
-        public Station(Action onManStation, Button button, Image image, Sprite sprite, bool repairable = false, Action onRepairStation = null, float _repairRate = 0.5f)
+        public Station(Action onManStation, Button button, Image image, Sprite sprite, bool repairable = false, Action onRepairStation = null, float _repairRate = 0.5f, Func<bool, string> getStationStatus = null)
         {
             OnManStation = onManStation;
             OnRepairStation = onRepairStation;
@@ -66,6 +72,7 @@ public class BoatWidget : MonoBehaviour
             StationButtonImage = image;
             StationButtonSprite = sprite;
             repairRate = _repairRate;
+            GetStationStatus = getStationStatus;
             var flare = new GameObject();
             // Add a rect transform
             flareRT = flare.AddComponent<RectTransform>();
@@ -307,7 +314,8 @@ public class BoatWidget : MonoBehaviour
         targetStation = StationNames.helm;
         currentStation = StationNames.helm;
 
-
+        // Setup submanual
+        SubManualText = SubManual.GetComponentInChildren<Text>();
 
         // Get walking animated image. It is assumed to be the first element of widget animated images.
         MurphyWalkWidgetAnimatedImage = widgetAnimatedImages[0];
@@ -378,6 +386,18 @@ public class BoatWidget : MonoBehaviour
             MurpheyWalk.SetActive(false);
             footStepLoop.Stop();
             stations[(int)currentStation].OnManStation.Invoke();
+        }
+        // Set sub-manual text
+        if (currentStation == StationNames.noStation)
+        {
+            SubManual.SetActive(false);
+        }
+        else
+        {
+            SubManual.SetActive(true);
+            var totalTime = timeToDisplayControls + timeToDisplayStatus;
+            var displayControl = ((Time.time % totalTime) < timeToDisplayControls) && boat.sailRaisedForFirstTime;
+            SubManualText.text = stations[(int) currentStation].GetStationStatus(displayControl);
         }
         // Loop through stations
         for (var i = 0; i < (int)StationNames.noStation; i++)
