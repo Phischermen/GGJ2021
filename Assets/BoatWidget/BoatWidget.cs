@@ -459,7 +459,7 @@ public class BoatWidget : MonoBehaviour
         else if (page == (int)InstructionManual.ManualContents.sail) 
         {
             stations[(int)StationNames.sail].RevealSelf();
-            SailCursorGuider.Reveal();
+            if (SailCursorGuider) SailCursorGuider.Reveal();
         }
         else if (page == (int)InstructionManual.ManualContents.lantern) stations[(int)StationNames.lantern].RevealSelf();
         else if (page == (int)InstructionManual.ManualContents.captain) stations[(int)StationNames.tend].RevealSelf();
