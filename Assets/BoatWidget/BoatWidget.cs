@@ -4,17 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Extensions;
+using UnityEngine.Serialization;
+
 public class BoatWidget : MonoBehaviour
 {
     public CanvasRenderer BoatCR;
 
-    [HideInInspector]
-    public Lantern lantern;
+    [HideInInspector] public Lantern lantern;
 
-    [HideInInspector]
-    public float deckTop;
-    [HideInInspector]
-    public float deckBottom;
+    [HideInInspector] public float deckTop;
+    [HideInInspector] public float deckBottom;
 
     public GameObject Murphey;
     RectTransform MurpheyPosition;
@@ -47,6 +46,8 @@ public class BoatWidget : MonoBehaviour
     public Sprite LanternNormalSprite;
     public Sprite TendNormalSprite;
 
+    public bool doNotUpdateFirstDisrepairOrDisplayMessage;
+
     public class Station
     {
         public Action OnManStation;
@@ -58,13 +59,16 @@ public class BoatWidget : MonoBehaviour
         Sprite StationButtonSprite;
         RectTransform flareRT;
         CanvasRenderer flareCR;
+        public bool firstDisrepair = true;
         public bool repaired = true;
         public float repair = 1f;
         public float repairRate = 0.5f;
         public int brokenTimeStamp = -1000;
         public int revealTimeStamp = -1000;
         public bool hidden = false;
-        public Station(Action onManStation, Button button, Image image, Sprite sprite, bool repairable = false, Action onRepairStation = null, float _repairRate = 0.5f, Func<bool, string> getStationStatus = null)
+
+        public Station(Action onManStation, Button button, Image image, Sprite sprite, bool repairable = false,
+            Action onRepairStation = null, float _repairRate = 0.5f, Func<bool, string> getStationStatus = null)
         {
             OnManStation = onManStation;
             OnRepairStation = onRepairStation;
@@ -100,9 +104,11 @@ public class BoatWidget : MonoBehaviour
                 StationButtonInvertedImage.fillMethod = Image.FillMethod.Radial360;
                 StationButtonInvertedImage.fillAmount = 0f;
                 // Set sprite to inverted version of univerted image
-                StationButtonInvertedImage.sprite = Resources.Load<Sprite>("Sprites/UI/uiButtons/" + sprite.name + "_invert");
+                StationButtonInvertedImage.sprite =
+                    Resources.Load<Sprite>("Sprites/UI/uiButtons/" + sprite.name + "_invert");
             }
         }
+
         public void ProgressRepair(float rate)
         {
             repair = Mathf.Clamp(repair + (repairRate * Time.deltaTime * rate), 0f, 1f);
@@ -111,8 +117,10 @@ public class BoatWidget : MonoBehaviour
                 repaired = true;
                 if (OnRepairStation != null) OnRepairStation.Invoke();
             }
+
             StationButtonInvertedImage.fillAmount = 1f - repair;
         }
+
         public void ProcessFlareAndFlashForDisrepair(bool playerIsAtStation)
         {
             if (!StationButtonInvertedImage) return;
@@ -139,6 +147,7 @@ public class BoatWidget : MonoBehaviour
                 flareCR.SetAlpha(0);
             }
         }
+
         public void ProcessFlareForReveal(bool playerIsAtStation)
         {
             var delta = Time.frameCount - revealTimeStamp;
@@ -157,6 +166,7 @@ public class BoatWidget : MonoBehaviour
                 flareCR.SetAlpha(0);
             }
         }
+
         public void RevealSelf()
         {
             hidden = false;
@@ -166,6 +176,7 @@ public class BoatWidget : MonoBehaviour
             if (StationButtonInvertedImage) StationButtonInvertedImage.color = new Color(1f, 1f, 1f, 1f);
             revealTimeStamp = Time.frameCount;
         }
+
         public void HideSelf(bool totally = false)
         {
             hidden = true;
@@ -183,12 +194,11 @@ public class BoatWidget : MonoBehaviour
             {
                 StationButtonImage.color = new Color(1f, 1f, 1f, 0f);
                 StationButtonInvertedImage.color = new Color(1f, 1f, 1f, 0.5f);
-
             }
         }
     }
 
-    public Station[] stations = new Station[(int)StationNames.noStation];
+    public Station[] stations = new Station[(int) StationNames.noStation];
 
     [System.Serializable]
     public class WidgetImage
@@ -207,23 +217,18 @@ public class BoatWidget : MonoBehaviour
     [System.Serializable]
     public class WidgetSpriteVariants
     {
-
         public Sprite lit;
         public Sprite dark;
         public Sprite pitchBlack;
     }
 
-    [SerializeField]
-    public WidgetImage[] widgetImages;
-    [SerializeField]
-    public WidgetAnimatedImage[] widgetAnimatedImages;
+    [SerializeField] public WidgetImage[] widgetImages;
+    [SerializeField] public WidgetAnimatedImage[] widgetAnimatedImages;
 
     private WidgetAnimatedImage MurphyWalkWidgetAnimatedImage;
 
-    [SerializeField]
-    public WidgetSpriteVariants[] MurpheyWalkingUp;
-    [SerializeField]
-    public WidgetSpriteVariants[] MurpheyWalkingDown;
+    [SerializeField] public WidgetSpriteVariants[] MurpheyWalkingUp;
+    [SerializeField] public WidgetSpriteVariants[] MurpheyWalkingDown;
 
 
     // Here goes nothing!
@@ -236,13 +241,12 @@ public class BoatWidget : MonoBehaviour
     List<Sprite> WidgetImages;
 
     // Initializes outside of BoatWidget
-    [HideInInspector]
-    public Boat boat;
-    [HideInInspector]
-    public InstructionManual manual;
+    [HideInInspector] public Boat boat;
+    [HideInInspector] public InstructionManual manual;
 
     StationNames currentStation;
     StationNames targetStation;
+
     public enum StationNames
     {
         rudder,
@@ -259,6 +263,7 @@ public class BoatWidget : MonoBehaviour
     float sailStationPosition = 1f;
     float lanternStationPosition;
     float tendStationPosition;
+
     private void SetStationPosition(ref float position, Button button)
     {
         position = (button.transform.position.y - deckBottom) / (deckTop - deckBottom);
@@ -268,13 +273,14 @@ public class BoatWidget : MonoBehaviour
     float targetDeckPosition;
 
     float stationChangeCurrentSpeed = 0f;
-    [Header("Station change properties")]
-    public float stationChangeMinSpeed = 0.1f;
+    [Header("Station change properties")] public float stationChangeMinSpeed = 0.1f;
     public float stationChangeTopSpeed = 0.9f;
     public float stationChangeTravelScale = 2f;
     public float stationChangeAcceptableRange = 0.01f;
+
     [Header("Repair rates (in Repairs/second)")]
     public float TendRepairRate = 0.5f;
+
     public float RudderRepairRate = 0.5f;
     public float SailRepairRate = 0.5f;
     public float LanternRepairRate = 0.5f;
@@ -292,12 +298,17 @@ public class BoatWidget : MonoBehaviour
         TendButton = GameObject.Find("Tend").GetComponent<Button>();
         ManualButton = GameObject.Find("Help").GetComponent<Button>();
         // Setup stations
-        stations[(int)StationNames.rudder] = new Station(RudderManned, RudderButton, RudderButtonImage, RudderNormalSprite, true, RepairRudder, RudderRepairRate);
-        stations[(int)StationNames.helm] = new Station(HelmManned, HelmButton, HelmButtonImage, HelmNormalSprite);
-        stations[(int)StationNames.sail] = new Station(SailManned, SailButton, SailButtonImage, SailNormalSprite, true, RepairSail, SailRepairRate);
-        stations[(int)StationNames.lantern] = new Station(ManLantern, LanternButton, LanternButtonImage, LanternNormalSprite, true, RepairLantern, LanternRepairRate);
-        stations[(int)StationNames.tend] = new Station(ManTend, TendButton, TendButtonImage, TendNormalSprite, true, RepairTend, TendRepairRate);
+        stations[(int) StationNames.rudder] = new Station(RudderManned, RudderButton, RudderButtonImage,
+            RudderNormalSprite, true, RepairRudder, RudderRepairRate);
+        stations[(int) StationNames.helm] = new Station(HelmManned, HelmButton, HelmButtonImage, HelmNormalSprite);
+        stations[(int) StationNames.sail] = new Station(SailManned, SailButton, SailButtonImage, SailNormalSprite, true,
+            RepairSail, SailRepairRate);
+        stations[(int) StationNames.lantern] = new Station(ManLantern, LanternButton, LanternButtonImage,
+            LanternNormalSprite, true, RepairLantern, LanternRepairRate);
+        stations[(int) StationNames.tend] = new Station(ManTend, TendButton, TendButtonImage, TendNormalSprite, true,
+            RepairTend, TendRepairRate);
     }
+
     void Start()
     {
         MurpheyPosition = MurpheyWalk.GetComponent<RectTransform>();
@@ -358,14 +369,17 @@ public class BoatWidget : MonoBehaviour
                 HelmButton.onClick.Invoke();
             }
         }
+
         // Move Murphey across the deck
         var delta = (targetDeckPosition - currentDeckPosition) * stationChangeTravelScale;
         if (Mathf.Abs(delta) > stationChangeAcceptableRange)
         {
-            var targetSpeed = Mathf.Sign(delta) == 1f ?
-            // Target is above Murphey
-                Mathf.Clamp(delta, stationChangeMinSpeed, stationChangeTopSpeed) :
-            // Target is below Murphey
+            var targetSpeed = Mathf.Sign(delta) == 1f
+                ?
+                // Target is above Murphey
+                Mathf.Clamp(delta, stationChangeMinSpeed, stationChangeTopSpeed)
+                :
+                // Target is below Murphey
                 Mathf.Clamp(delta, -stationChangeTopSpeed, -stationChangeMinSpeed);
             stationChangeCurrentSpeed = Mathf.Lerp(stationChangeCurrentSpeed, targetSpeed, 0.1f);
             currentDeckPosition += stationChangeCurrentSpeed * Time.deltaTime;
@@ -376,17 +390,21 @@ public class BoatWidget : MonoBehaviour
             // Set current to target to trigger station reached logic.
             currentDeckPosition = targetDeckPosition;
         }
-        MurpheyPosition.position = new Vector2(MurpheyPosition.position.x, Mathf.Lerp(deckBottom, deckTop, currentDeckPosition));
+
+        MurpheyPosition.position =
+            new Vector2(MurpheyPosition.position.x, Mathf.Lerp(deckBottom, deckTop, currentDeckPosition));
         // Make Murphey face the direction he is walking.
-        MurphyWalkWidgetAnimatedImage.variations = Mathf.Sign(stationChangeCurrentSpeed) == -1f ? MurpheyWalkingDown : MurpheyWalkingUp;
+        MurphyWalkWidgetAnimatedImage.variations =
+            Mathf.Sign(stationChangeCurrentSpeed) == -1f ? MurpheyWalkingDown : MurpheyWalkingUp;
         // Check if station reached.
         if (currentDeckPosition == targetDeckPosition && currentStation != targetStation)
         {
             currentStation = targetStation;
             MurpheyWalk.SetActive(false);
             footStepLoop.Stop();
-            stations[(int)currentStation].OnManStation.Invoke();
+            stations[(int) currentStation].OnManStation.Invoke();
         }
+
         // Set sub-manual text
         if (currentStation == StationNames.noStation)
         {
@@ -399,11 +417,12 @@ public class BoatWidget : MonoBehaviour
             var displayControl = ((Time.time % totalTime) < timeToDisplayControls) && boat.sailRaisedForFirstTime;
             SubManualText.text = stations[(int) currentStation].GetStationStatus(displayControl);
         }
+
         // Loop through stations
-        for (var i = 0; i < (int)StationNames.noStation; i++)
+        for (var i = 0; i < (int) StationNames.noStation; i++)
         {
-            var s = stations[(int)i];
-            var playerIsAtStation = i == (int)currentStation;
+            var s = stations[(int) i];
+            var playerIsAtStation = i == (int) currentStation;
             if (!s.repaired)
             {
                 if (playerIsAtStation)
@@ -414,10 +433,13 @@ public class BoatWidget : MonoBehaviour
                 {
                     s.ProgressRepair(-0.1f);
                 }
+
                 s.ProcessFlareAndFlashForDisrepair(playerIsAtStation);
             }
+
             s.ProcessFlareForReveal(playerIsAtStation);
         }
+
         // Set sprite variants based on light level
         // TODO calculate light level
         var lightLevel = 1f;
@@ -425,6 +447,7 @@ public class BoatWidget : MonoBehaviour
         {
             lightLevel = (boat.lantern.lit) ? 1f : 0.5f;
         }
+
         BoatCR.SetColor(Color.Lerp(Color.black, Color.white, lightLevel));
         // Iterate through images
         foreach (var i in widgetImages)
@@ -442,13 +465,14 @@ public class BoatWidget : MonoBehaviour
                 i.image.sprite = i.variations.pitchBlack;
             }
         }
+
         // Iterate through animated images
         foreach (var ai in widgetAnimatedImages)
         {
             if (ai.animatedImage.sprites.Length != ai.variations.Length)
             {
-                Debug.Log(ai.animatedImage + " has incongruent variation and sprite length.");
             }
+
             if (lightLevel > 0.5f)
             {
                 for (var i = 0; i < ai.animatedImage.sprites.Length; i++)
@@ -472,51 +496,79 @@ public class BoatWidget : MonoBehaviour
             }
         }
     }
+
     // Callbacks
     public void OnManualPageOpen(int page)
     {
-        if (page == (int)InstructionManual.ManualContents.helm) stations[(int)StationNames.helm].RevealSelf();
-        else if (page == (int)InstructionManual.ManualContents.sail) 
+        if (page == (int) InstructionManual.ManualContents.helm) stations[(int) StationNames.helm].RevealSelf();
+        else if (page == (int) InstructionManual.ManualContents.sail)
         {
-            stations[(int)StationNames.sail].RevealSelf();
+            stations[(int) StationNames.sail].RevealSelf();
             if (SailCursorGuider) SailCursorGuider.Reveal();
         }
-        else if (page == (int)InstructionManual.ManualContents.lantern) stations[(int)StationNames.lantern].RevealSelf();
-        else if (page == (int)InstructionManual.ManualContents.captain) stations[(int)StationNames.tend].RevealSelf();
-        else if (page == (int)InstructionManual.ManualContents.rudder) stations[(int)StationNames.rudder].RevealSelf();
+        else if (page == (int) InstructionManual.ManualContents.lantern)
+            stations[(int) StationNames.lantern].RevealSelf();
+        else if (page == (int) InstructionManual.ManualContents.captain) stations[(int) StationNames.tend].RevealSelf();
+        else if (page == (int) InstructionManual.ManualContents.rudder)
+            stations[(int) StationNames.rudder].RevealSelf();
     }
+
     #region Damage Event UI Response Methods
+
     private void DisrepairStation(Station station)
     {
         station.repaired = false;
         station.repair = 0f;
         if (station.hidden) station.HideSelf();
+        if (!doNotUpdateFirstDisrepairOrDisplayMessage) station.firstDisrepair = false;
         station.brokenTimeStamp = Time.frameCount;
     }
+
+    private void DisplayDisrepairMessageIfIsFirstDisrepair(Station station, DialogueManager.Messages message)
+    {
+        if (station.firstDisrepair && !doNotUpdateFirstDisrepairOrDisplayMessage)
+        {
+            var messageDelivered = DialogueManager.singleton.DisplayMessage(message);
+            // If message could not be displayed, display it again next time station is disrepaired.
+            station.firstDisrepair = !messageDelivered;
+        }
+    }
+
     public void SailTorn()
     {
-        DisrepairStation(stations[(int)StationNames.sail]);
-        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.sailTorn);
+        if (boat.captain.onBorad && boat.captain.awake)
+            DisplayDisrepairMessageIfIsFirstDisrepair(stations[(int) StationNames.sail],
+                DialogueManager.Messages.sailTorn);
+        DisrepairStation(stations[(int) StationNames.sail]);
     }
+
     public void LanternExtinguished()
     {
-        DisrepairStation(stations[(int)StationNames.lantern]);
-        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.lanternOut);
+        if (boat.captain.onBorad && boat.captain.awake)
+            DisplayDisrepairMessageIfIsFirstDisrepair(stations[(int) StationNames.lantern],
+                DialogueManager.Messages.lanternOut);
+        DisrepairStation(stations[(int) StationNames.lantern]);
     }
 
     public void RudderBroke()
     {
-        DisrepairStation(stations[(int)StationNames.rudder]);
-        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.rudderBroken);
+        if (boat.captain.onBorad && boat.captain.awake)
+            DisplayDisrepairMessageIfIsFirstDisrepair(stations[(int) StationNames.rudder],
+                DialogueManager.Messages.rudderBroken);
+        DisrepairStation(stations[(int) StationNames.rudder]);
     }
 
     public void CaptainAsleep()
     {
-        DisrepairStation(stations[(int)StationNames.tend]);
-        DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.captainPassesOut);
+        DisplayDisrepairMessageIfIsFirstDisrepair(stations[(int) StationNames.tend],
+            DialogueManager.Messages.captainPassesOut);
+        DisrepairStation(stations[(int) StationNames.tend]);
     }
+
     #endregion
+
     #region Button Callbacks
+
     public void AnyButtonPressed()
     {
         clickSource.Play();
@@ -526,6 +578,7 @@ public class BoatWidget : MonoBehaviour
             boat.steering.atHelm = false;
             boat.sail.atSail = false;
         }
+
         MurpheyWalk.SetActive(true);
         MurpheyHelm.SetActive(false);
         MurpheyRudder.SetActive(false);
@@ -535,36 +588,42 @@ public class BoatWidget : MonoBehaviour
 
         currentStation = StationNames.noStation;
     }
+
     public void RudderButtonPressed()
     {
         RudderButtonImage.sprite = RudderNormalSprite;
         targetStation = StationNames.rudder;
         targetDeckPosition = rudderStationPosition;
     }
+
     public void HelmButtonPressed()
     {
         HelmButtonImage.sprite = HelmNormalSprite;
         targetStation = StationNames.helm;
         targetDeckPosition = helmStationPosition;
     }
+
     public void SailButtonPressed()
     {
         SailButtonImage.sprite = SailNormalSprite;
         targetStation = StationNames.sail;
         targetDeckPosition = sailStationPosition;
     }
+
     public void LanternButtonPressed()
     {
         LanternButtonImage.sprite = LanternNormalSprite;
         targetStation = StationNames.lantern;
         targetDeckPosition = lanternStationPosition;
     }
+
     public void TendButtonPressed()
     {
         TendButtonImage.sprite = TendNormalSprite;
         targetStation = StationNames.tend;
         targetDeckPosition = tendStationPosition;
     }
+
     public void ManualButtonPressed()
     {
         // Close instead of open if manual already open
@@ -573,62 +632,78 @@ public class BoatWidget : MonoBehaviour
             CloseManualPressed();
             return;
         }
+
         manual.OpenManual();
     }
+
     public void CloseManualPressed()
     {
         manual.CloseManual();
     }
+
     #endregion
+
     #region Station Manned Callbacks
+
     public void HelmManned()
     {
         MurpheyHelm.SetActive(true);
         if (boat) boat.steering.atHelm = true;
     }
+
     public void SailManned()
     {
         MurpheySail.SetActive(true);
         if (boat) boat.sail.atSail = true;
     }
+
     public void RudderManned()
     {
         MurpheyRudder.SetActive(true);
-        if (stations[(int)targetStation].repaired == false)
+        if (stations[(int) targetStation].repaired == false)
         {
             boat.steering.StartRudderFix();
         }
     }
+
     public void ManLantern()
     {
         MurpheyLantern.SetActive(true);
-        if (stations[(int)targetStation].repaired == false)
+        if (stations[(int) targetStation].repaired == false)
         {
             boat.lantern.StartLight();
         }
     }
+
     public void ManTend()
     {
         MurpheyTend.SetActive(true);
     }
+
     #endregion
+
     #region Station Repaired Callbacks
+
     public void RepairRudder()
     {
         boat.steering.RudderFix();
     }
+
     public void RepairSail()
     {
         boat.sail.RepairSail();
     }
+
     public void RepairLantern()
     {
         boat.lantern.Light();
     }
+
     public void RepairTend()
     {
         boat.captain.Wake();
         boat.DeliverObjective();
     }
+
     #endregion
 }

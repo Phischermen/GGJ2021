@@ -70,12 +70,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void DisplayMessage(Messages message)
+    public bool DisplayMessage(Messages message)
     {
-        if (typing == true) return;
+        if (typing == true) return false;
         var idx = (int)message;
         TypingRoutine = StartCoroutine(Type(idx));
         portraitDisplay.sprite = sentences[idx].portrait;
+        return true;
     }
 
 

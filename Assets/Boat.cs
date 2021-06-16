@@ -64,6 +64,7 @@ public class Boat : MonoBehaviour
         damageManager.SetupDamageActions();
         if (startCrashed)
         {
+            widget.doNotUpdateFirstDisrepairOrDisplayMessage = true;
             widget.stations[(int)BoatWidget.StationNames.rudder].HideSelf();
             widget.stations[(int)BoatWidget.StationNames.sail].HideSelf();
             widget.stations[(int)BoatWidget.StationNames.lantern].HideSelf();
@@ -72,6 +73,7 @@ public class Boat : MonoBehaviour
             sail.OpenClose(false, silently: true);
             widget.LanternExtinguished();
             lantern.Extinguish(silently: true);
+            widget.doNotUpdateFirstDisrepairOrDisplayMessage = false;
         }
     }
     public void DeliverObjective()
