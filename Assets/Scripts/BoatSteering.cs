@@ -125,4 +125,15 @@ public class BoatSteering : MonoBehaviour
             audioSource.PlayOneShot(breakClip);
         }
     }
+
+    public string GetRudderStatus(bool control = false)
+    {
+        if (rudderWorking)
+        {
+            return "Rudder is in working condition.";
+        } else
+        {
+            return "Rudder is in disrepair.";
+        }
+    }
 }

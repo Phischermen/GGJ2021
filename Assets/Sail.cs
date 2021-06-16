@@ -9,6 +9,19 @@ public class Sail : MonoBehaviour
     public bool open = true;
     public bool torn = false;
     public bool atSail = false;
+
+    
+    enum Fill
+    {
+        Low,
+        Mid,
+        Full,
+        Closed,
+        Torn,
+    }
+
+    private Fill currentFill;
+    
     [HideInInspector]
     public bool rotatingSail = false;
     public float turnSpeed = 5;
@@ -164,6 +177,7 @@ public class Sail : MonoBehaviour
 
     void SetSprites(Fill fill)
     {
+        currentFill = fill;
         switch (fill)
         {
             case Fill.Low:
@@ -195,12 +209,30 @@ public class Sail : MonoBehaviour
         lightSail.SpriteFlip(flipped);
     }
 
-    enum Fill
+
+    public string GetSailStatus(bool control = false)
     {
-        Low,
-        Mid,
-        Full,
-        Closed,
-        Torn, // TODO Add sprites for torn sail
+        if (control)
+        {
+            return (open ? "[S] Lower the sail." : "[W] Raise the sail.") + "\n[A & D] Rotate the sail.";
+        }
+        else
+        {
+            if (torn)
+            {
+                return "Sail is torn.";
+            }
+            else
+            {
+                switch (currentFill)
+                {
+                    case Fill.Closed: return "Sail is closed.";
+                    case Fill.Full: return "Sail is billowing.";
+                    case Fill.Low:
+                    case Fill.Mid: return "Sail is low.";
+                    default: return "";
+                }
+            }
+        }
     }
 }

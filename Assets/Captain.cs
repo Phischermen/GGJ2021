@@ -88,4 +88,24 @@ public class Captain : MonoBehaviour
             tic = 0;
         }
     }
+
+    public string GetCaptainStatus(bool b = false)
+    {
+        if (awake)
+        {
+        return "The captain is conscious.";
+            
+        }
+        else
+        {
+            if (onBorad)
+            {
+                return "The captain is unconscious.";
+            }
+            else
+            {
+                return "The captain has fallen overboard.";
+            }
+        }
+    }
 }

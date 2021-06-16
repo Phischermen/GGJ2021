@@ -189,7 +189,8 @@ AudioSource:
   m_GameObject: {fileID: 623918233343913909}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6120381997689847714, guid: 0f92fca07610e534db421cc6142c2332,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 8c2635664df964a67bf06dc573ff8f8e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -590,6 +591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2792086359002518319}
+  - component: {fileID: 1500831788033924984}
   m_Layer: 0
   m_Name: Lighthouse
   m_TagString: Untagged
@@ -625,6 +627,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500831788033924984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2792086359002518317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c51a031cc5f1c4f9b93f1c03eb26d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2792086359500201834
 GameObject:
   m_ObjectHideFlags: 0
