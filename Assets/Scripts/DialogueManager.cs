@@ -23,21 +23,21 @@ public class DialogueManager : MonoBehaviour
         windPickingUp, 
         wavePickingUp,
         brokenHullReminder,
-        steeringAwayFromWheel,
+        steeringAwayFromWheel, //in
         raisingSailAwayFromSail,
-        captainPassesOut,
+        captainPassesOut, //in
         getHitWhileAwayFromTheWheel,
         BrokenSailReminder,
         objectiveReminder,
-        directionCallNorth,
-        directionCallSouth,
-        directionCallEast,
-        directionCallWest,
-        directionCallNorthEast,
-        directionCallNorthWest,
-        directionCallSouthEast,
-        directionCallSouthWest,
-        wrongDirection,
+        directionCallNorth, //in
+        directionCallSouth, //in
+        directionCallEast, //in
+        directionCallWest, //in
+        directionCallNorthEast, //in
+        directionCallNorthWest, //in
+        directionCallSouthEast, //in
+        directionCallSouthWest, //in
+        wrongDirection, //in
         brokenLanternReminder
     }
     public float typingSpeed;

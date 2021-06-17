@@ -41,6 +41,7 @@ public class GameInit : MonoBehaviour
         // Instantiate and setup light house
         var lightHouse = Instantiate(lightHousePrefab);
         lightHouse.GetComponentInChildren<Harbor>().gameMaster = gameMaster.GetComponent<GameMaster>();
+        boatComponent.captain.lighthouse = lightHouse.transform;
         var d = GetDistanceTraveledOverTime(boatComponent.steering.baseSpeed, minimumTravelTime);
         // Instantiate and setup Obstacle Spawner
         var obstacleSpawner = boatComponent.cameraController.gameObject.AddComponent<ObstacleSpawner>();

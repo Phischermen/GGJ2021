@@ -244,6 +244,7 @@ MonoBehaviour:
   awakeSpr: {fileID: 21300000, guid: 6f35f3cb890798644895a1a4cb765a94, type: 3}
   sleepingSpr: {fileID: 21300000, guid: 84948ba7fa03ced468fd51972bc0b6cd, type: 3}
   audio: {fileID: 2752125011137291303}
+  directionCalloutFrequency: 10
 --- !u!82 &-6836766349076380557
 AudioSource:
   m_ObjectHideFlags: 0

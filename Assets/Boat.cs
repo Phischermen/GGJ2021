@@ -44,7 +44,7 @@ public class Boat : MonoBehaviour
         // Position camera a little behind boat initially
         cameraController.transform.position = new Vector3(transform.position.x - 5f, transform.position.y - 5f, cameraController.transform.position.z);
 
-        damageManager.boat = sail.boat = steering.boat = cameraController.boat = this;
+        damageManager.boat = captain.boat = sail.boat = steering.boat = cameraController.boat = this;
     }
     public void BindBoatToBoatWidget(BoatWidget widget)
     {

@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Captain : MonoBehaviour
 {
+    [HideInInspector] public Boat boat;
+    [HideInInspector] public Transform lighthouse;
     public bool awake = true;
     public bool onBorad = true;
     [Range(0, 1)]
@@ -33,11 +37,64 @@ public class Captain : MonoBehaviour
     private AudioClip[] captainTendedClips;
     private int tic1;
     private int tic2;
+
+    public float directionCalloutFrequency;
+    private WaitForSeconds directionCalloutWait;
+    private Vector2 lastCalloutKey;
+
+    private Dictionary<Vector2, DialogueManager.Messages> directionMap;
     public void Start()
     {
         captainDownClips = Resources.LoadAll<AudioClip>("Sound/captain_needs_tending");
         captainTendedClips = Resources.LoadAll<AudioClip>("Sound/captain_tended");
+        directionMap = new Dictionary<Vector2, DialogueManager.Messages>()
+        {
+            {Vector2.down , DialogueManager.Messages.directionCallSouth},
+            {Vector2.up, DialogueManager.Messages.directionCallNorth},
+            {Vector2.left, DialogueManager.Messages.directionCallWest},
+            {Vector2.right, DialogueManager.Messages.directionCallEast},
+            {new Vector2(0.785398f,0.785398f), DialogueManager.Messages.directionCallNorthEast},
+            {new Vector2(0.785398f,-0.785398f), DialogueManager.Messages.directionCallSouthEast},
+            {new Vector2(-0.785398f,0.785398f), DialogueManager.Messages.directionCallNorthWest},
+            {new Vector2(-0.785398f,-0.785398f), DialogueManager.Messages.directionCallSouthWest}
+        };
+        directionCalloutWait = new WaitForSeconds(directionCalloutFrequency);
+        StartCoroutine(nameof(DirectionCallout));
     }
+
+    IEnumerator DirectionCallout()
+    {
+        while (true)
+        {
+            if (awake && onBorad)
+            {
+                var maxDot = -1f;
+                var keyOfMaxDot = Vector2.down;
+                var normal = ( lighthouse.position - boat.transform.position).normalized;
+                // Check if player is going totally wrong way
+                if (Vector3.Dot(boat.transform.up, normal) < -0.5f)
+                {
+                    
+                    DialogueManager.singleton.DisplayMessage(DialogueManager.Messages.wrongDirection);
+                    goto EndOfOutmostIf;
+                }
+                foreach (var directionMapKey in directionMap.Keys)
+                {
+                    var dot = Vector3.Dot(directionMapKey, normal);
+                    if (dot > maxDot)
+                    {
+                        keyOfMaxDot = directionMapKey;
+                        maxDot = dot;
+                    }
+                }
+                if (keyOfMaxDot != lastCalloutKey) DialogueManager.singleton.DisplayMessage(directionMap[keyOfMaxDot]);
+                lastCalloutKey = keyOfMaxDot;
+            }
+            EndOfOutmostIf:
+            yield return directionCalloutWait;
+        }
+    }
+
     public void Wake()
     {
         awake = true;
