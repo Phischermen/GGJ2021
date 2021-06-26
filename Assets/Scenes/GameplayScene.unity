@@ -484,6 +484,21 @@ PrefabInstance:
       propertyPath: typingSpeed
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 8097004988596485570, guid: f928ec39353f49a4da68de3043cd0060,
+        type: 3}
+      propertyPath: sentences.Array.data[5].sentence
+      value: Ha! The might of the sea is angry today!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097004988596485570, guid: f928ec39353f49a4da68de3043cd0060,
+        type: 3}
+      propertyPath: sentences.Array.data[7].sentence
+      value: You think a boat steers itself? Get back to the wheel!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097004988596485570, guid: f928ec39353f49a4da68de3043cd0060,
+        type: 3}
+      propertyPath: sentences.Array.data[21].sentence
+      value: Wrong way! The lighthouse is behind us!
+      objectReference: {fileID: 0}
     - target: {fileID: 8097004988596485571, guid: f928ec39353f49a4da68de3043cd0060,
         type: 3}
       propertyPath: m_Name
