@@ -14,12 +14,14 @@ public class MenuActions : MonoBehaviour
      * MenuActions attached to it, this flag is the most convenient way of 
      * identifying the hard mode button! */
     public bool IsHardModeButton = false;
+    public bool IsHardModeUnlockedText = false;
 
     private void Awake()
     {
         HardModeEnabled = false;
         HasWon = PlayerPrefs.GetInt("HasWon", 0) != 0;
         if (IsHardModeButton) GetComponent<Button>().interactable = HasWon;
+        if (IsHardModeUnlockedText && !HasWon) gameObject.SetActive(false);
     }
     public void Play()
     {
