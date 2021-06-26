@@ -443,6 +443,7 @@ MonoBehaviour:
     portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
   canvas: {fileID: 3927973004260438739}
   typingSpeed: 0.03
+  timeUntilMessageDismissal: 5
 --- !u!1 &9175088722449173509
 GameObject:
   m_ObjectHideFlags: 0

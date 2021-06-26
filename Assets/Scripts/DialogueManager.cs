@@ -41,8 +41,11 @@ public class DialogueManager : MonoBehaviour
         brokenLanternReminder
     }
     public float typingSpeed;
+    public float timeUntilMessageDismissal;
     private bool dismiss;
+    private bool displayingMessage;
     private bool typing;
+    private float timeDisplayed;
 
     [System.Serializable]
     public class Message
@@ -64,7 +67,12 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (displayingMessage && !typing)
+        {
+            // Message has been fully typed, progress countdown for dismissal
+            timeDisplayed += Time.deltaTime;
+        }
+        if (Input.GetMouseButtonDown(0) || timeDisplayed > timeUntilMessageDismissal)
         {
             Dismiss();
         }
@@ -72,7 +80,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool DisplayMessage(Messages message)
     {
-        if (typing == true) return false;
+        if (displayingMessage == true) return false;
         var idx = (int)message;
         TypingRoutine = StartCoroutine(Type(idx));
         portraitDisplay.sprite = sentences[idx].portrait;
@@ -83,7 +91,9 @@ public class DialogueManager : MonoBehaviour
     IEnumerator Type(int index)
     {
         textDisplay.text = "";
+        displayingMessage = true;
         typing = true;
+        timeDisplayed = 0f;
         canvas.enabled = true;
         foreach (char letter in sentences[index].sentence.ToCharArray())
         {
@@ -95,16 +105,17 @@ public class DialogueManager : MonoBehaviour
             }
         }
         dismiss = false;
+        typing = false;
         textDisplay.text = sentences[index].sentence;
         yield return waitUntilDismissed;
-        typing = false;
+        displayingMessage = false;
         dismiss = false;
         canvas.enabled = false;
     }
 
     public void Dismiss()
     {
-        if (typing == false) return;
+        if (displayingMessage == false) return;
         dismiss = true;
     }
 

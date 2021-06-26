@@ -229,7 +229,7 @@ public class Sail : MonoBehaviour
                     case Fill.Closed: return "Sail is closed.";
                     case Fill.Full: return "Sail is billowing.";
                     case Fill.Low:
-                    case Fill.Mid: return "Sail is low.";
+                    case Fill.Mid: return "Sail has slack.";
                     default: return "";
                 }
             }
