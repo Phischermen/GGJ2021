@@ -395,13 +395,13 @@ MonoBehaviour:
   textDisplay: {fileID: 8568454557278626937}
   portraitDisplay: {fileID: 8891341298555026881}
   sentences:
-  - sentence: The storm's coming. Make for the lighthouse quickly!
+  - sentence: Zach's birthday is tonight! We have to deliver his cake!
     portrait: {fileID: 21300000, guid: e53c02a819239a7448c16f44107734d3, type: 3}
   - sentence: The sail's ripped, we're at mercy of the sea now!
     portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
   - sentence: Arg, there goes the damned rudder.
     portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
-  - sentence: Hey, it's getting dark here!
+  - sentence: Zach's candles blew out! Hurry! Light them again!
     portrait: {fileID: 21300000, guid: e53c02a819239a7448c16f44107734d3, type: 3}
   - sentence: The wind's waking up, be warry of it's fury!
     portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
@@ -439,7 +439,7 @@ MonoBehaviour:
     portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
   - sentence: Wrong way you fool! The lighthouse is behind us!
     portrait: {fileID: 21300000, guid: 0e2908dc3492e734a8b5118f717e1b55, type: 3}
-  - sentence: I can hardly see. Light the lantern for me will ya.
+  - sentence: I can hardly see! Put on Zach's candles will ya!
     portrait: {fileID: 21300000, guid: b55d88f546c225e40abf746f433f35ee, type: 3}
   canvas: {fileID: 3927973004260438739}
   typingSpeed: 0.03

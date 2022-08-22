@@ -156,7 +156,7 @@ public class ObstacleSpawner : MonoBehaviour
                         var child = ob.transform.GetChild(i);
                         if (child.transform.position.z != 0f)
                         {
-                            Debug.LogError(ob.name + " has children that are not zeroed along z axis.");
+                            //Debug.LogError(ob.name + " has children that are not zeroed along z axis.");
                             child.position = new Vector3(child.position.x, child.position.y, 0f);
                         }
                     }

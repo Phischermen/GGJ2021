@@ -170,6 +170,8 @@ public class BoatDamageManager : MonoBehaviour
         if ((ds.shipDamageEvent & DamageSpecifier.ShipDamageEvent.breakRudder) == DamageSpecifier.ShipDamageEvent.breakRudder) vs.Add(DamageActions.rudder);
         if ((ds.shipDamageEvent & DamageSpecifier.ShipDamageEvent.knockOutCaptain) == DamageSpecifier.ShipDamageEvent.knockOutCaptain) vs.Add(DamageActions.captain);
         if ((ds.shipDamageEvent & DamageSpecifier.ShipDamageEvent.blowOutLantern) == DamageSpecifier.ShipDamageEvent.blowOutLantern) vs.Add(DamageActions.lantern);
+        if ((ds.shipDamageEvent & DamageSpecifier.ShipDamageEvent.blowOutLantern) == DamageSpecifier.ShipDamageEvent.blowOutLantern) vs.Add(DamageActions.lantern);
+        if ((ds.shipDamageEvent & DamageSpecifier.ShipDamageEvent.blowOutLantern) == DamageSpecifier.ShipDamageEvent.blowOutLantern) vs.Add(DamageActions.lantern);
         if (random)
         {
             var choice = (int)UnityEngine.Random.Range(0f, vs.Count - 0.01f);

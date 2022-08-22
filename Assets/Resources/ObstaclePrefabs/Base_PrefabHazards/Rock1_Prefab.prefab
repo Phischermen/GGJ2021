@@ -98,7 +98,7 @@ MonoBehaviour:
   damageDealt: 0
   rebounder: 0
   damageSelectType: 2
-  shipDamageEvent: 4
+  shipDamageEvent: 8
   crashSFX: {fileID: 8300000, guid: ac613768a79352f4c9a00acd49134771, type: 3}
 --- !u!1001 &2868206867022233466
 PrefabInstance:

@@ -8,6 +8,9 @@ using UnityEngine.Serialization;
 
 public class BoatWidget : MonoBehaviour
 {
+    public Image CakeImage;
+    public Sprite CakeLitSprite;
+    public Sprite CakeDousedSprite;
     public CanvasRenderer BoatCR;
 
     [HideInInspector] public Lantern lantern;
@@ -548,6 +551,7 @@ public class BoatWidget : MonoBehaviour
             DisplayDisrepairMessageIfIsFirstDisrepair(stations[(int) StationNames.lantern],
                 DialogueManager.Messages.lanternOut);
         DisrepairStation(stations[(int) StationNames.lantern]);
+        CakeImage.sprite = CakeDousedSprite;
     }
 
     public void RudderBroke()
@@ -697,6 +701,7 @@ public class BoatWidget : MonoBehaviour
     public void RepairLantern()
     {
         boat.lantern.Light();
+        CakeImage.sprite = CakeLitSprite;
     }
 
     public void RepairTend()
